@@ -1,0 +1,7 @@
+{
+  "name": "ballerina",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
