@@ -4,6 +4,10 @@
       "competitions": "Competiciones",
       "initiation": "Iniciación",
       "training": "Entrenamientos",
-      "contact": "Contacto"
+      "contact": "Contacto",
+      "admin": "Admin"
+    },
+    "home": {
+      "message": "Entidad dedicada en cuerpo y alma a la gimnasia rítmica. Nuestro objetivo es hacer felices y formar a gimnastas de todas las edades y niveles, así como crear una gimnasia que más que un deporte sea arte en movimiento!"
     }
 }

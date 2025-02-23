@@ -4,6 +4,10 @@
       "competitions": "Competitions",
       "initiation": "Initiation",
       "training": "Training",
-      "contact": "Contact"
+      "contact": "Contact",
+      "admin": "Admin"
+    },
+    "home": {
+      "message": "Entity dedicated body and soul to rhythmic gymnastics. Our goal is to make gymnasts of all ages and levels happy and train them, as well as to create gymnastics that is more than a sport, it is art in movement!"
     }
 }
