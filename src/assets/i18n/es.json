@@ -1,41 +1,51 @@
 {
-    "header": {
-      "home": "Inicio",
-      "competitions": "Competiciones",
-      "initiation": "Iniciación",
-      "training": "Entrenamientos",
-      "contact": "Contacto",
-      "admin": "Admin"
+  "header": {
+    "home": "Inicio",
+    "competitions": "Competiciones",
+    "initiation": "Iniciación",
+    "training": "Entrenamientos",
+    "contact": "Contacto",
+    "admin": "Admin"
+  },
+  "home": {
+    "message": "Entidad dedicada en cuerpo y alma a la gimnasia rítmica. Nuestro objetivo es hacer felices y formar a gimnastas de todas las edades y niveles, así como crear una gimnasia que más que un deporte sea arte en movimiento!"
+  },
+  "settings": {
+    "title": "Gestión de contenido",
+    "texts": {
+      "title": "Gestionar textos",
+      "subtitle": "Edita los textos de la página web",
+      "key": "Clave",
+      "ca": "Catalán",
+      "es": "Español",
+      "en": "Inglés",
+      "noData": "There are no texts yet",
+      "add": "Add Text",
+      "addTitle": "Nuevo texto",
+      "addSubtitle": "Introduce los datos de un nuevo texto",
+      "save": "Guardar"
     },
-    "home": {
-      "message": "Entidad dedicada en cuerpo y alma a la gimnasia rítmica. Nuestro objetivo es hacer felices y formar a gimnastas de todas las edades y niveles, así como crear una gimnasia que más que un deporte sea arte en movimiento!"
+    "users": {
+      "title": "Gestionar usuarios",
+      "subtitle": "Visualiza y edita perfiles de usuario"
     },
-    "settings": {
-      "title": "Gestión de contenido",
-      "texts": {
-        "title": "Gestionar textos",
-        "subtitle": "Edita los textos de la página web",
-        "key": "Clave",
-        "ca": "Catalán",
-        "es": "Español",
-        "en": "Inglés",
-        "noData": "There are no texts yet",
-        "add": "Add Text",
-        "addTitle": "Nuevo texto",
-        "addSubtitle": "Introduce los datos de un nuevo texto",
-        "save": "Guardar"
-      },
-      "users": {
-        "title": "Gestionar usuarios",
-        "subtitle": "Visualiza y edita perfiles de usuario"
-      },
-      "images": {
-        "title": "Gestionar imágenes",
-        "subtitle": "Sube y edita imágenes"
-      },
-      "general": {
-        "title": "Configuración general",
-        "subtitle": "Modifica la configuración de la plataforma"
-      }
+    "images": {
+      "title": "Gestionar imágenes",
+      "subtitle": "Sube y edita imágenes"
+    },
+    "general": {
+      "title": "Configuración general",
+      "subtitle": "Modifica la configuración de la plataforma"
     }
+  },
+  "alerts": {
+    "required_title": "Campos requeridos",
+    "required_message": "Todos los campos son obligatorios",
+    "text_added_title": "Texto añadido",
+    "text_added_message": "El texto se ha guardado correctamente",
+    "duplicate_title": "Clave duplicada",
+    "duplicate_message": "La clave ya existe. Usa una diferente.",
+    "error_title": "Error",
+    "error_message": "No se pudo guardar el texto"
+  }
 }

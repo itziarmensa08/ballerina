@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertService } from 'src/app/services/alert.service';
 import { Text, TextService } from 'src/app/services/text.service';
 
 @Component({
@@ -22,7 +23,10 @@ export class TextsPage implements OnInit {
     value: { ca: '', es: '', en_US: '' }
   };
 
-  constructor(private textService: TextService) { }
+  constructor(
+    private textService: TextService,
+    private alertService: AlertService
+  ) { }
 
   ngOnInit() {
     this.loadTexts();
@@ -52,13 +56,23 @@ export class TextsPage implements OnInit {
    */
   saveText() {
     if (!this.newText.key || !this.newText.value.ca || !this.newText.value.es || !this.newText.value.en_US) {
-      alert('Todos los campos son obligatorios');
-      return;
+        this.alertService.showAlert('warning', 'alerts.required_title', 'alerts.required_message');
+        return;
     }
 
-    this.textService.createText(this.newText).subscribe(response => {
-      this.texts.push(response); // Agregar el nuevo texto a la lista
-      this.toggleAddText(); // Cerrar el formulario
+    this.textService.createText(this.newText).subscribe({
+        next: (response) => {
+            this.texts.push(response);
+            this.alertService.showAlert('success', 'alerts.text_added_title', 'alerts.text_added_message');
+            this.toggleAddText();
+        },
+        error: (error) => {
+            if (error.status === 400) {
+                this.alertService.showAlert('error', 'alerts.duplicate_title', 'alerts.duplicate_message');
+            } else {
+                this.alertService.showAlert('error', 'alerts.error_title', 'alerts.error_message');
+            }
+        }
     });
   }
 
@@ -70,7 +84,10 @@ export class TextsPage implements OnInit {
       const index = this.texts.findIndex(text => text.key === key);
       if (index !== -1) {
         this.texts[index] = updatedText;
+        this.alertService.showAlert('success', 'Texto actualizado', `Se ha actualizado el texto en ${lang.toUpperCase()}`);
       }
+    }, () => {
+      this.alertService.showAlert('error', 'Error', 'No se pudo actualizar el texto');
     });
   }
 
@@ -82,6 +99,9 @@ export class TextsPage implements OnInit {
 
     this.textService.deleteText(key).subscribe(() => {
       this.texts = this.texts.filter(text => text.key !== key);
+      this.alertService.showAlert('success', 'Texto eliminado', 'El texto ha sido eliminado correctamente');
+    }, () => {
+      this.alertService.showAlert('error', 'Error', 'No se pudo eliminar el texto');
     });
   }
 

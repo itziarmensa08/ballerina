@@ -1,3 +1,10 @@
-<p>
-  alert works!
-</p>
+<div class="alert-container" [ngClass]="type">
+  <ion-icon class="alert-icon" [name]="getIcon()"></ion-icon>
+  <div class="alert-content">
+    <strong>{{ title }}</strong>
+    <p>{{ message }}</p>
+  </div>
+  <ion-button fill="clear" class="close-btn" (click)="close.emit()">
+    <ion-icon name="close-outline"></ion-icon>
+  </ion-button>
+</div>
