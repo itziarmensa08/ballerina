@@ -65,6 +65,11 @@ th {
     font-weight: bold;
 }
 
+tr:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+    cursor: pointer;
+}
+
 .add-text-btn {
     --border-radius: 8px;
     --padding-start: 10px;
@@ -77,6 +82,10 @@ th {
     &:hover {
         --border-radius: 20px;
         --background: #f0f0f0;
+    }
+
+    &.delete {
+        --color: red;
     }
 }
 

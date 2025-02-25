@@ -1,4 +1,8 @@
 {
+  "general": {
+    "save": "Save",
+    "delete": "Delete"
+  },
   "header": {
     "home": "Home",
     "competitions": "Competitions",
@@ -23,7 +27,8 @@
       "add": "Añadir Texto",
       "addTitle": "New text",
       "addSubtitle": "Enter data of a new text",
-      "save": "Save"
+      "editTitle": "Edit text",
+      "editSubtitle": "Modify the necessary data"
     },
     "users": {
       "title": "Manage Users",

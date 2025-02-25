@@ -5,12 +5,14 @@ import { HeaderComponent } from './header/header.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { AlertComponent } from './alert/alert.component';
+import { AlertConfirmComponent } from './alert-confirm/alert-confirm.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     BreadcrumbsComponent,
-    AlertComponent
+    AlertComponent,
+    AlertConfirmComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { AlertComponent } from './alert/alert.component';
   exports: [
     HeaderComponent,
     BreadcrumbsComponent,
-    AlertComponent
+    AlertComponent,
+    AlertConfirmComponent
   ]
 })
 export class ComponentsModule {}

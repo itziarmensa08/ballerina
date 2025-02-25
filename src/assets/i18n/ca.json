@@ -1,4 +1,8 @@
 {
+  "general": {
+    "save": "Guardar",
+    "delete": "Eliminar"
+  },
   "header": {
     "home": "Inici",
     "competitions": "Competicions",
@@ -23,7 +27,8 @@
       "add": "Afegir Text",
       "addTitle": "Nou text",
       "addSubtitle": "Introdueix les dades del nou text",
-      "save": "Guardar"
+      "editTitle": "Editar text",
+      "editSubtitle": "Modifica les dades necessàries"
     },
     "users": {
       "title": "Gestionar usuaris",

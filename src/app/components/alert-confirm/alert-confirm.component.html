@@ -1,0 +1,15 @@
+<ion-modal [isOpen]="true" class="custom-modal">
+  <ion-content class="modal-container">
+    <ion-icon name="alert-circle-outline" class="warning-icon"></ion-icon>
+    <h2>{{ title }}</h2>
+    <p>{{ message }}</p>
+    <div class="modal-actions">
+      <ion-button fill="outline" class="cancel-btn" (click)="dismiss(false)">
+        {{ cancelText }}
+      </ion-button>
+      <ion-button [color]="confirmColor" class="confirm-btn" (click)="dismiss(true)">
+        {{ confirmText }}
+      </ion-button>
+    </div>
+  </ion-content>
+</ion-modal>
