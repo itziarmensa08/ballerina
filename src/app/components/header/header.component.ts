@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -7,10 +8,16 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent  implements OnInit {
+export class HeaderComponent {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit() {}
+  navigate(page: string) {
+    this.router.navigate([page]);
+  }
+
+  isActive(route: string): boolean {
+    return this.router.url === route;
+  }
 
 }

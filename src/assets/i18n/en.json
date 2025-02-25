@@ -9,5 +9,24 @@
     },
     "home": {
       "message": "Entity dedicated body and soul to rhythmic gymnastics. Our goal is to make gymnasts of all ages and levels happy and train them, as well as to create gymnastics that is more than a sport, it is art in movement!"
+    },
+    "settings": {
+      "title": "Content Management",
+      "texts": {
+        "title": "Manage Texts",
+        "subtitle": "Edit website texts"
+      },
+      "users": {
+        "title": "Manage Users",
+        "subtitle": "View and edit user profiles"
+      },
+      "images": {
+        "title": "Manage Images",
+        "subtitle": "Upload and edit images"
+      },
+      "general": {
+        "title": "General Settings",
+        "subtitle": "Modify platform settings"
+      }
     }
 }

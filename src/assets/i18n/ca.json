@@ -9,5 +9,24 @@
     },
     "home": {
       "message": "Entitat dedicada en cos i ànima a la gimnàstica rítmica. El nostre objectiu és fer feliços gimnastes de totes les edats i nivells i entrenar-los, així com crear una gimnàstica que és més que un esport, és art en moviment!"
+    },
+    "settings": {
+      "title": "Gestió de contingut",
+      "texts": {
+        "title": "Gestionar textos",
+        "subtitle": "Edita els textos de la pàgina web"
+      },
+      "users": {
+        "title": "Gestionar usuaris",
+        "subtitle": "Visualitza i edita perfils d'usuari"
+      },
+      "images": {
+        "title": "Gestionar imatges",
+        "subtitle": "Puja i edita imatges"
+      },
+      "general": {
+        "title": "Configuració general",
+        "subtitle": "Modifica la configuració de la plataforma"
+      }
     }
 }

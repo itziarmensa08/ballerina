@@ -14,21 +14,21 @@
   
       <!-- Navegación en pantallas grandes -->
       <div class="nav-buttons">
-        <ion-button>{{ 'header.home' | translate }}</ion-button>
-        <ion-button>{{ 'header.competitions' | translate }}</ion-button>
-        <ion-button>{{ 'header.initiation' | translate }}</ion-button>
-        <ion-button>{{ 'header.training' | translate }}</ion-button>
-        <ion-button>{{ 'header.admin' | translate }}</ion-button>
+        <ion-button (click)="navigate('/home')" [ngClass]="{'active': isActive('/home')}">{{ 'header.home' | translate }}</ion-button>
+        <ion-button (click)="navigate('/competitions')" [ngClass]="{'active': isActive('/competitions')}">{{ 'header.competitions' | translate }}</ion-button>
+        <ion-button (click)="navigate('/competitions')" [ngClass]="{'active': isActive('/initiation')}">{{ 'header.initiation' | translate }}</ion-button>
+        <ion-button (click)="navigate('/training')" [ngClass]="{'active': isActive('/training')}">{{ 'header.training' | translate }}</ion-button>
+        <ion-button (click)="navigate('/admin')" [ngClass]="{'active': isActive('/admin')}">{{ 'header.admin' | translate }}</ion-button>
       </div>
     </div>
 
 
     <!-- Iconos de redes sociales -->
     <ion-buttons slot="end" class="icon-buttons">
-      <ion-button>
+      <ion-button class="active">
         <ion-icon name="logo-instagram"></ion-icon>
       </ion-button>
-      <ion-button>
+      <ion-button class="active">
         <ion-icon name="logo-facebook"></ion-icon>
       </ion-button>
     </ion-buttons>

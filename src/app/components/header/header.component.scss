@@ -37,10 +37,21 @@ img {
 
     ion-button {
         --background: transparent;
-        --color: black;
         --box-shadow: 0;
         font-family: 'Poppins', sans-serif;
+
+        &.active {
+            font-weight: bold;
+        }
     }
+}
+
+ion-button::part(native) {
+    color: grey !important;
+}
+
+ion-button.active::part(native) {
+    color: black !important;
 }
   
 .icon-buttons {
