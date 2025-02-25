@@ -1,0 +1,65 @@
+
+<ion-content [fullscreen]="true">
+  <div class="principal"></div>
+  <app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
+  <div [ngClass]="{'cards': addingText}">
+    <ion-card [ngClass]="{'all-width': addingText}">
+      <ion-card-header class="ion-card-header-row">
+        <div class="header-left">
+          <ion-card-title>{{ 'settings.texts.title' | translate }}</ion-card-title>
+          <ion-card-subtitle>{{ 'settings.texts.subtitle' | translate }}</ion-card-subtitle>
+        </div>
+        <ion-button (click)="toggleAddText()" class="add-text-btn">
+          <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+          {{ 'settings.texts.add' | translate }}
+        </ion-button>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <div class="table-container" *ngIf="texts.length > 0; else noData">
+          <table>
+            <thead>
+              <tr>
+                <th>{{ 'settings.texts.key' | translate }}</th>
+                <th>{{ 'settings.texts.ca' | translate }}</th>
+                <th>{{ 'settings.texts.es' | translate }}</th>
+                <th>{{ 'settings.texts.en' | translate }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let text of texts">
+                <td>{{ text.key }}</td>
+                <td>{{ text.value.ca }}</td>
+                <td>{{ text.value.es }}</td>
+                <td>{{ text.value.en_US }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <ng-template #noData>
+          <p class="no-texts">{{ 'settings.texts.noData' | translate }}</p>
+        </ng-template>
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="addingText" [ngClass]="{'all-width': addingText}">
+      <ion-card-header>
+        <ion-card-title>{{ 'settings.texts.addTitle' | translate }}</ion-card-title>
+        <ion-card-subtitle>{{ 'settings.texts.addSubtitle' | translate }}</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-input label="{{ 'settings.texts.key' | translate }}" labelPlacement="stacked" [(ngModel)]="newText.key" placeholder="Ej: home.title" fill="outline"></ion-input>
+        <ion-textarea label="{{ 'settings.texts.ca' | translate }}" labelPlacement="stacked" [(ngModel)]="newText.value.ca" placeholder="Ej: Benvingut" auto-grow="true" fill="outline"></ion-textarea>
+        <ion-textarea label="{{ 'settings.texts.es' | translate }}" labelPlacement="stacked" [(ngModel)]="newText.value.es" placeholder="Ej: Bienvenido" auto-grow="true" fill="outline"></ion-textarea>
+        <ion-textarea label="{{ 'settings.texts.en' | translate }}" labelPlacement="stacked" [(ngModel)]="newText.value.en_US" placeholder="Ej: Welcome" auto-grow="true" fill="outline"></ion-textarea>
+        <div class="justify-center">
+          <ion-button (click)="saveText()" class="add-text-btn">
+            <ion-icon slot="start" name="save-outline"></ion-icon>
+            {{ 'settings.texts.save' | translate }}
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

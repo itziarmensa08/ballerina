@@ -14,7 +14,16 @@
       "title": "Gestió de contingut",
       "texts": {
         "title": "Gestionar textos",
-        "subtitle": "Edita els textos de la pàgina web"
+        "subtitle": "Edita els textos de la pàgina web",
+        "key": "Clau",
+        "ca": "Català",
+        "es": "Espanyol",
+        "en": "Anglès",
+        "noData": "Encara no hi ha textos",
+        "add": "Afegir Text",
+        "addTitle": "Nou text",
+        "addSubtitle": "Introdueix les dades del nou text",
+        "save": "Guardar"
       },
       "users": {
         "title": "Gestionar usuaris",

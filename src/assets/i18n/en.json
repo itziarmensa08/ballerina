@@ -14,7 +14,16 @@
       "title": "Content Management",
       "texts": {
         "title": "Manage Texts",
-        "subtitle": "Edit website texts"
+        "subtitle": "Edit website texts",
+        "key": "Key",
+        "ca": "Catalan",
+        "es": "Spanish",
+        "en": "English",
+        "noData": "Aún no hay textos",
+        "add": "Añadir Texto",
+        "addTitle": "New text",
+        "addSubtitle": "Enter data of a new text",
+        "save": "Save"
       },
       "users": {
         "title": "Manage Users",

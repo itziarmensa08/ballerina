@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { HeaderComponent } from './header/header.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    BreadcrumbsComponent
   ],
   imports: [
     CommonModule,
@@ -14,7 +16,8 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    BreadcrumbsComponent
   ]
 })
 export class ComponentsModule {}

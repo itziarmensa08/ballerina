@@ -44,3 +44,53 @@ ion-content {
     border-radius: 20px;
     margin: 20px;
 }
+
+.table-container {
+    overflow-x: auto;
+}
+  
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+  
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+  
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.add-text-btn {
+    --border-radius: 8px;
+    --padding-start: 10px;
+    --padding-end: 10px;
+    width: 200px;
+    --background: transparent;
+    --color: black;
+    --box-shadow: 0;
+
+    &:hover {
+        --border-radius: 20px;
+        --background: #f0f0f0;
+    }
+}
+
+.justify-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.ion-valid.sc-ion-input-md-h {
+    --highlight-color: black;
+}
+
+.ion-valid.sc-ion-textarea-md-h {
+    --highlight-color: black;
+}

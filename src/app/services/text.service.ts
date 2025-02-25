@@ -33,6 +33,21 @@ export class TextService {
   }
 
   /**
+   * Obtiene todos los textos disponibles
+   */
+  getAllTexts(): Observable<Text[]> {
+    return this.http.get<Text[]>(`${this.apiUrl}/texts`);
+  }
+
+  /**
+   * Crea un nuevo texto
+   * @param text - Objeto con la clave y valores en cada idioma
+   */
+  createText(text: Text): Observable<Text> {
+    return this.http.post<Text>(`${this.apiUrl}/texts`, text);
+  }
+
+  /**
    * Actualiza un texto en un idioma específico
    * @param key - Clave del texto
    * @param lang - Idioma a actualizar ('ca', 'es', 'en_US')
@@ -43,9 +58,10 @@ export class TextService {
   }
 
   /**
-   * Obtiene todos los textos disponibles
+   * Elimina un texto por su clave
+   * @param key - Clave del texto a eliminar
    */
-  getAllTexts(): Observable<Text[]> {
-    return this.http.get<Text[]>(`${this.apiUrl}/texts`);
+  deleteText(key: string): Observable<{ message: string }> {
+    return this.http.delete<{ message: string }>(`${this.apiUrl}/texts/${key}`);
   }
 }

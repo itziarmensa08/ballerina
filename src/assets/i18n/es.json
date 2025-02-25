@@ -14,7 +14,16 @@
       "title": "Gestión de contenido",
       "texts": {
         "title": "Gestionar textos",
-        "subtitle": "Edita los textos de la página web"
+        "subtitle": "Edita los textos de la página web",
+        "key": "Clave",
+        "ca": "Catalán",
+        "es": "Español",
+        "en": "Inglés",
+        "noData": "There are no texts yet",
+        "add": "Add Text",
+        "addTitle": "Nuevo texto",
+        "addSubtitle": "Introduce los datos de un nuevo texto",
+        "save": "Guardar"
       },
       "users": {
         "title": "Gestionar usuarios",
