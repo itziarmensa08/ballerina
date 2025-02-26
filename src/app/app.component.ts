@@ -18,10 +18,7 @@ export class AppComponent {
     private translate: TranslateService,
     private router: Router,
     private authService: AuthService
-  ) {
-    this.translate.setDefaultLang('ca');
-    this.translate.use('ca');
-  }
+  ) {}
 
   isIllegalPage(): boolean {
     return this.router.url === '/login' || this.router.url === '/register';
@@ -30,5 +27,11 @@ export class AppComponent {
   ngOnInit() {
     this.isAdmin = this.authService.isAdmin();
     this.isLoggedIn = this.authService.isLoggedIn();
+
+    const user = JSON.parse(localStorage.getItem('user') || sessionStorage.getItem('user') || '{}');
+    const userLanguage = user?.language || 'ca';
+
+    this.translate.setDefaultLang(userLanguage);
+    this.translate.use(userLanguage);
   }
 }
