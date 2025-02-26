@@ -1,7 +1,9 @@
 {
   "general": {
     "save": "Guardar",
-    "delete": "Eliminar"
+    "delete": "Eliminar",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar"
   },
   "header": {
     "home": "Inicio",
@@ -29,7 +31,8 @@
       "addSubtitle": "Introduce los datos de un nuevo texto",
       "save": "Guardar",
       "editTitle": "Editar texto",
-      "editSubtitle": "Modifica los datos necesarios"
+      "editSubtitle": "Modifica los datos necesarios",
+      "delete": "Estás seguro/a que quieres eliminar este texto?"
     },
     "users": {
       "title": "Gestionar usuarios",

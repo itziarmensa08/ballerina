@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-import { AlertConfirmComponent } from 'src/app/components/alert-confirm/alert-confirm.component';
+import { AlertConfirmService } from 'src/app/services/alert-confirm.service';
 import { AlertService } from 'src/app/services/alert.service';
 import { Text, TextService } from 'src/app/services/text.service';
 
@@ -29,7 +28,7 @@ export class TextsPage implements OnInit {
   constructor(
     private textService: TextService,
     private alertService: AlertService,
-    private modalCtrl: ModalController
+    private alertConfirmService: AlertConfirmService
   ) { }
 
   ngOnInit() {
@@ -125,22 +124,13 @@ export class TextsPage implements OnInit {
   }
 
   async confirmDelete() {
-    const modal = await this.modalCtrl.create({
-      component: AlertConfirmComponent,
-      componentProps: {
-        title: 'Delete item',
-        message: 'Are you sure you want to delete this item? This action cannot be undone.',
-        confirmText: 'Delete',
-        cancelText: 'Cancel',
-        confirmColor: 'danger'
-      }
-    });
-
-    await modal.present();
-
-    const { data } = await modal.onWillDismiss();
-    if (data) {
-      console.log('Item deleted');
+    const confirmed = await this.alertConfirmService.showAlert('error', 'general.delete', 'settings.texts.delete');
+  
+    if (confirmed) {
+      console.log('El usuario confirmó la eliminación');
+      this.deleteText(); // Llamar la función de eliminación
+    } else {
+      console.log('El usuario canceló la eliminación');
     }
   }
 }

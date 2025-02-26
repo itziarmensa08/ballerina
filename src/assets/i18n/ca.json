@@ -1,7 +1,9 @@
 {
   "general": {
     "save": "Guardar",
-    "delete": "Eliminar"
+    "delete": "Eliminar",
+    "cancel": "Cancel·lar",
+    "confirm": "Confirmar"
   },
   "header": {
     "home": "Inici",
@@ -28,7 +30,8 @@
       "addTitle": "Nou text",
       "addSubtitle": "Introdueix les dades del nou text",
       "editTitle": "Editar text",
-      "editSubtitle": "Modifica les dades necessàries"
+      "editSubtitle": "Modifica les dades necessàries",
+      "delete": "Estàs segur/a que vols eliminar aquest text?"
     },
     "users": {
       "title": "Gestionar usuaris",

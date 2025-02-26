@@ -1,7 +1,9 @@
 {
   "general": {
     "save": "Save",
-    "delete": "Delete"
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "confirm": "Confirm"
   },
   "header": {
     "home": "Home",
@@ -28,7 +30,8 @@
       "addTitle": "New text",
       "addSubtitle": "Enter data of a new text",
       "editTitle": "Edit text",
-      "editSubtitle": "Modify the necessary data"
+      "editSubtitle": "Modify the necessary data",
+      "delete": "Are you sure you want to delete this text?"
     },
     "users": {
       "title": "Manage Users",
