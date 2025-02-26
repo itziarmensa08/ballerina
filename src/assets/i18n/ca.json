@@ -31,7 +31,16 @@
       "addSubtitle": "Introdueix les dades del nou text",
       "editTitle": "Editar text",
       "editSubtitle": "Modifica les dades necessàries",
-      "delete": "Estàs segur/a que vols eliminar aquest text?"
+      "delete": "Estàs segur/a que vols eliminar aquest text?",
+      "updated": "Text actualitzat",
+      "updatedMessage": "S'ha actualitzat correctament el text",
+      "error_update_text": "No s'ha pogut actualitzar el text",
+      "error_message": "No s'ha pogut desar el text",
+      "text_added_title": "Text afegit",
+      "text_added_message": "El text s'ha desat correctament",
+      "deleted": "Text eliminat",
+      "deletedMessage": "El text s'ha eliminat correctament",
+      "error_delete_text": "No s'ha pogut eliminar el text"
     },
     "users": {
       "title": "Gestionar usuaris",
@@ -49,11 +58,8 @@
   "alerts": {
     "required_title": "Camps requerits",
     "required_message": "Tots els camps són obligatoris",
-    "text_added_title": "Text afegit",
-    "text_added_message": "El text s'ha desat correctament",
     "duplicate_title": "Clau duplicada",
     "duplicate_message": "La clau ja existeix. Fes servir una altra.",
-    "error_title": "Error",
-    "error_message": "No s'ha pogut desar el text"
+    "error_title": "Error"
   }
 }

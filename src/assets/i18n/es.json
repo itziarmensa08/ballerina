@@ -32,7 +32,16 @@
       "save": "Guardar",
       "editTitle": "Editar texto",
       "editSubtitle": "Modifica los datos necesarios",
-      "delete": "Estás seguro/a que quieres eliminar este texto?"
+      "delete": "Estás seguro/a que quieres eliminar este texto?",
+      "updated": "Texto actualizado",
+      "updatedMessage": "Se ha actualizado correctamente el texto",
+      "error_update_text": "No se pudo actualizar el texto",
+      "error_message": "No se pudo guardar el texto",
+      "text_added_title": "Texto añadido",
+      "text_added_message": "El texto se ha guardado correctamente",
+      "deleted": "Texto eliminado",
+      "deletedMessage": "El texto se ha eliminado correctamente",
+      "error_delete_text": "No se pudo eliminar el texto"
     },
     "users": {
       "title": "Gestionar usuarios",
@@ -50,11 +59,8 @@
   "alerts": {
     "required_title": "Campos requeridos",
     "required_message": "Todos los campos son obligatorios",
-    "text_added_title": "Texto añadido",
-    "text_added_message": "El texto se ha guardado correctamente",
     "duplicate_title": "Clave duplicada",
     "duplicate_message": "La clave ya existe. Usa una diferente.",
-    "error_title": "Error",
-    "error_message": "No se pudo guardar el texto"
+    "error_title": "Error"
   }
 }

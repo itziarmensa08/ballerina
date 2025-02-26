@@ -31,7 +31,16 @@
       "addSubtitle": "Enter data of a new text",
       "editTitle": "Edit text",
       "editSubtitle": "Modify the necessary data",
-      "delete": "Are you sure you want to delete this text?"
+      "delete": "Are you sure you want to delete this text?",
+      "updated": "Updated text",
+      "updatedMessage": "The text has been successfully updated",
+      "error_update_text": "The text could not be updated",
+      "error_message": "The text could not be saved",
+      "text_added_title": "Text added",
+      "text_added_message": "The text has been saved successfully",
+      "deleted": "Deleted text",
+      "deletedMessage": "The text has been deleted successfully",
+      "error_delete_text": "The text could not be deleted"
     },
     "users": {
       "title": "Manage Users",
@@ -49,11 +58,8 @@
   "alerts": {
     "required_title": "Required fields",
     "required_message": "All fields are mandatory",
-    "text_added_title": "Text added",
-    "text_added_message": "The text has been saved successfully",
     "duplicate_title": "Duplicate key",
     "duplicate_message": "The key already exists. Please use a different one.",
-    "error_title": "Error",
-    "error_message": "The text could not be saved"
+    "error_title": "Error"
   }
 }

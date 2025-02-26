@@ -55,11 +55,8 @@ export class TextsPage implements OnInit {
   }
 
   toggleEditingText(text: Text) {
-    this.newText = text;
-    this.editingText = !this.editingText;
-    if (!this.editingText) {
-      this.resetForm();
-    }
+    this.newText = JSON.parse(JSON.stringify(text));
+    this.editingText = true;
   }
 
   /**
@@ -73,16 +70,17 @@ export class TextsPage implements OnInit {
 
     this.textService.createText(this.newText).subscribe({
         next: (response) => {
-            this.texts.push(response);
-            this.alertService.showAlert('success', 'alerts.text_added_title', 'alerts.text_added_message');
-            this.toggleAddText();
+          this.texts.push(response);
+          this.alertService.showAlert('success', 'settings.texts.text_added_title', 'settings.texts.text_added_message');
+          this.toggleAddText();
         },
         error: (error) => {
-            if (error.status === 400) {
-                this.alertService.showAlert('error', 'alerts.duplicate_title', 'alerts.duplicate_message');
-            } else {
-                this.alertService.showAlert('error', 'alerts.error_title', 'alerts.error_message');
-            }
+          if (error.status === 400) {
+              this.alertService.showAlert('error', 'alerts.duplicate_title', 'alerts.duplicate_message');
+          } else {
+              this.alertService.showAlert('error', 'alerts.error_title', 'settings.texts.error_message');
+              this.toggleAddText();
+          }
         }
     });
   }
@@ -91,28 +89,34 @@ export class TextsPage implements OnInit {
    * Actualizar un texto existente en un idioma específico
    */
   updateText() {
-    /* this.textService.updateText(this.newText.key, this.newText.lang, this.newText.value).subscribe(updatedText => {
-      const index = this.texts.findIndex(text => text.key === key);
+    this.textService.updateText(this.newText.key, this.newText).subscribe(updatedText => {
+      const index = this.texts.findIndex(text => text.key === this.newText.key);
       if (index !== -1) {
         this.texts[index] = updatedText;
-        this.alertService.showAlert('success', 'Texto actualizado', `Se ha actualizado el texto en ${lang.toUpperCase()}`);
+        this.alertService.showAlert('success', 'settings.texts.updated', 'settings.texts.updatedMessage');
+        this.editingText = false;
+        this.resetForm();
       }
     }, () => {
-      this.alertService.showAlert('error', 'Error', 'No se pudo actualizar el texto');
-    }); */
+      this.alertService.showAlert('error', 'alerts.error_title', 'settings.texts.error_update_text');
+      this.editingText = false;
+      this.resetForm();
+    });
   }
 
   /**
    * Eliminar un texto
    */
   deleteText() {
-    if (!confirm(`¿Seguro que deseas eliminar el texto "${this.newText.key}"?`)) return;
-
     this.textService.deleteText(this.newText.key).subscribe(() => {
       this.texts = this.texts.filter(text => text.key !== this.newText.key);
-      this.alertService.showAlert('success', 'Texto eliminado', 'El texto ha sido eliminado correctamente');
+      this.alertService.showAlert('success', 'settings.texts.deleted', 'settings.texts.deletedMessage');
+      this.editingText = false;
+      this.resetForm();
     }, () => {
-      this.alertService.showAlert('error', 'Error', 'No se pudo eliminar el texto');
+      this.alertService.showAlert('error', 'alerts.error_title', 'settings.texts.error_delete_text');
+      this.editingText = false;
+      this.resetForm();
     });
   }
 
@@ -125,12 +129,8 @@ export class TextsPage implements OnInit {
 
   async confirmDelete() {
     const confirmed = await this.alertConfirmService.showAlert('error', 'general.delete', 'settings.texts.delete');
-  
     if (confirmed) {
-      console.log('El usuario confirmó la eliminación');
-      this.deleteText(); // Llamar la función de eliminación
-    } else {
-      console.log('El usuario canceló la eliminación');
-    }
+      this.deleteText();
+    } 
   }
 }

@@ -53,8 +53,8 @@ export class TextService {
    * @param lang - Idioma a actualizar ('ca', 'es', 'en_US')
    * @param value - Nuevo valor del texto
    */
-  updateText(key: string, lang: string, value: string): Observable<Text> {
-    return this.http.put<Text>(`${this.apiUrl}/texts`, { key, lang, value });
+  updateText(key: string, value: Text): Observable<Text> {
+    return this.http.put<Text>(`${this.apiUrl}/texts`, { key, value });
   }
 
   /**
