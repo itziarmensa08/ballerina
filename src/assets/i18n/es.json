@@ -5,6 +5,9 @@
     "cancel": "Cancelar",
     "confirm": "Confirmar"
   },
+  "menu": {
+    "title": "Menú"
+  },
   "header": {
     "home": "Inicio",
     "competitions": "Competiciones",

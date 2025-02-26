@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   standalone: false,
@@ -9,7 +10,10 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router, 
+    private menuCtrl: MenuController
+  ) { }
 
   navigate(page: string) {
     this.router.navigate([page]);
@@ -17,6 +21,10 @@ export class HeaderComponent {
 
   isActive(route: string): boolean {
     return this.router.url === route;
+  }
+
+  openMenu() {
+    this.menuCtrl.open();
   }
 
 }

@@ -20,7 +20,7 @@ img {
     display: flex;
     flex-direction: row;
     align-items: center;
-    flex-grow: 1; /* Ocupa el espacio disponible sin afectar el resto */
+    flex-grow: 1;
     text-align: center;
 }
   
@@ -70,10 +70,3 @@ ion-button.active::part(native) {
     }
 }
   
-/* .menu-button {
-    display: flex;
-  
-    @media (min-width: 768px) {
-      display: none;
-    }
-} */
