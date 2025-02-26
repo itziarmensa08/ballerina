@@ -63,6 +63,38 @@
     "required_message": "All fields are mandatory",
     "duplicate_title": "Duplicate key",
     "duplicate_message": "The key already exists. Please use a different one.",
-    "error_title": "Error"
+    "error_title": "Error",
+    "error_message": "There was an error, please try again later."
+  },
+  "login": {
+    "message": "Welcome back!",
+    "title": "Login",
+    "subtitle": "Welcome back! Please log in with your account.",
+    "email": "Email or username",
+    "password": "Password",
+    "remember": "Remember me",
+    "forgot": "Forgot password?",
+    "button": "Login",
+    "newUser": "New user?",
+    "signup": "SignUp"
+  },
+  "register": {
+    "title": "Welcome to Ballerina!",
+    "subtitle": "Register your account",
+    "name": "First Name",
+    "surnames": "Last Name",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "alreadyAccount": "Do you already have an account?",
+    "done": "Registration completed",
+    "doneMessage": "Your account has been successfully saved.",
+    "usernameIncorrect": "Incorrect username",
+    "usernameIncorrectMessage": "This username or email already exists, please choose another one.",
+    "notUser": "User not found",
+    "notUserMessage": "No user found with this username or email.",
+    "incorrectPassword": "Incorrect password",
+    "incorrectPasswordMessage": "If you don't remember your password, click the button to recover it."
   }
 }

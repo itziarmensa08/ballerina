@@ -1,0 +1,70 @@
+<ion-content class="login-container" [fullscreen]="true">
+  <div class="login-wrapper">
+    <div class="login-left"></div>
+    
+    <div class="login-right">
+      <ion-icon name="home-outline" class="home-icon" (click)="navigateHome()"></ion-icon>
+      
+      <h2>{{ 'register.title' | translate }}</h2>
+      <p>{{ 'register.subtitle' | translate }}</p>
+
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <ion-input 
+          label="{{ 'register.name' | translate }}" 
+          labelPlacement="floating" 
+          formControlName="name" 
+          fill="outline"
+          [class.invalid]="registerForm.get('name')?.invalid && registerForm.get('name')?.touched">
+        </ion-input>
+
+        <ion-input 
+          label="{{ 'register.surnames' | translate }}" 
+          labelPlacement="floating" 
+          formControlName="surname" 
+          fill="outline">
+        </ion-input>
+
+        <ion-input 
+          label="{{ 'register.username' | translate }}" 
+          labelPlacement="floating" 
+          formControlName="username" 
+          fill="outline">
+        </ion-input>
+
+        <ion-input 
+          type="email" 
+          label="{{ 'register.email' | translate }}" 
+          labelPlacement="floating" 
+          formControlName="email" 
+          fill="outline"
+          [class.invalid]="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+        </ion-input>
+
+        <ion-input 
+          type="password" 
+          label="{{ 'login.password' | translate }}" 
+          labelPlacement="floating" 
+          formControlName="password" 
+          fill="outline"
+          [class.invalid]="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+        </ion-input>
+
+        <ion-input 
+          type="password" 
+          label="{{ 'register.confirm_password' | translate }}" 
+          labelPlacement="floating" 
+          formControlName="confirmPassword" 
+          fill="outline"
+          [class.invalid]="registerForm.hasError('passwordMismatch') && registerForm.get('confirmPassword')?.touched">
+        </ion-input>
+        
+        <div class="justify-center">
+          <ion-button expand="full" class="login-btn" type="submit">
+            {{ 'login.signup' | translate }}
+          </ion-button>
+        </div>
+      </form>
+      <p class="signup-text">{{ 'register.alreadyAccount' | translate }} <a routerLink="/login">{{ 'login.button' | translate }}</a></p>
+    </div>
+  </div>
+</ion-content>

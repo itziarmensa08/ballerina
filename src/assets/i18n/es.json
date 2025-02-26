@@ -64,6 +64,38 @@
     "required_message": "Todos los campos son obligatorios",
     "duplicate_title": "Clave duplicada",
     "duplicate_message": "La clave ya existe. Usa una diferente.",
-    "error_title": "Error"
+    "error_title": "Error",
+    "error_message": "Ha ocurrido un error, inténtalo de nuevo más tarde."
+  },
+  "login": {
+    "message": "¡Bienvenido/a de nuevo!",
+    "title": "Inicio de sesión",
+    "subtitle": "¡Bienvenido/a de nuevo! Por favor, inicia sesión con tu cuenta.",
+    "email": "Correo electrónico o nombre de usuario",
+    "password": "Contraseña",
+    "remember": "Recuérdame",
+    "forgot": "¿Has olvidado tu contraseña?",
+    "button": "Iniciar sessión",
+    "newUser": "¿Nuevo usuario?",
+    "signup": "Regístrate"
+  },
+  "register": {
+    "title": "¡Bienvenido/a a Ballerina!",
+    "subtitle": "Registra tu cuenta",
+    "name": "Nombre",
+    "surnames": "Apellidos",
+    "username": "Nombre de usuario",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "confirm_password": "Confirma la contraseña",
+    "alreadyAccount": "¿Ya tienes una cuenta?",
+    "done": "Registro completado",
+    "doneMessage": "Tu cuenta se ha guardado correctamente.",
+    "usernameIncorrect": "Nombre de usuario incorrecto",
+    "usernameIncorrectMessage": "Este nombre de usuario o correo electrónico ya existe, elige otro.",
+    "notUser": "Usuario no encontrado",
+    "notUserMessage": "No se ha encontrado ningún usuario con este nombre de usuario o correo electrónico.",
+    "incorrectPassword": "Contraseña incorrecta",
+    "incorrectPasswordMessage": "Si no recuerdas tu contraseña, haz clic en el botón para recuperarla."
   }
 }

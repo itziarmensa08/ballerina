@@ -63,6 +63,37 @@
     "required_message": "Tots els camps són obligatoris",
     "duplicate_title": "Clau duplicada",
     "duplicate_message": "La clau ja existeix. Fes servir una altra.",
-    "error_title": "Error"
+    "error_title": "Error",
+    "error_message": "Hi ha hagut un error, torna-ho a provar més tard."
+  },
+  "login": {
+    "message": "Benvingut/da de nou!",
+    "title": "Inici de sessió",
+    "subtitle": "Benvigut/da de nou! Si us plau inicia sessió amb el teu compte.",
+    "email": "Correu electrònic o nom d'usuari",
+    "password": "Contrasenya",
+    "remember": "Recorda'm",
+    "forgot": "Heu oblidat la contrasenya?",
+    "button": "Iniciar sessió",
+    "newUser": "Usuari nou?",
+    "signup": "Registra't"
+  },
+  "register": {
+    "title": "Benvingut/da a Ballerina!",
+    "subtitle": "Registra el teu compte",
+    "name": "Nom",
+    "surnames": "Cognoms",
+    "username": "Nom d'usuari",
+    "email": "Correu electrònic",
+    "confirm_password": "Confirma la contrasenya",
+    "alreadyAccount": "Ja tens un compte?",
+    "done": "Registre completat",
+    "doneMessage": "El teu compte s'ha guardat correctament.",
+    "usernameIncorrect": "Nom d'usuari incorrecte",
+    "usernameIncorrectMessage": "Aquest nom d'usuari o correu electrònic ja existeix, tria'n un altre.",
+    "notUser": "Usuari no trobat",
+    "notUserMessage": "No s'ha trobat cap usuari amb aquest nom d'usuari o correu electrònic.",
+    "incorrectPassword": "Contrasenya incorrecte",
+    "incorrectPasswordMessage": "Si no recordes la contrasenya, clica el botó per recuperar-la."
   }
 }

@@ -5,29 +5,33 @@ ion-menu::part(container) {
 }
 
 .custom-menu {
-    --background: #f5f0e8; /* Color de fondo del menú */
-    --ion-background-color: #f5f0e8;
+  --background: #f5f0e8;
+  --ion-background-color: #f5f0e8;
+
+  @media (min-width: 768px) {
+    display: none;
   }
-  
-  .custom-menu ion-toolbar {
-    --background: #e8dac8; /* Color del toolbar del menú */
-  }
-  
-  .custom-menu ion-content {
-    --background: #f5f0e8; /* Color de fondo del contenido del menú */
-  }
-  
-  .custom-menu ion-list {
-    background: #f5f0e8; /* Color de fondo de la lista */
-  }
-  
-  .custom-menu ion-item {
-    --background: transparent; /* Asegurar que los items no sobrescriban el color */
-    --color: #333; /* Color del texto */
-  }
-  
-  .custom-menu ion-item:hover {
-    background: #e8dac8; /* Color al pasar el ratón */
-  }
+}
+
+.custom-menu ion-toolbar {
+  --background: #e8dac8;
+}
+
+.custom-menu ion-content {
+  --background: #f5f0e8;
+}
+
+.custom-menu ion-list {
+  background: #f5f0e8;
+}
+
+.custom-menu ion-item {
+  --background: transparent;
+  --color: #333;
+}
+
+.custom-menu ion-item:hover {
+  background: #e8dac8;
+}
   
   
