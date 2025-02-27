@@ -85,6 +85,10 @@ export class AuthService {
    * Guarda el accessToken y refreshToken
    */
   saveTokens(accessToken: string, refreshToken: string) {
+
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+
     if (localStorage.getItem('rememberMe')) {
       localStorage.setItem('accessToken', accessToken);
       localStorage.setItem('refreshToken', refreshToken);
@@ -92,6 +96,7 @@ export class AuthService {
       sessionStorage.setItem('accessToken', accessToken);
       sessionStorage.setItem('refreshToken', refreshToken);
     }
+    
   }
 
   /**

@@ -20,7 +20,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(req).pipe(
       catchError((error) => {
-        if (error instanceof HttpErrorResponse && error.status === 401) {
+        if (error instanceof HttpErrorResponse && error.status === 403 && error.error.message === 'Invalid or expired token.') {
           return this.handle401Error(req, next);
         }
         return throwError(() => error);
@@ -44,6 +44,7 @@ export class AuthInterceptor implements HttpInterceptor {
           this.isRefreshing = false;
           this.authService.saveTokens(tokens.accessToken, tokens.refreshToken);
           this.refreshTokenSubject.next(tokens.accessToken);
+
           return next.handle(this.addToken(req, tokens.accessToken));
         }),
         catchError(() => {

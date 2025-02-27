@@ -50,7 +50,6 @@ export class TextService {
   /**
    * Actualiza un texto en un idioma específico
    * @param key - Clave del texto
-   * @param lang - Idioma a actualizar ('ca', 'es', 'en_US')
    * @param value - Nuevo valor del texto
    */
   updateText(key: string, value: Text): Observable<Text> {

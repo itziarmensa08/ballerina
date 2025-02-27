@@ -48,7 +48,9 @@
     },
     "users": {
       "title": "Manage Users",
-      "subtitle": "View and edit user profiles"
+      "subtitle": "View and edit user profiles",
+      "add": "Add user",
+      "role": "Role"
     },
     "images": {
       "title": "Manage Images",

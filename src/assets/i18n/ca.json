@@ -48,7 +48,9 @@
     },
     "users": {
       "title": "Gestionar usuaris",
-      "subtitle": "Visualitza i edita perfils d'usuari"
+      "subtitle": "Visualitza i edita perfils d'usuari",
+      "add": "Afegir usuari",
+      "role": "Rol"
     },
     "images": {
       "title": "Gestionar imatges",

@@ -1,0 +1,47 @@
+<ion-content [fullscreen]="true">
+  <div class="principal"></div>
+  <app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
+  <div [ngClass]="{'cards': addingUser}">
+    <ion-card [ngClass]="{'all-width': addingUser}">
+      <ion-card-header class="ion-card-header-row">
+        <div class="header-left">
+          <ion-card-title>{{ 'settings.users.title' | translate }}</ion-card-title>
+          <ion-card-subtitle>{{ 'settings.users.subtitle' | translate }}</ion-card-subtitle>
+        </div>
+        <ion-button (click)="toggleAddUser()" class="add-text-btn">
+          <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+          {{ 'settings.users.add' | translate }}
+        </ion-button>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-searchbar 
+          (ionInput)="filterUsers($event)" 
+          [placeholder]="'general.search' | translate">
+        </ion-searchbar>
+        <div class="table-container" *ngIf="filteredUsers.length > 0; else noData">
+          <table>
+            <thead>
+              <tr>
+                <th>{{ 'register.name' | translate }}</th>
+                <th>{{ 'register.surnames' | translate }}</th>
+                <th>{{ 'register.email' | translate }}</th>
+                <th>{{ 'settings.users.role' | translate }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of filteredUsers">
+                <td>{{ user.name }}</td>
+                <td>{{ user.surname }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.role }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ng-template #noData>
+          <p class="no-texts">{{ 'settings.texts.noData' | translate }}</p>
+        </ng-template>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
