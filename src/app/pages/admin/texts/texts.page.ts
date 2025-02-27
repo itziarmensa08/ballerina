@@ -17,6 +17,7 @@ export class TextsPage implements OnInit {
   ];
 
   texts: Text[] = [];
+  filteredTexts: Text[] = [];
   addingText: boolean = false;
   editingText: boolean = false;
 
@@ -41,7 +42,23 @@ export class TextsPage implements OnInit {
   loadTexts() {
     this.textService.getAllTexts().subscribe(response => {
       this.texts = response;
+      this.filteredTexts = response;
     });
+  }
+
+  /**
+   * Filtrar textos en la barra de búsqueda
+   * @param event - Evento del ion-searchbar
+   */
+  filterTexts(event: any) {
+    const searchTerm = event.target.value.toLowerCase();
+    
+    if (!searchTerm) {
+      this.filteredTexts = this.texts;
+      return;
+    }
+
+    this.filteredTexts = this.texts.filter(text => text.key.toLowerCase().includes(searchTerm));
   }
 
   /**

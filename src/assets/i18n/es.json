@@ -3,7 +3,8 @@
     "save": "Guardar",
     "delete": "Eliminar",
     "cancel": "Cancelar",
-    "confirm": "Confirmar"
+    "confirm": "Confirmar",
+    "search": "Buscar"
   },
   "menu": {
     "title": "Menú"

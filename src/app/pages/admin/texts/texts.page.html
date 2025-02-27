@@ -16,7 +16,11 @@
       </ion-card-header>
     
       <ion-card-content>
-        <div class="table-container" *ngIf="texts.length > 0; else noData">
+        <ion-searchbar 
+          (ionInput)="filterTexts($event)" 
+          [placeholder]="'general.search' | translate">
+        </ion-searchbar>
+        <div class="table-container" *ngIf="filteredTexts.length > 0; else noData">
           <table>
             <thead>
               <tr>
@@ -27,7 +31,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let text of texts" (click)="toggleEditingText(text)">
+              <tr *ngFor="let text of filteredTexts" (click)="toggleEditingText(text)">
                 <td>{{ text.key }}</td>
                 <td>{{ text.value.ca }}</td>
                 <td>{{ text.value.es }}</td>
