@@ -1,9 +1,37 @@
 <ion-content>
     <div class="principal">
-      <ion-col>
-        <h1>Club Gimnàstic Ballerina</h1>
-        <p>{{ message }}</p>
+      <ion-col class="titleDiv">
+        <h1 class="title">Club Gimnàstic Ballerina</h1>
+        <p class="messageTitle">{{ message }}</p>
         <ion-button>{{ 'header.contact' | translate }}</ion-button>
       </ion-col>
+      <div class="title-images">
+        <img src="assets/gimnasts/maria.jpeg" alt="Club Gimnàstic Ballerina" style="margin-bottom: 200px; max-width: 300px;">
+        <img src="assets/gimnasts/random1.jpg" alt="Club Gimnàstic Ballerina" style="max-width: 250px;">
+      </div>
+    </div>
+    
+    <div class="who">
+      <ion-col class="justify-center">
+        <img src="assets/gimnasts/who.jpg" alt="Club Gimnàstic Ballerina" style="max-width: 450px;">
+      </ion-col>
+      <ion-col class="who-title">
+        <h1 class="body">{{ whoTitle }}</h1>
+        <div class="messageBody">
+          <p *ngFor="let paragraph of whoMessage">{{ paragraph }}</p>
+        </div>  
+      </ion-col>
+    </div>
+
+    <div class="justify-center">
+      <ion-button>{{ 'header.contact' | translate }}</ion-button>
+    </div>
+    
+    <div class="who-images">
+      <img src="assets/gimnasts/random1.jpg" alt="Club Gimnàstic Ballerina">
+      <img src="assets/gimnasts/cloe.jpeg" alt="Club Gimnàstic Ballerina">
+      <img src="assets/gimnasts/random3.jpg" alt="Club Gimnàstic Ballerina">
+      <img src="assets/gimnasts/maria.jpeg" alt="Club Gimnàstic Ballerina">
+      <img src="assets/gimnasts/random2.jpg" alt="Club Gimnàstic Ballerina">
     </div>
 </ion-content>

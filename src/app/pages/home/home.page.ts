@@ -11,6 +11,8 @@ import { TextService } from 'src/app/services/text.service';
 export class HomePage {
 
   message: string = '';
+  whoTitle: string = '';
+  whoMessage: string[] = [];
 
   constructor(private textService: TextService, private translate: TranslateService) {}
 
@@ -20,6 +22,14 @@ export class HomePage {
     this.textService.getText('home.message', lang).subscribe(response => {
       this.message = response.value;
     });
+
+    this.textService.getText('who.title', lang).subscribe(response => {
+      this.whoTitle = response.value;
+    });
+
+    this.textService.getText('who.message', lang).subscribe(response => {
+      this.whoMessage = response.value.split('\n\n');
+    });     
   }
 
 }
