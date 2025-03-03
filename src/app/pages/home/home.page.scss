@@ -70,7 +70,7 @@ ion-button {
 }
 
 .who {
-  padding: 50px;
+  padding: 50px 50px 0px 50px;
   display: flex;
   flex-direction: row;
   @media (max-width: 768px) {
@@ -84,10 +84,9 @@ ion-button {
   align-items: start;
   display: flex;
   flex-direction: column;
-/*   @media (min-width: 768px) {
-    flex: 0 0 30%;
-    margin-bottom: 20px;
-  } */
+  @media (min-width: 768px) {
+    padding: 15px;
+  }
 }
 
 .who-images {
@@ -161,4 +160,16 @@ ion-button {
 
 .second_foto {
   max-width: 250px;
+}
+
+.who-web {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.who-mobile {
+  @media (min-width: 768px) {
+    display: none;
+  }
 }
