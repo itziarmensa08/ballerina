@@ -32,4 +32,5 @@
   </ion-menu>
   <app-header class="custom-header" *ngIf="!isIllegalPage()"></app-header>
   <ion-router-outlet id="main-content"></ion-router-outlet>
+  <app-custom-fab *ngIf="!isIllegalPage()"></app-custom-fab>
 </ion-app>

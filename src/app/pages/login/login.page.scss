@@ -56,7 +56,7 @@
 }
 
 ion-button {
-    --background: #f5f0e8;
+    --background: var(--ion-color-primary);
     --color: black;
     --box-shadow: 0;
     font-family: 'Poppins', sans-serif;

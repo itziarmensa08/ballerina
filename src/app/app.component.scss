@@ -5,8 +5,8 @@ ion-menu::part(container) {
 }
 
 .custom-menu {
-  --background: #f5f0e8;
-  --ion-background-color: #f5f0e8;
+  --background: var(--ion-color-primary);
+  --ion-background-color: var(--ion-color-primary);
 
   @media (min-width: 768px) {
     display: none;
@@ -18,11 +18,11 @@ ion-menu::part(container) {
 }
 
 .custom-menu ion-content {
-  --background: #f5f0e8;
+  --background: var(--ion-color-primary);
 }
 
 .custom-menu ion-list {
-  background: #f5f0e8;
+  background: var(--ion-color-primary);
 }
 
 .custom-menu ion-item {

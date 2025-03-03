@@ -6,13 +6,15 @@ import { TranslateModule } from '@ngx-translate/core';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { AlertComponent } from './alert/alert.component';
 import { AlertConfirmComponent } from './alert-confirm/alert-confirm.component';
+import { CustomFabComponent } from './custom-fab/custom-fab.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     BreadcrumbsComponent,
     AlertComponent,
-    AlertConfirmComponent
+    AlertConfirmComponent,
+    CustomFabComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { AlertConfirmComponent } from './alert-confirm/alert-confirm.component';
     HeaderComponent,
     BreadcrumbsComponent,
     AlertComponent,
-    AlertConfirmComponent
+    AlertConfirmComponent,
+    CustomFabComponent
   ]
 })
 export class ComponentsModule {}
