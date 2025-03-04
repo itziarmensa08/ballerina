@@ -4,8 +4,8 @@
         <h1 class="title">Club Gimnàstic Ballerina</h1>
         <p class="messageTitle">{{ message }}</p>
         <ion-row>
-          <ion-button>Vine a provar!</ion-button>
-          <ion-button class="second" fill="outline">Inscriu-te!</ion-button>
+          <ion-button>{{ 'home.prove' | translate }}</ion-button>
+          <ion-button class="second" fill="outline">{{ 'home.inscribe' | translate }}</ion-button>
         </ion-row>
       </ion-col>
     </div>
@@ -35,5 +35,91 @@
       <img src="assets/gimnasts/random3.jpg" alt="Club Gimnàstic Ballerina">
       <img src="assets/gimnasts/maria.jpeg" alt="Club Gimnàstic Ballerina">
       <img src="assets/gimnasts/random2.jpg" alt="Club Gimnàstic Ballerina">
+    </div>
+
+    <div class="sections-container">
+      <h1 style="color: white; padding: 50px;">{{ exploreTitle }}</h1>
+      <div class="sections">
+        <ion-card class="product-card">
+          <div class="circle-marker">
+            <div class="circle-hole"></div>
+          </div>
+          <div class="image-container-big">
+            <div class="image-container">
+              <ion-img src="assets/gimnasts/itziar.jpg" class="product-image"></ion-img>
+            </div>
+          </div>
+          <ion-card-content>
+            <ion-text>
+              <h2>{{ 'header.competitions' | translate }}</h2>
+              <p>{{ competiMessage }}</p>
+            </ion-text>
+          </ion-card-content>
+        </ion-card>     
+        <ion-card class="product-card">
+          <div class="circle-marker">
+            <div class="circle-hole"></div>
+          </div>
+          <div class="image-container-big">
+            <div class="image-container">
+              <ion-img src="assets/gimnasts/inici.jpg" class="product-image"></ion-img>
+            </div>
+          </div>
+          <ion-card-content>
+            <ion-text>
+              <h2>{{ 'header.initiation' | translate }}</h2>
+              <p>{{ initMessage }}</p>
+            </ion-text>
+          </ion-card-content>
+        </ion-card>     
+        <ion-card class="product-card">
+          <div class="circle-marker">
+            <div class="circle-hole"></div>
+          </div>
+          <div class="image-container-big">
+            <div class="image-container">
+              <ion-img src="assets/gimnasts/valira.jpg" class="product-image"></ion-img>
+            </div>
+          </div>
+          <ion-card-content>
+            <ion-text>
+              <h2>{{ 'header.training' | translate }}</h2>
+              <p>{{ trainMessage }}</p>
+            </ion-text>
+          </ion-card-content>
+        </ion-card>     
+        <ion-card class="product-card">
+          <div class="circle-marker">
+            <div class="circle-hole"></div>
+          </div>
+          <div class="image-container-big">
+            <div class="image-container">
+              <ion-img src="assets/gimnasts/trofeus.jpg" class="product-image"></ion-img>
+            </div>
+          </div>
+          <ion-card-content>
+            <ion-text>
+              <h2>{{ 'header.trofeus' | translate }}</h2>
+              <p>{{ trofeusMessage }}</p>
+            </ion-text>
+          </ion-card-content>
+        </ion-card>
+        <ion-card class="product-card">
+          <div class="circle-marker">
+            <div class="circle-hole"></div>
+          </div>
+          <div class="image-container-big">
+            <div class="image-container">
+              <ion-img src="assets/gimnasts/upcoming.jpg" class="product-image"></ion-img>
+            </div>
+          </div>
+          <ion-card-content>
+            <ion-text>
+              <h2>{{ 'header.events' | translate }}</h2>
+              <p>{{ eventMessage }}</p>
+            </ion-text>
+          </ion-card-content>
+        </ion-card>        
+      </div>
     </div>
 </ion-content>

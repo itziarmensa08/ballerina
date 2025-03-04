@@ -12,13 +12,17 @@
     "initiation": "Iniciació",
     "training": "Entrenaments",
     "contact": "Contacte",
-    "admin": "Admin"
+    "admin": "Admin",
+    "trofeus": "Els nostres trofeus",
+    "events": "Pròxims events"
   },
   "menu": {
     "title": "Menú"
   },
   "home": {
-    "message": "Entitat dedicada en cos i ànima a la gimnàstica rítmica. El nostre objectiu és fer feliços gimnastes de totes les edats i nivells i entrenar-los, així com crear una gimnàstica que és més que un esport, és art en moviment!"
+    "message": "Entitat dedicada en cos i ànima a la gimnàstica rítmica. El nostre objectiu és fer feliços gimnastes de totes les edats i nivells i entrenar-los, així com crear una gimnàstica que és més que un esport, és art en moviment!",
+    "prove": "Vine a provar!",
+    "inscribe": "Inscriu-te!"
   },
   "settings": {
     "title": "Gestió de contingut",

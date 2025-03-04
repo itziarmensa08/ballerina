@@ -15,10 +15,14 @@
     "initiation": "Iniciación",
     "training": "Entrenamientos",
     "contact": "Contacto",
-    "admin": "Admin"
+    "admin": "Admin",
+    "trofeus": "Nuestro trofeos",
+    "events": "Próximos eventos"
   },
   "home": {
-    "message": "Entidad dedicada en cuerpo y alma a la gimnasia rítmica. Nuestro objetivo es hacer felices y formar a gimnastas de todas las edades y niveles, así como crear una gimnasia que más que un deporte sea arte en movimiento!"
+    "message": "Entidad dedicada en cuerpo y alma a la gimnasia rítmica. Nuestro objetivo es hacer felices y formar a gimnastas de todas las edades y niveles, así como crear una gimnasia que más que un deporte sea arte en movimiento!",
+    "prove": "¡Ven a probar!",
+    "inscribe": "¡Inscríbete!"
   },
   "settings": {
     "title": "Gestión de contenido",
