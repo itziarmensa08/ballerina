@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Image, ImagesService } from 'src/app/services/images.service';
+import { Image, ImageAdd, ImagesService } from 'src/app/services/images.service';
 
 @Component({
   selector: 'app-images',
@@ -9,13 +9,19 @@ import { Image, ImagesService } from 'src/app/services/images.service';
 })
 export class ImagesPage implements OnInit {
 
+  uploadedImageUrl: string | null = null;
+
   breadcrumbs = [
     { label: 'Admin', navigate: '/admin', icon: 'settings-outline' },
-    { label: 'Images', navigate: '/admin/images', icon: 'create-outline' }
+    { label: 'Images', navigate: '/admin/images', icon: 'images-outline' }
   ];
 
   images: Image[] = [];
   filteredImages: Image[] = [];
+  addingImage: boolean = false;
+  editingImage: boolean = false;
+
+  newImageKey: string = '';
 
   constructor(
     private imagesService: ImagesService
@@ -49,8 +55,19 @@ export class ImagesPage implements OnInit {
     this.filteredImages = this.images.filter(image => image.key.toLowerCase().includes(searchTerm));
   }
 
-  toggleAddImage() {}
+  toggleAddImage() {
+    this.addingImage = !this.addingImage;
+    if (!this.addingImage) {
+      // this.resetForm();
+    }
+  }
+
+  saveImage() {}
 
   toggleEditingImage(image: Image) {}
+
+  async uploadFromFile(event: any) {
+    this.uploadedImageUrl = await this.imagesService.onFileSelected(this.newImageKey, event);
+  }
 
 }

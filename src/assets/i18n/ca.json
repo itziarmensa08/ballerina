@@ -58,7 +58,9 @@
     },
     "images": {
       "title": "Gestionar imatges",
-      "subtitle": "Puja i edita imatges"
+      "subtitle": "Puja i edita imatges",
+      "noData": "Encara no hi ha imatges",
+      "add": "Afegir imatge"
     },
     "general": {
       "title": "Configuració general",

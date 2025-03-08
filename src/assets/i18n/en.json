@@ -33,8 +33,8 @@
       "ca": "Catalan",
       "es": "Spanish",
       "en": "English",
-      "noData": "Aún no hay textos",
-      "add": "Añadir Texto",
+      "noData": "There are no texts yet",
+      "add": "Add Text",
       "addTitle": "New text",
       "addSubtitle": "Enter data of a new text",
       "editTitle": "Edit text",
@@ -58,7 +58,9 @@
     },
     "images": {
       "title": "Manage Images",
-      "subtitle": "Upload and edit images"
+      "subtitle": "Upload and edit images",
+      "noData": "There are no images yet",
+      "add": "Add image"
     },
     "general": {
       "title": "General Settings",

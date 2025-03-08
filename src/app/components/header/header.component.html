@@ -18,7 +18,7 @@
         <ion-button (click)="navigate('/competitions')" [ngClass]="{'active': isActive('/competitions')}">{{ 'header.competitions' | translate }}</ion-button>
         <ion-button (click)="navigate('/competitions')" [ngClass]="{'active': isActive('/initiation')}">{{ 'header.initiation' | translate }}</ion-button>
         <ion-button (click)="navigate('/training')" [ngClass]="{'active': isActive('/training')}">{{ 'header.training' | translate }}</ion-button>
-        <ion-button (click)="navigate('/admin')" [ngClass]="{'active': isActive('/admin')}" *ngIf="isAdmin">{{ 'header.admin' | translate }}</ion-button>
+        <ion-button (click)="navigate('/admin')" [ngClass]="{'active': isActive('/admin')}" *ngIf="isAdmin && isLoggedIn">{{ 'header.admin' | translate }}</ion-button>
       </div>
     </div>
 

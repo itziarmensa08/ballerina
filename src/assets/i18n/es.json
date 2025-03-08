@@ -33,8 +33,8 @@
       "ca": "Catalán",
       "es": "Español",
       "en": "Inglés",
-      "noData": "There are no texts yet",
-      "add": "Add Text",
+      "noData": "Aún no hay textos",
+      "add": "Añadir Texto",
       "addTitle": "Nuevo texto",
       "addSubtitle": "Introduce los datos de un nuevo texto",
       "save": "Guardar",
@@ -59,7 +59,9 @@
     },
     "images": {
       "title": "Gestionar imágenes",
-      "subtitle": "Sube y edita imágenes"
+      "subtitle": "Sube y edita imágenes",
+      "noData": "Aún no hay imágenes",
+      "add": "Añadir imágen"
     },
     "general": {
       "title": "Configuración general",

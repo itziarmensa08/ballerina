@@ -2,8 +2,8 @@
 <ion-content [fullscreen]="true">
   <div class="principal"></div>
   <app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
-  <div>
-    <ion-card>
+  <div [ngClass]="{'cards': addingImage || editingImage}">
+    <ion-card [ngClass]="{'all-width': addingImage || editingImage}">
       <ion-card-header class="ion-card-header-row">
         <div class="header-left">
           <ion-card-title>{{ 'settings.images.title' | translate }}</ion-card-title>
@@ -31,7 +31,7 @@
             <tbody>
               <tr *ngFor="let image of filteredImages" (click)="toggleEditingImage(image)">
                 <td>{{ image.key }}</td>
-                <td>{{ image.images.length }}</td>
+                <td>{{ image.image }}</td>
               </tr>
             </tbody>
           </table>
@@ -42,5 +42,25 @@
         </ng-template>
       </ion-card-content>
     </ion-card>
+
+    <ion-card *ngIf="addingImage" [ngClass]="{'all-width': addingImage}">
+      <ion-card-header>
+        <ion-card-title>{{ 'settings.texts.addTitle' | translate }}</ion-card-title>
+        <ion-card-subtitle>{{ 'settings.texts.addSubtitle' | translate }}</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-input label="{{ 'settings.texts.key' | translate }}" labelPlacement="stacked" [(ngModel)]="newImageKey" placeholder="Ej: home.title" fill="outline"></ion-input>
+        <input type="file" (change)="uploadFromFile($event)" accept="image/*">
+        <img *ngIf="uploadedImageUrl" [src]="uploadedImageUrl" alt="Imagen subida">
+        <div class="justify-center">
+          <ion-button (click)="saveImage()" class="add-text-btn">
+            <ion-icon slot="start" name="save-outline"></ion-icon>
+            {{ 'general.save' | translate }}
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
   </div>
 </ion-content>
