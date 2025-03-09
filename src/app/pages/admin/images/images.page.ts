@@ -9,7 +9,7 @@ import { Image, ImageAdd, ImagesService } from 'src/app/services/images.service'
 })
 export class ImagesPage implements OnInit {
 
-  uploadedImageUrl: string | null = null;
+  uploadedImageUrl: string | ArrayBuffer | null = null;
 
   breadcrumbs = [
     { label: 'Admin', navigate: '/admin', icon: 'settings-outline' },
@@ -22,6 +22,7 @@ export class ImagesPage implements OnInit {
   editingImage: boolean = false;
 
   newImageKey: string = '';
+  newImageImage: File | null = null;
 
   constructor(
     private imagesService: ImagesService
@@ -62,12 +63,49 @@ export class ImagesPage implements OnInit {
     }
   }
 
-  saveImage() {}
+  saveImage() {
+    if (this.newImageImage) {
+      console.log(this.newImageKey);
+      console.log(this.newImageImage);
+      const formData = new FormData();
+      formData.append('key', this.newImageKey);
+      formData.append('image', this.newImageImage);
+      console.log('Contenido de FormData:');
+      formData.forEach((value, key) => {
+        console.log(key, value);
+      });
+      this.imagesService.postImage(formData).subscribe({
+        next: (response) => {
+          console.log(response);
+          /* this.texts.push(response);
+          this.alertService.showAlert('success', 'settings.texts.text_added_title', 'settings.texts.text_added_message');
+          this.toggleAddText(); */
+        },
+        error: (error) => {
+          /* if (error.status === 400) {
+              this.alertService.showAlert('error', 'alerts.duplicate_title', 'alerts.duplicate_message');
+          } else {
+              this.alertService.showAlert('error', 'alerts.error_title', 'settings.texts.error_message');
+              this.toggleAddText();
+          } */
+         console.log(error);
+        }
+    });
+    }
+  }
 
   toggleEditingImage(image: Image) {}
 
-  async uploadFromFile(event: any) {
-    this.uploadedImageUrl = await this.imagesService.onFileSelected(this.newImageKey, event);
+  onFileSelected(event: Event) {
+    const file = (event.target as HTMLInputElement).files?.[0];
+    if (file) {
+      this.newImageImage = file;
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.uploadedImageUrl = reader.result;
+      };
+      reader.readAsDataURL(file);
+    }
   }
 
 }

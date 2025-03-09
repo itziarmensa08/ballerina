@@ -51,7 +51,7 @@
     
       <ion-card-content>
         <ion-input label="{{ 'settings.texts.key' | translate }}" labelPlacement="stacked" [(ngModel)]="newImageKey" placeholder="Ej: home.title" fill="outline"></ion-input>
-        <input type="file" (change)="uploadFromFile($event)" accept="image/*">
+        <input type="file" (change)="onFileSelected($event)" accept="image/*">
         <img *ngIf="uploadedImageUrl" [src]="uploadedImageUrl" alt="Imagen subida">
         <div class="justify-center">
           <ion-button (click)="saveImage()" class="add-text-btn">
