@@ -57,3 +57,8 @@ ion-input, ion-textarea {
     margin-top: 20px; 
     --highlight-color: black;
 }
+
+.custom-file-upload {
+    display: inline-block;
+    cursor: pointer;
+}

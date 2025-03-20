@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AlertConfirmService } from 'src/app/services/alert-confirm.service';
+import { AlertService } from 'src/app/services/alert.service';
 import { Image, ImageAdd, ImagesService } from 'src/app/services/images.service';
 
 @Component({
@@ -23,12 +25,22 @@ export class ImagesPage implements OnInit {
 
   newImageKey: string = '';
   newImageImage: File | null = null;
+  updatingImageId: String = '';
+
+  @ViewChild('fileInput') fileInput!: ElementRef;
+
+  triggerFileInput() {
+    this.fileInput.nativeElement.click();
+  }
 
   constructor(
-    private imagesService: ImagesService
+    private imagesService: ImagesService,
+    private alertService: AlertService,
+    private alertConfirmService: AlertConfirmService
   ) { }
 
   ngOnInit() {
+    this.loadImages();
   }
 
   /**
@@ -59,42 +71,46 @@ export class ImagesPage implements OnInit {
   toggleAddImage() {
     this.addingImage = !this.addingImage;
     if (!this.addingImage) {
-      // this.resetForm();
+      this.resetForm();
+    }
+    if (this.editingImage) {
+      this.resetForm();
+      this.editingImage = !this.editingImage;
     }
   }
 
   saveImage() {
     if (this.newImageImage) {
-      console.log(this.newImageKey);
-      console.log(this.newImageImage);
       const formData = new FormData();
       formData.append('key', this.newImageKey);
       formData.append('image', this.newImageImage);
-      console.log('Contenido de FormData:');
-      formData.forEach((value, key) => {
-        console.log(key, value);
-      });
       this.imagesService.postImage(formData).subscribe({
-        next: (response) => {
-          console.log(response);
-          /* this.texts.push(response);
-          this.alertService.showAlert('success', 'settings.texts.text_added_title', 'settings.texts.text_added_message');
-          this.toggleAddText(); */
+        next: () => {
+          this.loadImages();
+          this.alertService.showAlert('success', 'settings.images.added_title', 'settings.images.added_message');
+          this.toggleAddImage();
         },
         error: (error) => {
-          /* if (error.status === 400) {
-              this.alertService.showAlert('error', 'alerts.duplicate_title', 'alerts.duplicate_message');
+          if (error.status === 400) {
+            this.alertService.showAlert('error', 'alerts.duplicate_title', 'alerts.duplicate_message');
           } else {
-              this.alertService.showAlert('error', 'alerts.error_title', 'settings.texts.error_message');
-              this.toggleAddText();
-          } */
-         console.log(error);
+            this.alertService.showAlert('error', 'alerts.error_title', 'settings.texts.error_message');
+            this.toggleAddImage();
+          }
         }
-    });
+      });
     }
   }
 
-  toggleEditingImage(image: Image) {}
+  toggleEditingImage(image: Image) {
+    this.uploadedImageUrl = image.image;
+    this.updatingImageId = image._id;
+    this.editingImage = true;
+    if (this.addingImage) {
+      this.resetForm();
+      this.addingImage = !this.addingImage;
+    }
+  }
 
   onFileSelected(event: Event) {
     const file = (event.target as HTMLInputElement).files?.[0];
@@ -106,6 +122,53 @@ export class ImagesPage implements OnInit {
       };
       reader.readAsDataURL(file);
     }
+  }
+
+  updateImage() {
+    if (this.newImageImage) {
+      const formData = new FormData();
+      formData.append('image', this.newImageImage);
+      this.imagesService.updateImage(this.updatingImageId, formData).subscribe(updatedImage => {
+        this.loadImages();
+        this.alertService.showAlert('success', 'settings.images.updated', 'settings.images.updatedMessage');
+        this.editingImage = false;
+        this.resetForm();
+      }, () => {
+        this.alertService.showAlert('error', 'alerts.error_title', 'settings.texts.error_update_text');
+        this.editingImage = false;
+        this.resetForm();
+      });
+    }
+  }
+
+  async confirmDelete() {
+    const confirmed = await this.alertConfirmService.showAlert('error', 'general.delete', 'settings.images.delete');
+    if (confirmed) {
+      this.deleteImage();
+    } 
+  }
+
+  deleteImage() {
+    console.log(this.updatingImageId);
+    this.imagesService.deleteImage(this.updatingImageId).subscribe(() => {
+      this.loadImages();
+      this.alertService.showAlert('success', 'settings.images.deleted', 'settings.images.deletedMessage');
+      this.editingImage = false;
+      this.resetForm();
+    }, () => {
+      this.alertService.showAlert('error', 'alerts.error_title', 'settings.images.error_delete_text');
+      this.editingImage = false;
+      this.resetForm();
+    });
+  }
+
+  /**
+   * Reiniciar el formulario de nuevo texto
+   */
+  resetForm() {
+    this.newImageImage = null;
+    this.newImageKey = '';
+    this.uploadedImageUrl = '';
   }
 
 }

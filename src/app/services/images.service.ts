@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 
 export interface Image {
+  _id: string;
   key: string;
   image: string;
 }
@@ -35,6 +36,20 @@ export class ImagesService {
    */
   postImage(form: FormData): Observable<Image> {
     return this.http.post<Image>(this.apiUrl, form);
+  }
+
+  /**
+   * Modifica una imágen
+   */
+  updateImage(id: String, form: FormData): Observable<Image> {
+    return this.http.put<Image>(`${this.apiUrl}/${id}`, form);
+  }
+
+  /**
+   * Elimina una imágen
+   */
+  deleteImage(id: String): Observable<Image> {
+    return this.http.delete<Image>(`${this.apiUrl}/${id}`);
   }
 
 }

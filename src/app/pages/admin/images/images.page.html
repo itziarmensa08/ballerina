@@ -25,7 +25,7 @@
             <thead>
               <tr>
                 <th>{{ 'settings.texts.key' | translate }}</th>
-                <th>{{ 'settings.images.num' | translate }}</th>
+                <th>{{ 'settings.images.link' | translate }}</th>
               </tr>
             </thead>
             <tbody>
@@ -45,18 +45,58 @@
 
     <ion-card *ngIf="addingImage" [ngClass]="{'all-width': addingImage}">
       <ion-card-header>
-        <ion-card-title>{{ 'settings.texts.addTitle' | translate }}</ion-card-title>
-        <ion-card-subtitle>{{ 'settings.texts.addSubtitle' | translate }}</ion-card-subtitle>
+        <ion-card-title>{{ 'settings.images.addTitle' | translate }}</ion-card-title>
+        <ion-card-subtitle>{{ 'settings.images.addSubtitle' | translate }}</ion-card-subtitle>
       </ion-card-header>
     
       <ion-card-content>
         <ion-input label="{{ 'settings.texts.key' | translate }}" labelPlacement="stacked" [(ngModel)]="newImageKey" placeholder="Ej: home.title" fill="outline"></ion-input>
-        <input type="file" (change)="onFileSelected($event)" accept="image/*">
+        <div class="justify-center">
+          <label class="custom-file-upload">
+            <ion-button (click)="triggerFileInput()">
+              <ion-icon slot="start" name="cloud-upload-outline"></ion-icon>
+              {{ 'settings.images.upload_image' | translate }}
+            </ion-button>
+          </label>
+
+          <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden>
+        </div>
         <img *ngIf="uploadedImageUrl" [src]="uploadedImageUrl" alt="Imagen subida">
         <div class="justify-center">
           <ion-button (click)="saveImage()" class="add-text-btn">
             <ion-icon slot="start" name="save-outline"></ion-icon>
             {{ 'general.save' | translate }}
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="editingImage" [ngClass]="{'all-width': editingImage}">
+      <ion-card-header>
+        <ion-card-title>{{ 'settings.images.editTitle' | translate }}</ion-card-title>
+        <ion-card-subtitle>{{ 'settings.images.addSubtitle' | translate }}</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <div class="justify-center">
+          <label class="custom-file-upload">
+            <ion-button (click)="triggerFileInput()">
+              <ion-icon slot="start" name="cloud-upload-outline"></ion-icon>
+              {{ 'settings.images.upload_image' | translate }}
+            </ion-button>
+          </label>
+
+          <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden>
+        </div>
+        <img *ngIf="uploadedImageUrl" [src]="uploadedImageUrl" alt="Imagen subida">
+        <div class="justify-center">
+          <ion-button (click)="updateImage()" class="add-text-btn">
+            <ion-icon slot="start" name="save-outline"></ion-icon>
+            {{ 'general.save' | translate }}
+          </ion-button>
+          <ion-button (click)="confirmDelete()" class="add-text-btn delete">
+            <ion-icon slot="start" name="trash-outline"></ion-icon>
+            {{ 'general.delete' | translate }}
           </ion-button>
         </div>
       </ion-card-content>

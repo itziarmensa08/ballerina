@@ -69,11 +69,20 @@ export class TextsPage implements OnInit {
     if (!this.addingText) {
       this.resetForm();
     }
+
+    if (this.editingText) {
+      this.resetForm();
+      this.editingText = !this.editingText;
+    }
   }
 
   toggleEditingText(text: Text) {
     this.newText = JSON.parse(JSON.stringify(text));
     this.editingText = true;
+    if (this.addingText) {
+      this.resetForm();
+      this.addingText = !this.addingText;
+    }
   }
 
   /**
@@ -86,8 +95,8 @@ export class TextsPage implements OnInit {
     }
 
     this.textService.createText(this.newText).subscribe({
-        next: (response) => {
-          this.texts.push(response);
+        next: () => {
+          this.loadTexts();
           this.alertService.showAlert('success', 'settings.texts.text_added_title', 'settings.texts.text_added_message');
           this.toggleAddText();
         },
@@ -107,13 +116,10 @@ export class TextsPage implements OnInit {
    */
   updateText() {
     this.textService.updateText(this.newText.key, this.newText).subscribe(updatedText => {
-      const index = this.texts.findIndex(text => text.key === this.newText.key);
-      if (index !== -1) {
-        this.texts[index] = updatedText;
-        this.alertService.showAlert('success', 'settings.texts.updated', 'settings.texts.updatedMessage');
-        this.editingText = false;
-        this.resetForm();
-      }
+      this.loadTexts();
+      this.alertService.showAlert('success', 'settings.texts.updated', 'settings.texts.updatedMessage');
+      this.editingText = false;
+      this.resetForm();
     }, () => {
       this.alertService.showAlert('error', 'alerts.error_title', 'settings.texts.error_update_text');
       this.editingText = false;
@@ -126,7 +132,7 @@ export class TextsPage implements OnInit {
    */
   deleteText() {
     this.textService.deleteText(this.newText.key).subscribe(() => {
-      this.texts = this.texts.filter(text => text.key !== this.newText.key);
+      this.loadTexts();
       this.alertService.showAlert('success', 'settings.texts.deleted', 'settings.texts.deletedMessage');
       this.editingText = false;
       this.resetForm();
