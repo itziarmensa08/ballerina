@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path: 'images',
     loadChildren: () => import('./images/images.module').then( m => m.ImagesPageModule)
+  },
+  {
+    path: 'competitions',
+    loadChildren: () => import('./competitions/competitions.module').then( m => m.CompetitionsPageModule)
   }
 ];
 

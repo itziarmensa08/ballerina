@@ -10,7 +10,8 @@
     "admin": "Administrador",
     "texts": "Textos",
     "images": "Imágenes",
-    "users": "Usuarios"
+    "users": "Usuarios",
+    "competitions": "Competiciones"
   },
   "menu": {
     "title": "Menú"
@@ -84,6 +85,37 @@
       "deleted": "Imagen eliminada",
       "deletedMessage": "La imagen se ha eliminado correctamente",
       "error_delete_text": "No se pudo eliminar la imagen"
+    },
+    "competitions": {
+      "title": "Gestionar competiciones",
+      "subtitle": "Visualiza y edita competiciones",
+      "add": "Añadir competición",
+      "noData": "Aún no hay competiciones",
+      "addTitle": "Nueva competició",
+      "addSubtitle": "Introduce los datos de una nueva competición",
+      "titleCompeti": {
+        "ca": "Título catalán",
+        "es": "Título castellano",
+        "en": "Título inglés"
+      },
+      "descriptionCompeti": {
+        "ca": "Descripción catalán",
+        "es": "Descripción castellano",
+        "en": "Descripción inglés"
+      },
+      "upload_images": "Subir imágenes",
+      "editTitle": "Editar competición",
+      "editSubtitle": "Modifica los datos necesarios",
+      "updated": "Competición actualizada",
+      "updatedMessage": "Se ha actualizado correctamente la competición",
+      "error_update": "No se pudo actualizar la competición",
+      "error_message": "No se pudo guardar la competición",
+      "text_added_title": "Competición añadida",
+      "text_added_message": "La competición se ha guardado correctamente",
+      "deleted": "Competición eliminada",
+      "deletedMessage": "La competición se ha eliminado correctamente",
+      "error_delete_text": "No se pudo eliminar la competición",
+      "delete": "Estás seguro/a que quieres eliminar esta competición?"
     },
     "general": {
       "title": "Configuración general",

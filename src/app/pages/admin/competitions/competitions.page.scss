@@ -1,0 +1,102 @@
+.principal {
+    width: 100%;
+    height: 10vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+ion-card {
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin: 40px;
+    margin-top: 0px;
+}
+
+.no-texts {
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+    margin-top: 20px;
+}
+
+.ion-card-header-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+  
+.header-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.cards { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.all-width {
+    width: 100%;
+}
+
+ion-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    display: block;
+}
+  
+ion-input, ion-textarea {
+    width: 100%;
+    margin-top: 20px; 
+    --highlight-color: black;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.add_image {
+    --background: var(--ion-color-primary);
+    --color: black;
+    --box-shadow: 0;
+    font-family: 'Poppins', sans-serif;
+    width: 150px;
+    text-transform: none !important;
+    --border-radius: 15px; 
+    transition: transform 0.3s ease-in-out;
+    --border-color: var(--ion-color-primary);
+    margin-right: 10px;
+  
+    &.second {
+      --background: transparent;
+      color: var(--ion-color-primary);
+    }
+  
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+}
+
+.images-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las imágenes pasen a una nueva línea */
+    gap: 10px; /* Espacio entre imágenes */
+    justify-content: center; /* Centra las imágenes */
+    align-items: center; /* Alineación vertical */
+    margin-top: 10px;
+}
+  
+.images-container img {
+    max-width: 150px; /* Ajusta el tamaño de las imágenes */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+  

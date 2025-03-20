@@ -149,7 +149,6 @@ export class ImagesPage implements OnInit {
   }
 
   deleteImage() {
-    console.log(this.updatingImageId);
     this.imagesService.deleteImage(this.updatingImageId).subscribe(() => {
       this.loadImages();
       this.alertService.showAlert('success', 'settings.images.deleted', 'settings.images.deletedMessage');

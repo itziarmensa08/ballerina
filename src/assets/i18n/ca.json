@@ -10,7 +10,8 @@
     "admin": "Administrador",
     "texts": "Textos",
     "images": "Imatges",
-    "users": "Usuaris"
+    "users": "Usuaris",
+    "competitions": "Competicions"
   },
   "header": {
     "home": "Inici",
@@ -83,6 +84,37 @@
       "deleted": "Imatge eliminada",
       "deletedMessage": "La imatge s'ha eliminat correctament",
       "error_delete_text": "No s'ha pogut eliminar la imatge"
+    },
+    "competitions": {
+      "title": "Gestionar competicions",
+      "subtitle": "Visualitza i edita competicions",
+      "add": "Afegir competició",
+      "noData": "Encara no hi ha competicions",
+      "titleCompeti": {
+        "ca": "Títol català",
+        "es": "Títol castellà",
+        "en": "Títol anglès"
+      },
+      "descriptionCompeti": {
+        "ca": "Descripció català",
+        "es": "Descripció castellà",
+        "en": "Descripció anglès"
+      },
+      "addTitle": "Nova Competició",
+      "addSubtitle": "Introdueix les dades de la nova competició",
+      "upload_images": "Pujar imatges",
+      "editTitle": "Editar competició",
+      "editSubtitle": "Modifica les dades necessàries",
+      "updated": "Competició actualitzada",
+      "updatedMessage": "S'ha actualitzat correctament la competició",
+      "error_update": "No s'ha pogut actualitzar la competició",
+      "error_message": "No s'ha pogut desar la competició",
+      "added_title": "Competició afegida",
+      "added_message": "La competició s'ha desat correctament",
+      "deleted": "Competició eliminada",
+      "deletedMessage": "La competició s'ha eliminat correctament",
+      "error_delete_text": "No s'ha pogut eliminar la competició",
+      "delete": "Estàs segur/a que vols eliminar aquesta competició?"
     },
     "general": {
       "title": "Configuració general",

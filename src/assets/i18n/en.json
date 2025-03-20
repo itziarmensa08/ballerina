@@ -10,7 +10,8 @@
     "admin": "Admin",
     "texts": "Texts",
     "images": "Images",
-    "users": "Users"
+    "users": "Users",
+    "competitions": "Competitions"
   },
   "menu": {
     "title": "Menu"
@@ -83,6 +84,37 @@
       "deleted": "Deleted image",
       "deletedMessage": "The image has been deleted successfully",
       "error_delete_text": "The image could not be deleted"
+    },
+    "competitions": {
+      "title": "Manage competitions",
+      "subtitle": "View and edit competitions",
+      "add": "Add competition",
+      "noData": "There are no competitions yet",
+      "addTitle": "New competition",
+      "addSubtitle": "Enter data of a new competition",
+      "titleCompeti": {
+        "ca": "Title catalan",
+        "es": "Title spanish",
+        "en": "Title english"
+      },
+      "descriptionCompeti": {
+        "ca": "Description catalan",
+        "es": "Description spanish",
+        "en": "Description english"
+      },
+      "upload_images": "Upload images",
+      "editTitle": "Edit competition",
+      "editSubtitle": "Modify the necessary data",
+      "updated": "Updated competition",
+      "updatedMessage": "The competition has been successfully updated",
+      "error_updatet": "The competition could not be updated",
+      "error_message": "The competition could not be saved",
+      "text_added_title": "competition added",
+      "text_added_message": "The competition has been saved successfully",
+      "deleted": "Deleted competition",
+      "deletedMessage": "The competition has been deleted successfully",
+      "error_delete_text": "The competition could not be deleted",
+      "delete": "Are you sure you want to delete this competition?"
     },
     "general": {
       "title": "General Settings",
