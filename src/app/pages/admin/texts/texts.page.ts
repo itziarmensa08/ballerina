@@ -12,8 +12,8 @@ import { Text, TextService } from 'src/app/services/text.service';
 export class TextsPage implements OnInit {
 
   breadcrumbs = [
-    { label: 'Admin', navigate: '/admin', icon: 'settings-outline' },
-    { label: 'Texts', navigate: '/admin/texts', icon: 'create-outline' }
+    { label: 'breadcrumbs.admin', navigate: '/admin', icon: 'settings-outline' },
+    { label: 'breadcrumbs.texts', navigate: '/admin/texts', icon: 'create-outline' }
   ];
 
   texts: Text[] = [];

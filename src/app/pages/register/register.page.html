@@ -1,6 +1,6 @@
 <ion-content class="login-container" [fullscreen]="true">
   <div class="login-wrapper">
-    <div class="login-left"></div>
+    <div class="login-left" [ngStyle]="{'background-image': 'url(' + imageHeader + ')'}"></div>
     
     <div class="login-right">
       <ion-icon name="home-outline" class="home-icon" (click)="navigateHome()"></ion-icon>

@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Chart, registerables } from 'chart.js';
+import { ImagesService } from 'src/app/services/images.service';
 
 Chart.register(...registerables);
 
@@ -13,6 +14,7 @@ Chart.register(...registerables);
 export class AdminPage implements OnInit, AfterViewInit {
 
   lang: string = '';
+  imageHeader: String = '';
 
   @ViewChild('barChartCanvas') barChartCanvas: any;
   barChart: any;
@@ -21,10 +23,17 @@ export class AdminPage implements OnInit, AfterViewInit {
     this.createBarChart();
   }
 
-  constructor(private translate: TranslateService) { }
+  constructor(
+    private translate: TranslateService,
+    private imageService: ImagesService
+  ) { }
 
   ngOnInit() {
     this.lang = this.translate.currentLang || 'es';
+
+    this.imageService.getImageByKey('admin.header').subscribe(response => {
+      this.imageHeader = response;
+    }); 
   }
 
   createBarChart() {

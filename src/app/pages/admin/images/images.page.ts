@@ -14,8 +14,8 @@ export class ImagesPage implements OnInit {
   uploadedImageUrl: string | ArrayBuffer | null = null;
 
   breadcrumbs = [
-    { label: 'Admin', navigate: '/admin', icon: 'settings-outline' },
-    { label: 'Images', navigate: '/admin/images', icon: 'images-outline' }
+    { label: 'breadcrumbs.admin', navigate: '/admin', icon: 'settings-outline' },
+    { label: 'breadcrumbs.images', navigate: '/admin/images', icon: 'images-outline' }
   ];
 
   images: Image[] = [];

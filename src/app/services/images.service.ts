@@ -32,6 +32,13 @@ export class ImagesService {
   }
 
   /**
+   * Obtiene la imagen con la key
+   */
+  getImageByKey(key: String): Observable<String> {
+    return this.http.get<String>(`${this.apiUrl}/key/${key}`);
+  }
+
+  /**
    * Crea una imágen nueva
    */
   postImage(form: FormData): Observable<Image> {

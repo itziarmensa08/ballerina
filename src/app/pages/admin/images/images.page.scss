@@ -1,8 +1,6 @@
 .principal {
     width: 100%;
-    height: 30vh;
-    background-color: gray;
-    background-image: url('/assets/fondo/admin.jpg');
+    height: 10vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -61,4 +59,27 @@ ion-input, ion-textarea {
 .custom-file-upload {
     display: inline-block;
     cursor: pointer;
+}
+
+.add_image {
+    --background: var(--ion-color-primary);
+    --color: black;
+    --box-shadow: 0;
+    font-family: 'Poppins', sans-serif;
+    width: 150px;
+    text-transform: none !important;
+    --border-radius: 15px; 
+    transition: transform 0.3s ease-in-out;
+    --border-color: var(--ion-color-primary);
+    margin-right: 10px;
+  
+    &.second {
+      --background: transparent;
+      color: var(--ion-color-primary);
+    }
+  
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
 }

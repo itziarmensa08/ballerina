@@ -5,6 +5,7 @@ import { AlertController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertService } from 'src/app/services/alert.service';
 import { AuthService, User } from 'src/app/services/auth.service';
+import { ImagesService } from 'src/app/services/images.service';
 
 @Component({
   selector: 'app-login',
@@ -12,15 +13,17 @@ import { AuthService, User } from 'src/app/services/auth.service';
   styleUrls: ['./login.page.scss'],
   standalone: false
 })
-export class LoginPage{
+export class LoginPage implements OnInit{
 
   loginForm: FormGroup;
+  imageHeader: String = '';
 
   constructor(
     private fb: FormBuilder, 
     private router: Router,
     private authService: AuthService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private imageService: ImagesService
   ) {
     this.loginForm = this.fb.group(
       {
@@ -29,6 +32,12 @@ export class LoginPage{
         rememberMe: [false, Validators.required]
       }
     );
+  }
+
+  ngOnInit(): void {
+    this.imageService.getImageByKey('login.register').subscribe(response => {
+      this.imageHeader = response;
+    }); 
   }
 
   login() {

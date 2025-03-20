@@ -1,5 +1,5 @@
 <ion-content>
-    <div class="principal">
+    <div class="principal" [ngStyle]="{'background-image': 'url(' + imageHeader + ')'}">
       <ion-col class="titleDiv">
         <h1 class="title">Club Gimnàstic Ballerina</h1>
         <p class="messageTitle">{{ message }}</p>
@@ -12,7 +12,7 @@
     
     <div class="who">
       <div class="justify-center who-web">
-        <img src="assets/gimnasts/who.jpg" alt="Club Gimnàstic Ballerina" style="max-width: 450px;">
+        <img [src]="imageWho" alt="Who Image" style="max-width: 450px;">
       </div>
       <div class="who-title">
         <h1 class="body">{{ whoTitle }}</h1>
@@ -21,7 +21,7 @@
         </div>  
       </div>
       <div class="justify-center who-mobile">
-        <img src="assets/gimnasts/who.jpg" alt="Club Gimnàstic Ballerina" style="max-width: 450px; padding-right: 40px; padding-left: 40px;">
+        <img [src]="imageWho" alt="Who Image" style="max-width: 450px; padding-right: 40px; padding-left: 40px;">
       </div>
     </div>
 
@@ -30,11 +30,11 @@
     </div>
     
     <div class="who-images">
-      <img src="assets/gimnasts/random1.jpg" alt="Club Gimnàstic Ballerina">
-      <img src="assets/gimnasts/cloe.jpeg" alt="Club Gimnàstic Ballerina">
-      <img src="assets/gimnasts/random3.jpg" alt="Club Gimnàstic Ballerina">
-      <img src="assets/gimnasts/maria.jpeg" alt="Club Gimnàstic Ballerina">
-      <img src="assets/gimnasts/random2.jpg" alt="Club Gimnàstic Ballerina">
+      <img [src]="collage1" alt="Collage 1">
+      <img [src]="collage2" alt="Collage 2">
+      <img [src]="collage3" alt="Collage 3">
+      <img [src]="collage4" alt="Collage 4">
+      <img [src]="collage5" alt="Collage 5">
     </div>
 
     <div class="sections-container">
@@ -46,7 +46,7 @@
           </div>
           <div class="image-container-big">
             <div class="image-container">
-              <ion-img src="assets/gimnasts/itziar.jpg" class="product-image"></ion-img>
+              <ion-img [src]="imageCompetitions" class="product-image"></ion-img>
             </div>
           </div>
           <ion-card-content>
@@ -62,7 +62,7 @@
           </div>
           <div class="image-container-big">
             <div class="image-container">
-              <ion-img src="assets/gimnasts/inici.jpg" class="product-image"></ion-img>
+              <ion-img [src]="imageInitation" class="product-image"></ion-img>
             </div>
           </div>
           <ion-card-content>
@@ -78,7 +78,7 @@
           </div>
           <div class="image-container-big">
             <div class="image-container">
-              <ion-img src="assets/gimnasts/valira.jpg" class="product-image"></ion-img>
+              <ion-img [src]="imageTraining" class="product-image"></ion-img>
             </div>
           </div>
           <ion-card-content>
@@ -94,7 +94,7 @@
           </div>
           <div class="image-container-big">
             <div class="image-container">
-              <ion-img src="assets/gimnasts/trofeus.jpg" class="product-image"></ion-img>
+              <ion-img [src]="imageTrofeus" class="product-image"></ion-img>
             </div>
           </div>
           <ion-card-content>
@@ -110,7 +110,7 @@
           </div>
           <div class="image-container-big">
             <div class="image-container">
-              <ion-img src="assets/gimnasts/upcoming.jpg" class="product-image"></ion-img>
+              <ion-img [src]="imageEvents" class="product-image"></ion-img>
             </div>
           </div>
           <ion-card-content>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { ImagesService } from 'src/app/services/images.service';
 import { TextService } from 'src/app/services/text.service';
 
 @Component({
@@ -19,8 +20,24 @@ export class HomePage {
   trainMessage: string = '';
   trofeusMessage: string = '';
   eventMessage: string = '';
+  imageHeader: String = '';
+  imageWho: String = '';
+  collage1: String = '';
+  collage2: String = '';
+  collage3: String = '';
+  collage4: String = '';
+  collage5: String = '';
+  imageCompetitions: String = '';
+  imageInitation: String = '';
+  imageTraining: String = '';
+  imageTrofeus: String = '';
+  imageEvents: String = '';
 
-  constructor(private textService: TextService, private translate: TranslateService) {}
+  constructor(
+    private textService: TextService, 
+    private translate: TranslateService,
+    private imageService: ImagesService, 
+  ) {}
 
   ngOnInit() {
     const lang = this.translate.currentLang || 'es';
@@ -59,6 +76,54 @@ export class HomePage {
 
     this.textService.getText('events.message', lang).subscribe(response => {
       this.eventMessage = response.value;
+    }); 
+
+    this.imageService.getImageByKey('home.header').subscribe(response => {
+      this.imageHeader = response;
+    }); 
+
+    this.imageService.getImageByKey('who').subscribe(response => {
+      this.imageWho = response;
+    }); 
+
+    this.imageService.getImageByKey('home.collage.1').subscribe(response => {
+      this.collage1 = response;
+    }); 
+
+    this.imageService.getImageByKey('home.collage.2').subscribe(response => {
+      this.collage2 = response;
+    }); 
+
+    this.imageService.getImageByKey('home.collage.3').subscribe(response => {
+      this.collage3 = response;
+    }); 
+
+    this.imageService.getImageByKey('home.collage.4').subscribe(response => {
+      this.collage4 = response;
+    }); 
+
+    this.imageService.getImageByKey('home.collage.5').subscribe(response => {
+      this.collage5 = response;
+    }); 
+
+    this.imageService.getImageByKey('home.competitions').subscribe(response => {
+      this.imageCompetitions = response;
+    });
+    
+    this.imageService.getImageByKey('home.initiation').subscribe(response => {
+      this.imageInitation = response;
+    }); 
+
+    this.imageService.getImageByKey('home.trainings').subscribe(response => {
+      this.imageTraining = response;
+    }); 
+
+    this.imageService.getImageByKey('home.trofeus').subscribe(response => {
+      this.imageTrofeus = response;
+    }); 
+
+    this.imageService.getImageByKey('home.events').subscribe(response => {
+      this.imageEvents = response;
     }); 
   }
 

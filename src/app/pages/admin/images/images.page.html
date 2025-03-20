@@ -53,7 +53,7 @@
         <ion-input label="{{ 'settings.texts.key' | translate }}" labelPlacement="stacked" [(ngModel)]="newImageKey" placeholder="Ej: home.title" fill="outline"></ion-input>
         <div class="justify-center">
           <label class="custom-file-upload">
-            <ion-button (click)="triggerFileInput()">
+            <ion-button (click)="triggerFileInput()" class="add_image">
               <ion-icon slot="start" name="cloud-upload-outline"></ion-icon>
               {{ 'settings.images.upload_image' | translate }}
             </ion-button>
@@ -61,7 +61,9 @@
 
           <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden>
         </div>
-        <img *ngIf="uploadedImageUrl" [src]="uploadedImageUrl" alt="Imagen subida">
+        <div class="justify-center">
+          <img *ngIf="uploadedImageUrl" [src]="uploadedImageUrl" alt="Imagen subida">
+        </div>
         <div class="justify-center">
           <ion-button (click)="saveImage()" class="add-text-btn">
             <ion-icon slot="start" name="save-outline"></ion-icon>
@@ -80,7 +82,7 @@
       <ion-card-content>
         <div class="justify-center">
           <label class="custom-file-upload">
-            <ion-button (click)="triggerFileInput()">
+            <ion-button (click)="triggerFileInput()" class="add_image">
               <ion-icon slot="start" name="cloud-upload-outline"></ion-icon>
               {{ 'settings.images.upload_image' | translate }}
             </ion-button>
@@ -88,7 +90,9 @@
 
           <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden>
         </div>
-        <img *ngIf="uploadedImageUrl" [src]="uploadedImageUrl" alt="Imagen subida">
+        <div class="justify-center">
+          <img *ngIf="uploadedImageUrl" [src]="uploadedImageUrl" alt="Imagen subida">
+        </div>
         <div class="justify-center">
           <ion-button (click)="updateImage()" class="add-text-btn">
             <ion-icon slot="start" name="save-outline"></ion-icon>

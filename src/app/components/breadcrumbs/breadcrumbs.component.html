@@ -2,7 +2,7 @@
   <ng-container *ngFor="let breadcrumb of breadcrumbs">
     <ion-breadcrumb [href]="breadcrumb.navigate">
       <ion-icon *ngIf="breadcrumb.icon" slot="start" [name]="breadcrumb.icon"></ion-icon>
-      {{ breadcrumb.label }}
+      {{ breadcrumb.label | translate }}
       <ion-icon slot="separator" name="chevron-forward-outline"></ion-icon>
     </ion-breadcrumb>
   </ng-container>

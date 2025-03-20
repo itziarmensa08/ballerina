@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertService } from 'src/app/services/alert.service';
 import { AuthService, User } from 'src/app/services/auth.service';
+import { ImagesService } from 'src/app/services/images.service';
 
 @Component({
   selector: 'app-register',
@@ -10,14 +11,17 @@ import { AuthService, User } from 'src/app/services/auth.service';
   styleUrls: ['./register.page.scss'],
   standalone: false
 })
-export class RegisterPage {
+export class RegisterPage implements OnInit {
   registerForm: FormGroup;
+
+  imageHeader: String = '';
 
   constructor(
     private fb: FormBuilder, 
     private router: Router,
     private authService: AuthService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private imageService: ImagesService
   ) {
     this.registerForm = this.fb.group(
       {
@@ -30,6 +34,12 @@ export class RegisterPage {
       },
       { validators: this.passwordMatchValidator }
     );
+  }
+
+  ngOnInit(): void {
+    this.imageService.getImageByKey('login.register').subscribe(response => {
+      this.imageHeader = response;
+    }); 
   }
 
   passwordMatchValidator(formGroup: AbstractControl): ValidationErrors | null {

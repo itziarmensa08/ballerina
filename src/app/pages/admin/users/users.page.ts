@@ -12,8 +12,8 @@ import { User, UserService } from 'src/app/services/user.service';
 export class UsersPage implements OnInit {
 
   breadcrumbs = [
-    { label: 'Admin', navigate: '/admin', icon: 'settings-outline' },
-    { label: 'Users', navigate: '/admin/texts', icon: 'people-outline' }
+    { label: 'breadcrumbs.admin', navigate: '/admin', icon: 'settings-outline' },
+    { label: 'breadcrumbs.users', navigate: '/admin/users', icon: 'people-outline' }
   ];
 
   users: User[] = [];

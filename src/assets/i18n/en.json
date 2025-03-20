@@ -6,6 +6,12 @@
     "confirm": "Confirm",
     "search": "Search"
   },
+  "breadcrumbs": {
+    "admin": "Admin",
+    "texts": "Texts",
+    "images": "Images",
+    "users": "Users"
+  },
   "menu": {
     "title": "Menu"
   },

@@ -1,13 +1,13 @@
 
 <ion-content [fullscreen]="true">
-  <div class="principal"></div>
+  <div class="principal" [ngStyle]="{'background-image': 'url(' + imageHeader + ')'}"></div>
   <div class="admin-content">
     <ion-col size="9">
       <div class="cards-div">
         <ion-card>
           <ion-card-header>
-            <ion-card-title>Card Title</ion-card-title>
-            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+            <ion-card-title>{{ 'settings.users.title' | translate }}</ion-card-title>
+            <ion-card-subtitle>{{ 'settings.users.subtitle' | translate }}</ion-card-subtitle>
           </ion-card-header>
         
           <ion-card-content>

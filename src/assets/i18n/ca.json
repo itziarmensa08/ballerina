@@ -6,6 +6,12 @@
     "confirm": "Confirmar",
     "search": "Buscar"
   },
+  "breadcrumbs": {
+    "admin": "Administrador",
+    "texts": "Textos",
+    "images": "Imatges",
+    "users": "Usuaris"
+  },
   "header": {
     "home": "Inici",
     "competitions": "Competicions",
