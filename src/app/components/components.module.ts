@@ -7,6 +7,7 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { AlertComponent } from './alert/alert.component';
 import { AlertConfirmComponent } from './alert-confirm/alert-confirm.component';
 import { CustomFabComponent } from './custom-fab/custom-fab.component';
+import { CompetitionsModalComponent } from './competitions-modal/competitions-modal.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CustomFabComponent } from './custom-fab/custom-fab.component';
     BreadcrumbsComponent,
     AlertComponent,
     AlertConfirmComponent,
-    CustomFabComponent
+    CustomFabComponent,
+    CompetitionsModalComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { CustomFabComponent } from './custom-fab/custom-fab.component';
     BreadcrumbsComponent,
     AlertComponent,
     AlertConfirmComponent,
-    CustomFabComponent
+    CustomFabComponent,
+    CompetitionsModalComponent
   ]
 })
 export class ComponentsModule {}

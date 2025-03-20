@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ImagesService } from 'src/app/services/images.service';
 import { TextService } from 'src/app/services/text.service';
@@ -37,6 +38,7 @@ export class HomePage {
     private textService: TextService, 
     private translate: TranslateService,
     private imageService: ImagesService, 
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -125,6 +127,10 @@ export class HomePage {
     this.imageService.getImageByKey('home.events').subscribe(response => {
       this.imageEvents = response;
     }); 
+  }
+
+  navigateToCompetition() {
+    this.router.navigate(['/competitions']);
   }
 
 }

@@ -1,0 +1,14 @@
+
+<div class="alert-overlay" (click)="closeAlert()"></div>
+<div class="alert-container">
+  <ion-icon name="close-circle-outline" class="close-icon" (click)="closeAlert()"></ion-icon>
+  <h1>{{ getTitle() }}</h1>
+  <ion-row>
+    <ion-col>
+      <p *ngFor="let paragraph of getDescription()">{{ paragraph }}</p>
+    </ion-col>
+    <ion-col class="image-container">
+      <img *ngFor="let image of competition.images" [src]="image" alt="Competition image">
+    </ion-col>
+  </ion-row>
+</div>

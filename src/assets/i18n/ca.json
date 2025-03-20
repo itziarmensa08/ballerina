@@ -4,7 +4,8 @@
     "delete": "Eliminar",
     "cancel": "Cancel·lar",
     "confirm": "Confirmar",
-    "search": "Buscar"
+    "search": "Buscar",
+    "read_more": "Llegir més ..."
   },
   "breadcrumbs": {
     "admin": "Administrador",
@@ -77,7 +78,7 @@
       "delete": "Estàs segur/a que vols eliminar aquesta imatge?",
       "updated": "Imatge actualitzada",
       "updatedMessage": "S'ha actualitzat correctament la imatge",
-      "error_update_text": "No s'ha pogut actualitzar la imatge",
+      "error_update": "No s'ha pogut actualitzar la imatge",
       "error_message": "No s'ha pogut desar la imatge",
       "added_title": "Imatge afegida",
       "added_message": "La imatge s'ha desat correctament",

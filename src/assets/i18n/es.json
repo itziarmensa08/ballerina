@@ -4,7 +4,8 @@
     "delete": "Eliminar",
     "cancel": "Cancelar",
     "confirm": "Confirmar",
-    "search": "Buscar"
+    "search": "Buscar",
+    "read_more": "Lleer más ..."
   },
   "breadcrumbs": {
     "admin": "Administrador",
@@ -78,7 +79,7 @@
       "delete": "Estás seguro/a que quieres eliminar esta imagen?",
       "updated": "Imagen actualizada",
       "updatedMessage": "Se ha actualizado correctamente la imagen",
-      "error_update_text": "No se pudo actualizar la imagen",
+      "error_update": "No se pudo actualizar la imagen",
       "error_message": "No se pudo guardar la imagen",
       "text_added_title": "Imagen añadida",
       "text_added_message": "La imagen se ha guardado correctamente",

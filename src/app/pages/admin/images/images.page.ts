@@ -134,7 +134,7 @@ export class ImagesPage implements OnInit {
         this.editingImage = false;
         this.resetForm();
       }, () => {
-        this.alertService.showAlert('error', 'alerts.error_title', 'settings.texts.error_update_text');
+        this.alertService.showAlert('error', 'alerts.error_title', 'settings.images.error_update');
         this.editingImage = false;
         this.resetForm();
       });

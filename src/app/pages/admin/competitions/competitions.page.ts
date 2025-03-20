@@ -57,7 +57,7 @@ export class CompetitionsPage implements OnInit {
   }
 
   /**
-   * Cargar todos las imágenes desde la API
+   * Cargar todos las competiciones desde la API
    */
   loadCompetitions() {
     this.competitionsService.getAllCompetitions().subscribe(response => {
