@@ -107,3 +107,15 @@ tr:hover {
 .sc-ion-input-md-h {
     --highlight-color-focused: black;
 }
+
+.no-mobile {
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+.no-web {
+    @media (min-width: 768px) {
+        display: none;
+    }
+}

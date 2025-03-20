@@ -129,8 +129,12 @@ export class HomePage {
     }); 
   }
 
-  navigateToCompetition() {
+  navigateToCompetition () {
     this.router.navigate(['/competitions']);
+  }
+
+  navigateToInitiation () {
+    this.router.navigate(['/initiation']);
   }
 
 }

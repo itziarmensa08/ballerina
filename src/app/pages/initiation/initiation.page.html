@@ -1,0 +1,45 @@
+<ion-content [fullscreen]="true">
+  <div class="principal" [ngStyle]="{'background-image': 'url(' + imageHeader + ')'}"></div>
+  <div class="explanation">
+    <img [src]="image1" alt="Init 1" class="no-mobile">
+    <p> {{ text }} </p>
+    <img [src]="image1" alt="Init 1" class="no-web">
+    <img [src]="image2" alt="Init 1">
+  </div>
+
+  <div class="images">
+    <img [src]="image3" alt="Init 1" class="imgLittle">
+    <img [src]="image4" alt="Init 1" class="imgLittle">
+    <img [src]="image5" alt="Init 1" class="imgLittle">
+    <img [src]="image6" alt="Init 1" class="imgLittle">
+    <img [src]="image7" alt="Init 1" class="imgLittle">
+  </div>
+
+  <div class="sections-container">
+    <h1 style="color: white; padding: 50px;">{{ exhibitionsTitle }}</h1>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="4" *ngFor="let competition of competitions">
+          <ion-card class="competition-card">
+            <div class="image-container">
+              <img [src]="competition.images[0]" class="competition-image"/>
+            </div>
+            <ion-card-content>
+              <h2>{{ getTitle(competition) }}</h2>
+  
+              <p class="truncate-text">
+                {{ getDescription(competition) }}
+              </p>
+  
+              <a fill="clear">
+                {{ 'general.read_more' | translate }}
+              </a>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+</ion-content>

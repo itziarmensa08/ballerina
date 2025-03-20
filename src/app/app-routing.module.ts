@@ -29,6 +29,10 @@ const routes: Routes = [
     path: 'competitions',
     loadChildren: () => import('./pages/competitions/competitions.module').then( m => m.CompetitionsPageModule)
   },
+  {
+    path: 'initiation',
+    loadChildren: () => import('./pages/initiation/initiation.module').then( m => m.InitiationPageModule)
+  },
 ];
 
 @NgModule({
