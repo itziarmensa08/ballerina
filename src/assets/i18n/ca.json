@@ -117,6 +117,10 @@
       "error_delete_text": "No s'ha pogut eliminar la competició",
       "delete": "Estàs segur/a que vols eliminar aquesta competició?"
     },
+    "exhibitions": {
+      "title": "Exhibicions d'iniciació",
+      "subtitle": "Visualitza i edita exhibicions"
+    },
     "general": {
       "title": "Configuració general",
       "subtitle": "Modifica la configuració de la plataforma"

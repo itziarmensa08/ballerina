@@ -16,11 +16,13 @@ export class InitiationPage implements OnInit {
   image1: String = '';
   image2: String = '';
   text: String = '';
+  titleHeader: String = '';
   image3: String = '';
   image4: String = '';
   image5: String = '';
   image6: String = '';
   image7: String = '';
+  image8: String = '';
   exhibitionsTitle: String = '';
 
   competitions: Competition[] = [];
@@ -41,6 +43,10 @@ export class InitiationPage implements OnInit {
 
     this.textService.getText('initiation.text', lang).subscribe(response => {
       this.text = response.value;
+    });
+
+    this.textService.getText('initiation.header.title', lang).subscribe(response => {
+      this.titleHeader = response.value;
     });
 
     this.imageService.getImageByKey('initation.header').subscribe(response => {
@@ -73,6 +79,10 @@ export class InitiationPage implements OnInit {
     
     this.imageService.getImageByKey('initiation.7').subscribe(response => {
       this.image7 = response;
+    });
+
+    this.imageService.getImageByKey('initiation.8').subscribe(response => {
+      this.image8 = response;
     });
 
     this.textService.getText('initiation.exhibit.title', lang).subscribe(response => {

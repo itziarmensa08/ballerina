@@ -23,6 +23,10 @@ const routes: Routes = [
   {
     path: 'competitions',
     loadChildren: () => import('./competitions/competitions.module').then( m => m.CompetitionsPageModule)
+  },
+  {
+    path: 'exhibitions',
+    loadChildren: () => import('./exhibitions/exhibitions.module').then( m => m.ExhibitionsPageModule)
   }
 ];
 
