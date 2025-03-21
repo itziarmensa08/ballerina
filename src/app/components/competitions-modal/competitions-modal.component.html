@@ -1,14 +1,41 @@
-
 <div class="alert-overlay" (click)="closeAlert()"></div>
 <div class="alert-container">
   <ion-icon name="close-circle-outline" class="close-icon" (click)="closeAlert()"></ion-icon>
   <h1>{{ getTitle() }}</h1>
+
   <ion-row>
     <ion-col>
       <p *ngFor="let paragraph of getDescription()">{{ paragraph }}</p>
     </ion-col>
-    <ion-col class="image-container">
-      <img *ngFor="let image of competition.images" [src]="image" alt="Competition image">
-    </ion-col>
+
+    @if (competition && type === 'competition') {
+      <ion-col class="image-container">
+        <img *ngFor="let image of competition.images | slice:0:4" [src]="image" alt="Competition image">
+      </ion-col>
+    }
+
+    @if (exhibition && type === 'exhibition') {
+      <ion-col class="image-container">
+        <img *ngFor="let image of exhibition.images | slice:0:4" [src]="image" alt="Exhibition image">
+      </ion-col>
+    }
   </ion-row>
+
+  @if (competition && type === 'competition' && competition.images.length > 4) {
+    <ion-col class="image-container">
+      <img *ngFor="let image of competition.images | slice:4" [src]="image" alt="Competition image">
+    </ion-col>
+  }
+
+  @if (exhibition && type === 'exhibition' && exhibition.images.length > 4) {
+    <ion-col class="image-container">
+      <img *ngFor="let image of exhibition.images | slice:4" [src]="image" alt="Exhibition image">
+    </ion-col>
+  }
+
+  @if (exhibition && type === 'exhibition' && exhibition.videos.length > 0) {
+    <ion-col class="video-container">
+      <video *ngFor="let video of exhibition.videos" [src]="video" controls width="100%"></video>
+    </ion-col>
+  }
 </div>

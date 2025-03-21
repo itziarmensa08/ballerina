@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Competition, CompetitionsService } from 'src/app/services/competitions.service';
+import { Exhibition, ExhibitionsService } from 'src/app/services/exhibitions.service';
 import { ImagesService } from 'src/app/services/images.service';
+import { ModalCompetitionService } from 'src/app/services/modal-competition.service';
 import { TextService } from 'src/app/services/text.service';
 
 @Component({
@@ -25,7 +26,7 @@ export class InitiationPage implements OnInit {
   image8: String = '';
   exhibitionsTitle: String = '';
 
-  competitions: Competition[] = [];
+  exhibitions: Exhibition[] = [];
 
   currentLang: string = 'ca';
 
@@ -33,7 +34,8 @@ export class InitiationPage implements OnInit {
     private imageService: ImagesService,
     private textService: TextService,
     private translate: TranslateService,
-    private competitionsService: CompetitionsService
+    private exhibitionsService: ExhibitionsService,
+    private competitionModalService: ModalCompetitionService
   ) { }
 
   ngOnInit() {
@@ -89,19 +91,19 @@ export class InitiationPage implements OnInit {
       this.exhibitionsTitle = response.value;
     });
 
-    this.loadCompetitions();
+    this.loadExhibitions();
   }
 
   /**
    * Cargar todos las competiciones desde la API
    */
-  loadCompetitions() {
-    this.competitionsService.getAllCompetitions().subscribe(response => {
-      this.competitions = response;
+  loadExhibitions() {
+    this.exhibitionsService.getAllExhibitions().subscribe(response => {
+      this.exhibitions = response;
     });
   }
 
-  getTitle (competition: Competition) {
+  getTitle (competition: Exhibition) {
     if (this.currentLang == 'ca') {
       return competition.title.ca;
     } else if (this.currentLang == 'es') {
@@ -111,7 +113,7 @@ export class InitiationPage implements OnInit {
     }
   }
 
-  getDescription (competition: Competition) {
+  getDescription (competition: Exhibition) {
     if (this.currentLang == 'ca') {
       return competition.description.ca;
     } else if (this.currentLang == 'es') {
@@ -119,6 +121,10 @@ export class InitiationPage implements OnInit {
     } else {
       return competition.description.en;
     }
+  }
+
+  async openCompetitionModal(exhibition: Exhibition) {
+    await this.competitionModalService.showAlert('exhibition', this.currentLang, undefined, exhibition);
   }
 
 }

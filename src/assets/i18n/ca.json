@@ -12,7 +12,8 @@
     "texts": "Textos",
     "images": "Imatges",
     "users": "Usuaris",
-    "competitions": "Competicions"
+    "competitions": "Competicions",
+    "exhibitions": "Exhibicions d'iniciació"
   },
   "header": {
     "home": "Inici",
@@ -119,7 +120,25 @@
     },
     "exhibitions": {
       "title": "Exhibicions d'iniciació",
-      "subtitle": "Visualitza i edita exhibicions"
+      "subtitle": "Visualitza i edita exhibicions",
+      "add": "Afegir exhibició",
+      "noData": "Encara no hi ha exhibicions",
+      "upload_videos": "Pujar videos",
+      "addTitle": "Nova exhibició",
+      "addSubtitle": "Introdueix les dades de la nova exhibició",
+      "upload_images": "Pujar imatges",
+      "editTitle": "Editar exhibició",
+      "editSubtitle": "Modifica les dades necessàries",
+      "updated": "Exhibició actualitzada",
+      "updatedMessage": "S'ha actualitzat correctament l'exhibició",
+      "error_update": "No s'ha pogut actualitzar l'exhibició",
+      "error_message": "No s'ha pogut desar l'exhibició",
+      "added_title": "Exhibició afegida",
+      "added_message": "L'exhibició s'ha desat correctament",
+      "deleted": "Exhibició eliminada",
+      "deletedMessage": "L'exhibició s'ha eliminat correctament",
+      "error_delete_text": "No s'ha pogut eliminar l'exhibició",
+      "delete": "Estàs segur/a que vols eliminar aquesta exhibició?"
     },
     "general": {
       "title": "Configuració general",

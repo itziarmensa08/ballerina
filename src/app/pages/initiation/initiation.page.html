@@ -22,19 +22,19 @@
 
     <ion-grid>
       <ion-row>
-        <ion-col size="12" size-md="4" *ngFor="let competition of competitions">
+        <ion-col size="12" size-md="4" *ngFor="let exhibition of exhibitions">
           <ion-card class="competition-card">
             <div class="image-container">
-              <img [src]="competition.images[0]" class="competition-image"/>
+              <img [src]="exhibition.images[0]" class="competition-image"/>
             </div>
             <ion-card-content>
-              <h2>{{ getTitle(competition) }}</h2>
+              <h2>{{ getTitle(exhibition) }}</h2>
   
               <p class="truncate-text">
-                {{ getDescription(competition) }}
+                {{ getDescription(exhibition) }}
               </p>
   
-              <a fill="clear">
+              <a fill="clear" (click)="openCompetitionModal(exhibition)">
                 {{ 'general.read_more' | translate }}
               </a>
             </ion-card-content>

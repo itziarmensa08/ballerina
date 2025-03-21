@@ -2,6 +2,7 @@ import { ApplicationRef, ComponentFactoryResolver, ComponentRef, Injectable, Inj
 import { CompetitionsModalComponent } from '../components/competitions-modal/competitions-modal.component';
 import { TranslateService } from '@ngx-translate/core';
 import { Competition } from './competitions.service';
+import { Exhibition } from './exhibitions.service';
 
 @Injectable({
   providedIn: 'root'
@@ -24,20 +25,22 @@ export class ModalCompetitionService {
    * @param messageKey - Clave de traducción para el mensaje
    * @returns Promise<boolean> - `true` si el usuario confirma, `false` si cancela
    */
-  showAlert(competition: Competition, currentLanguage: string): Promise<boolean> {
+  showAlert(type: String, currentLanguage: string, competition?: Competition, exhibition?: Exhibition): Promise<boolean> {
     return new Promise<boolean>((resolve) => {
-      this.createAlert(competition, currentLanguage, resolve);
+      this.createAlert(type, currentLanguage, competition, exhibition, resolve);
     });
   }
 
-  private createAlert(competition: Competition, currentLanguage: string, resolve: (value: boolean) => void) {
+  private createAlert(type: String, currentLanguage: string, competition: Competition | undefined, exhibition: Exhibition | undefined, resolve: (value: boolean) => void) {
     this.closeAlert();
 
     const factory = this.componentFactoryResolver.resolveComponentFactory(CompetitionsModalComponent);
     this.alertComponentRef = factory.create(this.injector);
 
+    this.alertComponentRef.instance.type = type;
     this.alertComponentRef.instance.competition = competition;
     this.alertComponentRef.instance.currentLang = currentLanguage;
+    this.alertComponentRef.instance.exhibition = exhibition;
 
     this.alertComponentRef.instance.close.subscribe(() => {
       resolve(false);

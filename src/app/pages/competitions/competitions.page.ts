@@ -63,15 +63,7 @@ export class CompetitionsPage implements OnInit {
   }
 
   async openCompetitionModal(competition: Competition) {
-    const confirmed = await this.competitionModalService.showAlert(competition, this.currentLang);
-    /* const modal = await this.modalController.create({
-      component: CompetitionsModalComponent,
-      componentProps: {
-        competition: competition,
-        currentLang: this.currentLang
-      }
-    });
-    return await modal.present(); */
+    await this.competitionModalService.showAlert('competition', this.currentLang, competition, undefined);
   }
 
 }

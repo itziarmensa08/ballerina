@@ -13,7 +13,7 @@ export class CompetitionsPage implements OnInit {
 
   breadcrumbs = [
     { label: 'breadcrumbs.admin', navigate: '/admin', icon: 'settings-outline' },
-    { label: 'breadcrumbs.competitions', navigate: '/admin/images', icon: 'trophy-outline' }
+    { label: 'breadcrumbs.competitions', navigate: '/admin/competitions', icon: 'trophy-outline' }
   ];
 
   addingCompetition: boolean = false;
@@ -163,7 +163,7 @@ export class CompetitionsPage implements OnInit {
           if (error.status === 400) {
             this.alertService.showAlert('error', 'alerts.duplicate_title', 'alerts.duplicate_message');
           } else {
-            this.alertService.showAlert('error', 'alerts.error_title', 'settings.texts.error_message');
+            this.alertService.showAlert('error', 'alerts.error_title', 'settings.competitions.error_message');
             this.toggleAddCompetition();
           }
         }
@@ -186,7 +186,7 @@ export class CompetitionsPage implements OnInit {
         this.editingCompetition = false;
       },
       error: (error) => {
-        this.alertService.showAlert('error', 'alerts.error_title', 'settings.texts.error_message');
+        this.alertService.showAlert('error', 'alerts.error_title', 'settings.competitions.error_message');
         this.editingCompetition = false;
       }
     });
