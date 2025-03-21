@@ -38,7 +38,7 @@ export class HomePage {
     private textService: TextService, 
     private translate: TranslateService,
     private imageService: ImagesService, 
-    private router: Router
+    public router: Router
   ) {}
 
   ngOnInit() {
