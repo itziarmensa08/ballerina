@@ -137,4 +137,8 @@ export class HomePage {
     this.router.navigate(['/initiation']);
   }
 
+  navigateToTrainings () {
+    this.router.navigate(['/trainings']);
+  }
+
 }
