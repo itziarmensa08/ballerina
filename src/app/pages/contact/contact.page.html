@@ -4,31 +4,31 @@
   <div class="justify-center">
     <ion-card>
       <ion-card-content>
-        <ion-row>
+        <ion-row class="content">
           <ion-col class="contact-info">
-            <h3 class="text-lg font-semibold">Contact Information</h3>
-            <p class="text-sm mt-2">We’ll create high-quality linkable content and build at least 40 high-authority links.</p>
-            <div class="mt-4 space-y-2">
-              <p>📞 +8801777817688</p>
-              <p>📞 +98857836386</p>
-              <p>📧 hola</p>
-              <p>📍 New York, USA</p>
-            </div>
+            <h1>Contact Information</h1>
+            <p>We’ll create high-quality linkable content and build at least 40 high-authority links.</p>
+            <ion-row class="caracters">
+              <ion-icon name="call-outline"></ion-icon>
+              <p>+34 618 47 53 82</p>
+            </ion-row>
+            <ion-row class="caracters">
+              <ion-icon name="mail-outline"></ion-icon>
+              <p>vngballerina&#64;gmail.com</p>
+            </ion-row>
+            <ion-row class="caracters">
+              <ion-icon name="location-outline"></ion-icon>
+              <p>Carrer de l'Àncora, 31, 08800 Vilanova i la Geltrú, Barcelona</p>
+            </ion-row>
           </ion-col>
-          <ion-col>
-            <ion-item>
-              <ion-input label="Your Name" labelPlacement="floating" placeholder="Enter your name"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-input label="Your Email" labelPlacement="floating" placeholder="Enter your email" type="email"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-input label="Your Subject" labelPlacement="floating" placeholder="Enter subject"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-textarea label="Message" labelPlacement="floating" placeholder="Write your message"></ion-textarea>
-            </ion-item>
-            <ion-button expand="full" class="mt-4 bg-teal-500 text-white">Send Message</ion-button>      
+          <ion-col class="contact">
+            <div class="personal-data">
+              <ion-input label="Your Name" labelPlacement="stacked" placeholder="Enter your name" fill="outline"></ion-input>
+              <ion-input label="Your Email" labelPlacement="stacked" placeholder="Enter your email" type="email" fill="outline"></ion-input>
+            </div>
+            <ion-input label="Your Subject" labelPlacement="stacked" placeholder="Enter subject" fill="outline"></ion-input>
+            <ion-textarea label="Message" labelPlacement="stacked" placeholder="Write your message" fill="outline" rows="5" style="--highlight-color-focused: black;"></ion-textarea>
+            <ion-button>Send Message</ion-button>      
           </ion-col>
         </ion-row>
       </ion-card-content>

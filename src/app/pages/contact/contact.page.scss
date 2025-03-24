@@ -9,7 +9,7 @@
 
 ion-card {
     position: fixed;
-    top: 30vh;
+    top: 25vh;
     width: 80%;
     height: 60%;
     box-sizing: border-box;
@@ -18,8 +18,60 @@ ion-card {
     padding: 10px;
 }
 
+ion-card-content {
+    height: 100%;
+}
+
+.content {
+    height: 100%;
+}
+
 .contact-info {
-    background-color: rgb(221, 238, 241);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--ion-color-primary);
     border-radius: 15px;
     padding: 15px;
+    gap: 10px;
+    width: 30%;
+}
+
+.caracters {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.personal-data {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+}
+
+ion-button {
+    --background: var(--ion-color-primary);
+    --color: black;
+    --box-shadow: 0;
+    font-family: 'Poppins', sans-serif;
+    width: 150px;
+    text-transform: none !important;
+    --border-radius: 15px; 
+    transition: transform 0.3s ease-in-out;
+    --border-color: var(--ion-color-primary);
+    margin-top: 20px;
+  
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
 }

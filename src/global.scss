@@ -119,3 +119,9 @@ tr:hover {
         display: none;
     }
 }
+
+ion-input, ion-textarea {
+    width: 100%;
+    margin-top: 20px; 
+    --highlight-color: black;
+}
