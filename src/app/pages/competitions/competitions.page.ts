@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
-import { CompetitionsModalComponent } from 'src/app/components/competitions-modal/competitions-modal.component';
-import { Competition, CompetitionsService } from 'src/app/services/competitions.service';
+import { CategoriesService, Category } from 'src/app/services/categories.service';
 import { ImagesService } from 'src/app/services/images.service';
 import { ModalCompetitionService } from 'src/app/services/modal-competition.service';
 
@@ -15,12 +13,12 @@ import { ModalCompetitionService } from 'src/app/services/modal-competition.serv
 export class CompetitionsPage implements OnInit {
 
   imageHeader: String = '';
-  competitions: Competition[] = [];
+  competitions: Category[] = [];
   currentLang: string = 'ca';
 
   constructor(
     private imageService: ImagesService,
-    private competitionsService: CompetitionsService,
+    private categoriesService: CategoriesService,
     private translateService: TranslateService,
     private competitionModalService: ModalCompetitionService
   ) { }
@@ -37,12 +35,12 @@ export class CompetitionsPage implements OnInit {
    * Cargar todos las competiciones desde la API
    */
   loadCompetitions() {
-    this.competitionsService.getAllCompetitions().subscribe(response => {
+    this.categoriesService.getCategoriesByType('competition').subscribe(response => {
       this.competitions = response;
     });
   }
 
-  getTitle (competition: Competition) {
+  getTitle (competition: Category) {
     if (this.currentLang == 'ca') {
       return competition.title.ca;
     } else if (this.currentLang == 'es') {
@@ -52,7 +50,7 @@ export class CompetitionsPage implements OnInit {
     }
   }
 
-  getDescription (competition: Competition) {
+  getDescription (competition: Category) {
     if (this.currentLang == 'ca') {
       return competition.description.ca;
     } else if (this.currentLang == 'es') {
@@ -62,7 +60,7 @@ export class CompetitionsPage implements OnInit {
     }
   }
 
-  async openCompetitionModal(competition: Competition) {
+  async openCompetitionModal(competition: Category) {
     await this.competitionModalService.showAlert('competition', this.currentLang, competition, undefined);
   }
 

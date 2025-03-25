@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AlertConfirmService } from 'src/app/services/alert-confirm.service';
 import { AlertService } from 'src/app/services/alert.service';
-import { Competition, CompetitionsService } from 'src/app/services/competitions.service';
+import { CategoriesService, Category } from 'src/app/services/categories.service';
 
 @Component({
   selector: 'app-competitions',
@@ -19,11 +19,12 @@ export class CompetitionsPage implements OnInit {
   addingCompetition: boolean = false;
   editingCompetition: boolean = false;
 
-  competitions: Competition[] = [];
-  filteredCompetitions: Competition[] = [];
+  competitions: Category[] = [];
+  filteredCompetitions: Category[] = [];
 
-  newCompetition: Competition = {
+  newCompetition: Category = {
     _id: '',
+    type: 'competition',
     title: {
       ca: '',
       es: '',
@@ -47,7 +48,7 @@ export class CompetitionsPage implements OnInit {
   }
 
   constructor(
-    private competitionsService: CompetitionsService,
+    private categoriesService: CategoriesService,
     private alertService: AlertService,
     private alertConfirmService: AlertConfirmService
   ) { }
@@ -60,7 +61,7 @@ export class CompetitionsPage implements OnInit {
    * Cargar todos las competiciones desde la API
    */
   loadCompetitions() {
-    this.competitionsService.getAllCompetitions().subscribe(response => {
+    this.categoriesService.getCategoriesByType('competition').subscribe(response => {
       this.competitions = response;
       this.filteredCompetitions = response;
     });
@@ -80,6 +81,7 @@ export class CompetitionsPage implements OnInit {
   resetForm() {
     this.newCompetition = {
       _id: '',
+      type: 'competition',
       title: {
         ca: '',
         es: '',
@@ -115,7 +117,7 @@ export class CompetitionsPage implements OnInit {
     ));
   }
 
-  toggleEditingCompetition(competition: Competition) {
+  toggleEditingCompetition(competition: Category) {
     if (this.addingCompetition) {
       this.resetForm();
       this.addingCompetition = !this.addingCompetition;
@@ -149,11 +151,11 @@ export class CompetitionsPage implements OnInit {
   saveCompetition () {
     if (this.uploadedImagesFiles.length > 0) {
       const formData = new FormData();
-      formData.append('competition', JSON.stringify(this.newCompetition));
+      formData.append('category', JSON.stringify(this.newCompetition));
       this.uploadedImagesFiles.forEach((file, index) => {
-        formData.append(`images`, file);
+        formData.append(`files`, file);
       });
-      this.competitionsService.postCompetition(formData).subscribe({
+      this.categoriesService.postCategory(formData).subscribe({
         next: () => {
           this.loadCompetitions();
           this.alertService.showAlert('success', 'settings.competitions.added_title', 'settings.competitions.added_message');
@@ -175,11 +177,11 @@ export class CompetitionsPage implements OnInit {
 
   updateCompetition () {
     const formData = new FormData();
-    formData.append('competition', JSON.stringify(this.newCompetition));
+    formData.append('category', JSON.stringify(this.newCompetition));
     this.uploadedImagesFiles.forEach((file, index) => {
-      formData.append(`images`, file);
+      formData.append(`files`, file);
     });
-    this.competitionsService.updateCompetition(this.newCompetition._id, formData).subscribe({
+    this.categoriesService.updateCategory(this.newCompetition._id, formData).subscribe({
       next: () => {
         this.loadCompetitions();
         this.alertService.showAlert('success', 'settings.competitions.updated', 'settings.competitions.updatedMessage');
@@ -200,7 +202,7 @@ export class CompetitionsPage implements OnInit {
   }
 
   deleteCompetitions() {
-    this.competitionsService.deleteCompetition(this.newCompetition._id).subscribe(() => {
+    this.categoriesService.deleteCategory(this.newCompetition._id).subscribe(() => {
       this.loadCompetitions();
       this.alertService.showAlert('success', 'settings.competitions.deleted', 'settings.competitions.deletedMessage');
       this.editingCompetition = false;
