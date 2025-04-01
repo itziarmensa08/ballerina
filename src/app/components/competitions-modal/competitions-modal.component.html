@@ -19,6 +19,12 @@
         <img *ngFor="let image of exhibition.images | slice:0:4" [src]="image" alt="Exhibition image">
       </ion-col>
     }
+
+    @if (training_type && type === 'training_type') {
+      <ion-col class="image-container">
+        <img *ngFor="let image of training_type.images | slice:0:4" [src]="image" alt="TrainingType image">
+      </ion-col>
+    }
   </ion-row>
 
   @if (competition && type === 'competition' && competition.images.length > 4) {
@@ -30,6 +36,12 @@
   @if (exhibition && type === 'exhibition' && exhibition.images.length > 4) {
     <ion-col class="image-container">
       <img *ngFor="let image of exhibition.images | slice:4" [src]="image" alt="Exhibition image">
+    </ion-col>
+  }
+
+  @if (training_type && type === 'training_type' && training_type.images.length > 4) {
+    <ion-col class="image-container">
+      <img *ngFor="let image of training_type.images | slice:4" [src]="image" alt="TrainingType image">
     </ion-col>
   }
 

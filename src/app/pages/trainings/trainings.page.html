@@ -21,7 +21,31 @@
     <img [src]="image12" alt="Init 12">
   </div>
 
-  <!-- <div class="sections-container">
+  <div class="sections-container">
     <h1 style="color: white; padding: 50px;">{{ typeTrainings }}</h1>
-  </div> -->
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="4" *ngFor="let training_type of trainingTypes">
+          <ion-card class="competition-card">
+            <div class="image-container">
+              <img [src]="training_type.images[0]" class="competition-image"/>
+            </div>
+            <ion-card-content>
+              <h2>{{ getTitle(training_type) }}</h2>
+  
+              <p class="truncate-text">
+                {{ getDescription(training_type) }}
+              </p>
+  
+              <a fill="clear" (click)="openTriningTypeModal(training_type)">
+                {{ 'general.read_more' | translate }}
+              </a>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
 </ion-content>

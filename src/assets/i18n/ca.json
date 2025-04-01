@@ -13,7 +13,8 @@
     "images": "Imatges",
     "users": "Usuaris",
     "competitions": "Competicions",
-    "exhibitions": "Exhibicions d'iniciació"
+    "exhibitions": "Exhibicions d'iniciació",
+    "trainings_type": "Àrees d'entrenament"
   },
   "header": {
     "home": "Inici",
@@ -139,6 +140,28 @@
       "deletedMessage": "L'exhibició s'ha eliminat correctament",
       "error_delete_text": "No s'ha pogut eliminar l'exhibició",
       "delete": "Estàs segur/a que vols eliminar aquesta exhibició?"
+    },
+    "trainings_type": {
+      "title": "Àrees d'entrenament",
+      "subtitle": "Visualitza i edita les àrees d'entrenament",
+      "add": "Afegir àrea d'entrenament",
+      "noData": "Encara no hi ha àrees d'entrenament",
+      "upload_videos": "Pujar vídeos",
+      "addTitle": "Nova àrea d'entrenament",
+      "addSubtitle": "Introdueix les dades de la nova àrea d'entrenament",
+      "upload_images": "Pujar imatges",
+      "editTitle": "Editar àrea d'entrenament",
+      "editSubtitle": "Modifica les dades necessàries",
+      "updated": "Àrea d'entrenament actualitzada",
+      "updatedMessage": "S'ha actualitzat correctament l'àrea d'entrenament",
+      "error_update": "No s'ha pogut actualitzar l'àrea d'entrenament",
+      "error_message": "No s'ha pogut desar l'àrea d'entrenament",
+      "added_title": "Àrea d'entrenament afegida",
+      "added_message": "L'àrea d'entrenament s'ha desat correctament",
+      "deleted": "Àrea d'entrenament eliminada",
+      "deletedMessage": "L'àrea d'entrenament s'ha eliminat correctament",
+      "error_delete_text": "No s'ha pogut eliminar l'àrea d'entrenament",
+      "delete": "Estàs segur/a que vols eliminar aquesta àrea d'entrenament?"
     },
     "general": {
       "title": "Configuració general",

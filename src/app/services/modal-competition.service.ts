@@ -24,13 +24,13 @@ export class ModalCompetitionService {
    * @param messageKey - Clave de traducción para el mensaje
    * @returns Promise<boolean> - `true` si el usuario confirma, `false` si cancela
    */
-  showAlert(type: String, currentLanguage: string, competition?: Category, exhibition?: Category): Promise<boolean> {
+  showAlert(type: String, currentLanguage: string, competition?: Category, exhibition?: Category, training_type?: Category): Promise<boolean> {
     return new Promise<boolean>((resolve) => {
-      this.createAlert(type, currentLanguage, competition, exhibition, resolve);
+      this.createAlert(type, currentLanguage, competition, exhibition, training_type, resolve);
     });
   }
 
-  private createAlert(type: String, currentLanguage: string, competition: Category | undefined, exhibition: Category | undefined, resolve: (value: boolean) => void) {
+  private createAlert(type: String, currentLanguage: string, competition: Category | undefined, exhibition: Category | undefined, training_type: Category | undefined, resolve: (value: boolean) => void) {
     this.closeAlert();
 
     const factory = this.componentFactoryResolver.resolveComponentFactory(CompetitionsModalComponent);
@@ -40,6 +40,7 @@ export class ModalCompetitionService {
     this.alertComponentRef.instance.competition = competition;
     this.alertComponentRef.instance.currentLang = currentLanguage;
     this.alertComponentRef.instance.exhibition = exhibition;
+    this.alertComponentRef.instance.training_type = training_type;
 
     this.alertComponentRef.instance.close.subscribe(() => {
       resolve(false);

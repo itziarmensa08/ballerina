@@ -141,6 +141,28 @@
       "error_delete_text": "No se pudo eliminar la exhibición",
       "delete": "Estás seguro/a que quieres eliminar esta exhibición?"
     },
+    "trainings_type": {
+      "title": "Áreas de entrenamiento",
+      "subtitle": "Visualiza y edita las áreas de entrenamiento",
+      "add": "Añadir área de entrenamiento",
+      "noData": "Aún no hay áreas de entrenamiento",
+      "upload_videos": "Subir vídeos",
+      "addTitle": "Nueva área de entrenamiento",
+      "addSubtitle": "Introduce los datos del área de entrenamiento",
+      "upload_images": "Subir imágenes",
+      "editTitle": "Editar área de entrenamiento",
+      "editSubtitle": "Modifica los datos necesarios",
+      "updated": "Área de entrenamiento actualizada",
+      "updatedMessage": "El área de entrenamiento se ha actualizado correctamente",
+      "error_update": "No se ha podido actualizar el área de entrenamiento",
+      "error_message": "No se ha podido guardar el área de entrenamiento",
+      "added_title": "Área de entrenamiento añadida",
+      "added_message": "El área de entrenamiento se ha guardado correctamente",
+      "deleted": "Área de entrenamiento eliminada",
+      "deletedMessage": "El área de entrenamiento se ha eliminado correctamente",
+      "error_delete_text": "No se ha podido eliminar el área de entrenamiento",
+      "delete": "¿Estás seguro/a de que quieres eliminar esta área de entrenamiento?"
+    },
     "general": {
       "title": "Configuración general",
       "subtitle": "Modifica la configuración de la plataforma"

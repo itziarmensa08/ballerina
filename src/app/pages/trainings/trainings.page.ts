@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { CategoriesService, Category } from 'src/app/services/categories.service';
 import { ImagesService } from 'src/app/services/images.service';
+import { ModalCompetitionService } from 'src/app/services/modal-competition.service';
 import { TextService } from 'src/app/services/text.service';
 
 @Component({
@@ -29,10 +31,14 @@ export class TrainingsPage implements OnInit {
   image12: String = '';
   typeTrainings: String = '';
 
+  trainingTypes: Category[] = [];
+
   constructor(
     private imageService: ImagesService,
     private textService: TextService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private categoriesService: CategoriesService,
+    private competitionModalService: ModalCompetitionService
   ) { }
 
   ngOnInit() {
@@ -103,6 +109,41 @@ export class TrainingsPage implements OnInit {
     this.textService.getText('trainings.types.title', lang).subscribe(response => {
       this.typeTrainings = response.value;
     });
+
+    this.loadTrainingTypes();
+  }
+
+  /**
+   * Cargar todos las àreas de entrenamiento desde la API
+   */
+  loadTrainingTypes() {
+    this.categoriesService.getCategoriesByType('training_type').subscribe(response => {
+      this.trainingTypes = response;
+    });
+  }
+
+  getTitle (training_type: Category) {
+    if (this.currentLang == 'ca') {
+      return training_type.title.ca;
+    } else if (this.currentLang == 'es') {
+      return training_type.title.es;
+    } else {
+      return training_type.title.en;
+    }
+  }
+
+  getDescription (training_type: Category) {
+    if (this.currentLang == 'ca') {
+      return training_type.description.ca;
+    } else if (this.currentLang == 'es') {
+      return training_type.description.es;
+    } else {
+      return training_type.description.en;
+    }
+  }
+
+  async openTriningTypeModal(training_type: Category) {
+    await this.competitionModalService.showAlert('training_type', this.currentLang, undefined, undefined, training_type);
   }
 
 }

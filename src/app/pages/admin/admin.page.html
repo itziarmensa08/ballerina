@@ -4,7 +4,7 @@
   <div class="admin-content">
     <ion-col size="9">
       <div class="cards-div">
-        <ion-card>
+        <ion-card [routerLink]="'/admin/users'">
           <ion-card-header>
             <ion-card-title>{{ 'settings.users.title' | translate }}</ion-card-title>
             <ion-card-subtitle>{{ 'settings.users.subtitle' | translate }}</ion-card-subtitle>
@@ -98,6 +98,17 @@
                 <ion-label>
                   <h2>{{ 'settings.exhibitions.title' | translate }}</h2>
                   <p>{{ 'settings.exhibitions.subtitle' | translate }}</p>
+                </ion-label>
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+              </ion-item>
+
+              <ion-item [routerLink]="'/admin/trainings-type'" lines="none">
+                <ion-thumbnail class="icon-container" slot="start">
+                  <ion-icon name="barbell-outline"></ion-icon>
+                </ion-thumbnail>
+                <ion-label>
+                  <h2>{{ 'settings.trainings_type.title' | translate }}</h2>
+                  <p>{{ 'settings.trainings_type.subtitle' | translate }}</p>
                 </ion-label>
                 <ion-icon name="chevron-forward-outline"></ion-icon>
               </ion-item>

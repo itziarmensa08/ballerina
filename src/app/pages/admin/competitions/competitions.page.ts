@@ -162,12 +162,8 @@ export class CompetitionsPage implements OnInit {
           this.toggleAddCompetition();
         },
         error: (error) => {
-          if (error.status === 400) {
-            this.alertService.showAlert('error', 'alerts.duplicate_title', 'alerts.duplicate_message');
-          } else {
-            this.alertService.showAlert('error', 'alerts.error_title', 'settings.competitions.error_message');
-            this.toggleAddCompetition();
-          }
+          this.alertService.showAlert('error', 'alerts.error_title', 'settings.competitions.error_message');
+          this.toggleAddCompetition();
         }
       });
     } else {

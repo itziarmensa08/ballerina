@@ -1,0 +1,128 @@
+<ion-content [fullscreen]="true">
+  <div class="principal"></div>
+  <app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
+  <div [ngClass]="{'cards': addingTrainingType || editingTrainingType}">
+    <ion-card [ngClass]="{'all-width': addingTrainingType || editingTrainingType}">
+
+      <ion-card-header class="ion-card-header-row">
+        <div class="header-left">
+          <ion-card-title>{{ 'settings.trainings_type.title' | translate }}</ion-card-title>
+          <ion-card-subtitle>{{ 'settings.trainings_type.subtitle' | translate }}</ion-card-subtitle>
+        </div>
+        <ion-button (click)="toggleAddTrainingType()" class="add-text-btn">
+          <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+          {{ 'settings.trainings_type.add' | translate }}
+        </ion-button>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-searchbar 
+          (ionInput)="filterTrainingTypes($event)" 
+          [placeholder]="'general.search' | translate">
+        </ion-searchbar>
+        <div class="table-container" *ngIf="filteredTrainingTypes.length > 0; else noData">
+          <table>
+            <thead>
+              <tr>
+                <th>{{ 'settings.competitions.titleCompeti.ca' | translate }}</th>
+                <th>{{ 'settings.competitions.titleCompeti.es' | translate }}</th>
+                <th>{{ 'settings.competitions.titleCompeti.en' | translate }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let training_type of filteredTrainingTypes" (click)="toggleEditingTrainingType(training_type)">
+                <td>{{ training_type.title.ca }}</td>
+                <td>{{ training_type.title.es }}</td>
+                <td>{{ training_type.title.en }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <ng-template #noData>
+          <p class="no-texts">{{ 'settings.trainings_type.noData' | translate }}</p>
+        </ng-template>
+      </ion-card-content>
+
+    </ion-card>
+
+    <ion-card *ngIf="addingTrainingType" [ngClass]="{'all-width': addingTrainingType}">
+      <ion-card-header>
+        <ion-card-title>{{ 'settings.trainings_type.addTitle' | translate }}</ion-card-title>
+        <ion-card-subtitle>{{ 'settings.trainings_type.addSubtitle' | translate }}</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-input label="{{ 'settings.competitions.titleCompeti.ca' | translate }}" labelPlacement="stacked" [(ngModel)]="newTrainingType.title.ca" placeholder="Ej: Ballet" fill="outline"></ion-input>
+        <ion-input label="{{ 'settings.competitions.titleCompeti.es' | translate }}" labelPlacement="stacked" [(ngModel)]="newTrainingType.title.es" placeholder="Ej: Ballet" fill="outline"></ion-input>
+        <ion-input label="{{ 'settings.competitions.titleCompeti.en' | translate }}" labelPlacement="stacked" [(ngModel)]="newTrainingType.title.en" placeholder="Ej: Ballet" fill="outline"></ion-input>
+        <ion-textarea label="{{ 'settings.competitions.descriptionCompeti.ca' | translate }}" labelPlacement="stacked" [(ngModel)]="newTrainingType.description.ca" placeholder="Ej: Descripció" auto-grow="true" fill="outline"></ion-textarea>
+        <ion-textarea label="{{ 'settings.competitions.descriptionCompeti.es' | translate }}" labelPlacement="stacked" [(ngModel)]="newTrainingType.description.es" placeholder="Ej: Descripción" auto-grow="true" fill="outline"></ion-textarea>
+        <ion-textarea label="{{ 'settings.competitions.descriptionCompeti.en' | translate }}" labelPlacement="stacked" [(ngModel)]="newTrainingType.description.en" placeholder="Ej: Description" auto-grow="true" fill="outline"></ion-textarea>
+        <div class="justify-center">
+          <label class="custom-file-upload">
+            <ion-button (click)="triggerFileInput()" class="add_image">
+              <ion-icon slot="start" name="cloud-upload-outline"></ion-icon>
+              {{ 'settings.competitions.upload_images' | translate }}
+            </ion-button>
+          </label>
+        
+          <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" multiple hidden>
+        </div>
+        
+        <div class="justify-center images-container">
+          <img *ngFor="let image of uploadedImages" [src]="image" alt="Imagen subida">
+        </div>
+        
+        <div class="justify-center">
+          <ion-button (click)="saveTrainingType()" class="add-text-btn">
+            <ion-icon slot="start" name="save-outline"></ion-icon>
+            {{ 'general.save' | translate }}
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="editingTrainingType" [ngClass]="{'all-width': editingTrainingType}">
+      <ion-card-header>
+        <ion-card-title>{{ 'settings.training_type.editTitle' | translate }}</ion-card-title>
+        <ion-card-subtitle>{{ 'settings.training_type.editSubtitle' | translate }}</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-input label="{{ 'settings.competitions.titleCompeti.ca' | translate }}" labelPlacement="stacked" [(ngModel)]="newTrainingType.title.ca" placeholder="Ej: VII Trofeu de Carnaval" fill="outline"></ion-input>
+        <ion-input label="{{ 'settings.competitions.titleCompeti.es' | translate }}" labelPlacement="stacked" [(ngModel)]="newTrainingType.title.es" placeholder="Ej: VII Trofeo de Carnaval" fill="outline"></ion-input>
+        <ion-input label="{{ 'settings.competitions.titleCompeti.en' | translate }}" labelPlacement="stacked" [(ngModel)]="newTrainingType.title.en" placeholder="Ej: VII Carnival Trophy" fill="outline"></ion-input>
+        <ion-textarea label="{{ 'settings.competitions.descriptionCompeti.ca' | translate }}" labelPlacement="stacked" [(ngModel)]="newTrainingType.description.ca" placeholder="Ej: Descripció" auto-grow="true" fill="outline"></ion-textarea>
+        <ion-textarea label="{{ 'settings.competitions.descriptionCompeti.es' | translate }}" labelPlacement="stacked" [(ngModel)]="newTrainingType.description.es" placeholder="Ej: Descripción" auto-grow="true" fill="outline"></ion-textarea>
+        <ion-textarea label="{{ 'settings.competitions.descriptionCompeti.en' | translate }}" labelPlacement="stacked" [(ngModel)]="newTrainingType.description.en" placeholder="Ej: Description" auto-grow="true" fill="outline"></ion-textarea>
+        <div class="justify-center">
+          <label class="custom-file-upload">
+            <ion-button (click)="triggerFileInput()" class="add_image">
+              <ion-icon slot="start" name="cloud-upload-outline"></ion-icon>
+              {{ 'settings.competitions.upload_images' | translate }}
+            </ion-button>
+          </label>
+        
+          <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" multiple hidden>
+        </div>
+        
+        <div class="justify-center images-container">
+          <img *ngFor="let image of uploadedImages" [src]="image" alt="Imagen subida">
+        </div>
+        
+        <div class="justify-center">
+          <ion-button (click)="updateTrainingType()" class="add-text-btn">
+            <ion-icon slot="start" name="save-outline"></ion-icon>
+            {{ 'general.save' | translate }}
+          </ion-button>
+          <ion-button (click)="confirmDelete()" class="add-text-btn delete">
+            <ion-icon slot="start" name="trash-outline"></ion-icon>
+            {{ 'general.delete' | translate }}
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+</ion-content>

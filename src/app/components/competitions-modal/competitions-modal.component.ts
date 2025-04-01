@@ -11,6 +11,7 @@ export class CompetitionsModalComponent {
 
   @Input() competition: Category | undefined;
   @Input() exhibition: Category | undefined;
+  @Input() training_type: Category | undefined;
   @Input() type!: String;
   @Input() currentLang!: string;
   @Output() close = new EventEmitter<void>();
@@ -52,6 +53,15 @@ export class CompetitionsModalComponent {
         return this.exhibition.title.en;
       }
     }
+    if (this.training_type) {
+      if (this.currentLang == 'ca') {
+        return this.training_type.title.ca;
+      } else if (this.currentLang == 'es') {
+        return this.training_type.title.es;
+      } else {
+        return this.training_type.title.en;
+      }
+    }
     return '';
   }
 
@@ -72,6 +82,15 @@ export class CompetitionsModalComponent {
         return this.exhibition.description.es.split('\n\n');
       } else {
         return this.exhibition.description.en.split('\n\n');
+      }
+    }
+    if (this.training_type) {
+      if (this.currentLang == 'ca') {
+        return this.training_type.description.ca.split('\n\n');
+      } else if (this.currentLang == 'es') {
+        return this.training_type.description.es.split('\n\n');
+      } else {
+        return this.training_type.description.en.split('\n\n');
       }
     }
     return [];

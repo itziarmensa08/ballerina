@@ -140,6 +140,28 @@
       "error_delete_text": "The exhibitions could not be deleted",
       "delete": "Are you sure you want to delete this exhibitions?"
     },
+    "trainings_type": {
+      "title": "Training areas",
+      "subtitle": "View and edit training areas",
+      "add": "Add training area",
+      "noData": "There are no training areas yet",
+      "upload_videos": "Upload videos",
+      "addTitle": "New training area",
+      "addSubtitle": "Enter the data for the new training area",
+      "upload_images": "Upload images",
+      "editTitle": "Edit training area",
+      "editSubtitle": "Modify the necessary data",
+      "updated": "Training area updated",
+      "updatedMessage": "The training area was updated successfully",
+      "error_update": "Could not update the training area",
+      "error_message": "Could not save the training area",
+      "added_title": "Training area added",
+      "added_message": "The training area was saved successfully",
+      "deleted": "Training area deleted",
+      "deletedMessage": "The training area was deleted successfully",
+      "error_delete_text": "Could not delete the training area",
+      "delete": "Are you sure you want to delete this training area?"
+    },
     "general": {
       "title": "General Settings",
       "subtitle": "Modify platform settings"
