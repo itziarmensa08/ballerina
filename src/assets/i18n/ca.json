@@ -221,5 +221,12 @@
     "send": "Enviar missatge",
     "sent": "Missatge enviat",
     "sent_message": "El missatge s'ha enviat correctament, rebràs una resposta en breu."
+  },
+  "form_registration": {
+    "gimnast_data": "Dades de la gimnasta",
+    "name": "Nom",
+    "enter_name": "Introdueix el nom",
+    "surnames": "Cognoms",
+    "enter_surnames": "Introdueix els cognoms"
   }
 }

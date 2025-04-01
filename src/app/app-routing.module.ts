@@ -41,6 +41,10 @@ const routes: Routes = [
     path: 'contact',
     loadChildren: () => import('./pages/contact/contact.module').then( m => m.ContactPageModule)
   },
+  {
+    path: 'form-registration',
+    loadChildren: () => import('./pages/form-registration/form-registration.module').then( m => m.FormRegistrationPageModule)
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,68 @@
+<ion-content [fullscreen]="true">
+  <div class="principal" [ngStyle]="{'background-image': 'url(' + imageHeader + ')'}"></div>
+
+  <div class="justify-center">
+    <ion-card>
+      <ion-card-content>
+        <div class="form-container">
+      
+          <div class="stepper">
+            <div *ngFor="let step of steps; let i = index" 
+                 [class.active]="i === currentStep" 
+                 [class.completed]="i < currentStep" 
+                 class="step">
+              <div class="circle">
+                <ng-container *ngIf="i < currentStep; else stepNumber">
+                  <ion-icon name="checkmark" size="small"></ion-icon>
+                </ng-container>
+                <ng-template #stepNumber>{{ i + 1 }}</ng-template>
+              </div>
+              <div class="label">{{ step | translate }}</div>
+            </div>
+          </div>
+      
+          <div class="form-card">
+            <ng-container [ngSwitch]="currentStep">
+              <form *ngSwitchCase="0" [formGroup]="personalForm">
+                <h1>{{ 'form_registration.gimnast_data' | translate }}</h1>
+                <div class="input-rows">
+                  <ion-input label="{{ 'form_registration.name' | translate }}" labelPlacement="stacked" formControlName="name" placeholder="{{ 'form_registration.enter_name' | translate }}" fill="outline"></ion-input>
+                  <ion-input label="{{ 'form_registration.surnames' | translate }}" labelPlacement="stacked" formControlName="surnames" placeholder="{{ 'form_registration.enter_surnames' | translate }}" fill="outline"></ion-input>
+                </div>
+                <div class="input-rows">
+                  <mat-form-field appearance="outline" style="width: 50%; margin-top: 10px;">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                  <ion-input label="{{ 'form_registration.surnames' | translate }}" labelPlacement="stacked" formControlName="surnames" placeholder="{{ 'form_registration.enter_surnames' | translate }}" fill="outline" style="width: 50%; margin-top: 10px;"></ion-input>
+                </div>
+                <div style="display: flex; justify-content: end;">
+                  <ion-button expand="block" (click)="nextStep()">Next</ion-button>
+                </div>
+              </form>
+      
+              <form *ngSwitchCase="1" [formGroup]="addressForm">
+                <h1>Address Details</h1>
+                <ion-item>
+                  <ion-label position="floating">Street Address</ion-label>
+                  <ion-input formControlName="street" type="text"></ion-input>
+                </ion-item>
+  
+                <ion-item>
+                  <ion-label position="floating">City</ion-label>
+                  <ion-input formControlName="city" type="text"></ion-input>
+                </ion-item>
+  
+                <ion-button expand="block" (click)="prevStep()">Back</ion-button>
+                <ion-button expand="block" (click)="nextStep()" [disabled]="!addressForm.valid">Next</ion-button>
+              </form>      
+            </ng-container>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
