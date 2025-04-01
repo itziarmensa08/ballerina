@@ -1,8 +1,7 @@
 import { ApplicationRef, ComponentFactoryResolver, ComponentRef, Injectable, Injector } from '@angular/core';
 import { CompetitionsModalComponent } from '../components/competitions-modal/competitions-modal.component';
 import { TranslateService } from '@ngx-translate/core';
-import { Competition } from './competitions.service';
-import { Exhibition } from './exhibitions.service';
+import { Category } from './categories.service';
 
 @Injectable({
   providedIn: 'root'
@@ -25,13 +24,13 @@ export class ModalCompetitionService {
    * @param messageKey - Clave de traducción para el mensaje
    * @returns Promise<boolean> - `true` si el usuario confirma, `false` si cancela
    */
-  showAlert(type: String, currentLanguage: string, competition?: Competition, exhibition?: Exhibition): Promise<boolean> {
+  showAlert(type: String, currentLanguage: string, competition?: Category, exhibition?: Category): Promise<boolean> {
     return new Promise<boolean>((resolve) => {
       this.createAlert(type, currentLanguage, competition, exhibition, resolve);
     });
   }
 
-  private createAlert(type: String, currentLanguage: string, competition: Competition | undefined, exhibition: Exhibition | undefined, resolve: (value: boolean) => void) {
+  private createAlert(type: String, currentLanguage: string, competition: Category | undefined, exhibition: Category | undefined, resolve: (value: boolean) => void) {
     this.closeAlert();
 
     const factory = this.componentFactoryResolver.resolveComponentFactory(CompetitionsModalComponent);

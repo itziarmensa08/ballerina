@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Competition } from 'src/app/services/competitions.service';
-import { Exhibition } from 'src/app/services/exhibitions.service';
+import { Category } from 'src/app/services/categories.service';
 
 @Component({
   selector: 'app-competitions-modal',
@@ -10,8 +9,8 @@ import { Exhibition } from 'src/app/services/exhibitions.service';
 })
 export class CompetitionsModalComponent {
 
-  @Input() competition: Competition | undefined;
-  @Input() exhibition: Exhibition | undefined;
+  @Input() competition: Category | undefined;
+  @Input() exhibition: Category | undefined;
   @Input() type!: String;
   @Input() currentLang!: string;
   @Output() close = new EventEmitter<void>();

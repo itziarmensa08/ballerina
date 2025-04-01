@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AlertConfirmService } from 'src/app/services/alert-confirm.service';
 import { AlertService } from 'src/app/services/alert.service';
-import { Exhibition, ExhibitionsService } from 'src/app/services/exhibitions.service';
+import { CategoriesService, Category } from 'src/app/services/categories.service';
 
 @Component({
   selector: 'app-exhibitions',
@@ -19,11 +19,12 @@ export class ExhibitionsPage implements OnInit {
   addingExhibition: boolean = false;
   editingExhibition: boolean = false;
 
-  exhibitions: Exhibition[] = [];
-  filteredExhibitions: Exhibition[] = [];
+  exhibitions: Category[] = [];
+  filteredExhibitions: Category[] = [];
 
-  newExhibition: Exhibition = {
+  newExhibition: Category = {
     _id: '',
+    type: 'exhibition',
     title: {
       ca: '',
       es: '',
@@ -48,7 +49,7 @@ export class ExhibitionsPage implements OnInit {
   @ViewChild('videoInput') videoInput!: ElementRef<HTMLInputElement>;
 
   constructor(
-    private exhibitionsService: ExhibitionsService,
+    private categoriesService: CategoriesService,
     private alertService: AlertService,
     private alertConfirmService: AlertConfirmService
   ) { }
@@ -61,7 +62,7 @@ export class ExhibitionsPage implements OnInit {
    * Cargar todos las competiciones desde la API
    */
   loadExhibitions() {
-    this.exhibitionsService.getAllExhibitions().subscribe(response => {
+    this.categoriesService.getCategoriesByType('exhibition').subscribe(response => {
       this.exhibitions = response;
       this.filteredExhibitions = response;
     });
@@ -81,6 +82,7 @@ export class ExhibitionsPage implements OnInit {
   resetForm () {
     this.newExhibition = {
       _id: '',
+      type: 'exhibition',
       title: {
         ca: '',
         es: '',
@@ -115,14 +117,14 @@ export class ExhibitionsPage implements OnInit {
     ));
   }
 
-  toggleEditingExhibition(exhibition: Exhibition) {
+  toggleEditingExhibition(exhibition: Category) {
     if (this.addingExhibition) {
       this.resetForm();
       this.addingExhibition = !this.addingExhibition;
     }
     this.newExhibition = JSON.parse(JSON.stringify(exhibition));
     this.uploadedImages = exhibition.images;
-    this.uploadedVideos = exhibition.videos;
+    this.uploadedVideos = exhibition.videos ?? [];
     this.editingExhibition = true;
   }
 
@@ -179,14 +181,14 @@ export class ExhibitionsPage implements OnInit {
   saveExhibition () {
     if (this.uploadedImagesFiles.length > 0) {
       const formData = new FormData();
-      formData.append('exhibition', JSON.stringify(this.newExhibition));
+      formData.append('category', JSON.stringify(this.newExhibition));
       this.uploadedImagesFiles.forEach((file, index) => {
         formData.append(`files`, file);
       });
       this.uploadedVideosFiles.forEach((file, index) => {
         formData.append(`files`, file);
       });
-      this.exhibitionsService.postExhibition(formData).subscribe({
+      this.categoriesService.postCategory(formData).subscribe({
         next: () => {
           this.loadExhibitions();
           this.alertService.showAlert('success', 'settings.exhibitions.added_title', 'settings.exhibitions.added_message');
@@ -204,14 +206,14 @@ export class ExhibitionsPage implements OnInit {
 
   updateExhibition () {
     const formData = new FormData();
-    formData.append('exhibition', JSON.stringify(this.newExhibition));
+    formData.append('category', JSON.stringify(this.newExhibition));
     this.uploadedImagesFiles.forEach((file, index) => {
       formData.append(`files`, file);
     });
     this.uploadedVideosFiles.forEach((file, index) => {
       formData.append(`files`, file);
     });
-    this.exhibitionsService.updateExhibition(this.newExhibition._id, formData).subscribe({
+    this.categoriesService.updateCategory(this.newExhibition._id, formData).subscribe({
       next: () => {
         this.loadExhibitions();
         this.alertService.showAlert('success', 'settings.exhibitions.updated', 'settings.exhibitions.updatedMessage');
@@ -232,7 +234,7 @@ export class ExhibitionsPage implements OnInit {
   }
 
   deleteExhibition() {
-    this.exhibitionsService.deleteExhibition(this.newExhibition._id).subscribe(() => {
+    this.categoriesService.deleteCategory(this.newExhibition._id).subscribe(() => {
       this.loadExhibitions();
       this.alertService.showAlert('success', 'settings.exhibitions.deleted', 'settings.exhibitions.deletedMessage');
       this.editingExhibition = false;

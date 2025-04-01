@@ -182,5 +182,21 @@
     "notUserMessage": "No s'ha trobat cap usuari amb aquest nom d'usuari o correu electrònic.",
     "incorrectPassword": "Contrasenya incorrecte",
     "incorrectPasswordMessage": "Si no recordes la contrasenya, clica el botó per recuperar-la."
+  },
+  "contact": {
+    "title": "Informació de contacte",
+    "description": "Contacta amb nosaltres i t’ajudarem encantades amb qualsevol pregunta sobre les classes, competicions o inscripcions.\nTambé ens pots trucar o enviar-nos un correu, et respondrem tan aviat com puguem.",
+    "address": "Carrer de l'Àncora, 31, 08800 Vilanova i la Geltrú, Barcelona",
+    "name": "Nom",
+    "enter_name": "Introdueix el teu nom",
+    "email": "Email",
+    "enter_email": "Introdueix el teu email",
+    "subject": "Assumpte",
+    "enter_subject": "Introdueix el assumpte",
+    "message": "Missatge",
+    "enter_message": "Introdueix el teu missatge",
+    "send": "Enviar missatge",
+    "sent": "Missatge enviat",
+    "sent_message": "El missatge s'ha enviat correctament, rebràs una resposta en breu."
   }
 }

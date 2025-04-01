@@ -33,7 +33,7 @@
     </ion-col>
   }
 
-  @if (exhibition && type === 'exhibition' && exhibition.videos.length > 0) {
+  @if (exhibition && type === 'exhibition' && exhibition.videos != undefined && exhibition.videos.length > 0) {
     <ion-col class="video-container">
       <video *ngFor="let video of exhibition.videos" [src]="video" controls width="100%"></video>
     </ion-col>

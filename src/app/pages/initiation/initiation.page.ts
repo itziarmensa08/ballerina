@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Exhibition, ExhibitionsService } from 'src/app/services/exhibitions.service';
+import { CategoriesService, Category } from 'src/app/services/categories.service';
 import { ImagesService } from 'src/app/services/images.service';
 import { ModalCompetitionService } from 'src/app/services/modal-competition.service';
 import { TextService } from 'src/app/services/text.service';
@@ -26,7 +26,7 @@ export class InitiationPage implements OnInit {
   image8: String = '';
   exhibitionsTitle: String = '';
 
-  exhibitions: Exhibition[] = [];
+  exhibitions: Category[] = [];
 
   currentLang: string = 'ca';
 
@@ -34,7 +34,7 @@ export class InitiationPage implements OnInit {
     private imageService: ImagesService,
     private textService: TextService,
     private translate: TranslateService,
-    private exhibitionsService: ExhibitionsService,
+    private categoriesService: CategoriesService,
     private competitionModalService: ModalCompetitionService
   ) { }
 
@@ -98,12 +98,12 @@ export class InitiationPage implements OnInit {
    * Cargar todos las competiciones desde la API
    */
   loadExhibitions() {
-    this.exhibitionsService.getAllExhibitions().subscribe(response => {
+    this.categoriesService.getCategoriesByType('exhibition').subscribe(response => {
       this.exhibitions = response;
     });
   }
 
-  getTitle (competition: Exhibition) {
+  getTitle (competition: Category) {
     if (this.currentLang == 'ca') {
       return competition.title.ca;
     } else if (this.currentLang == 'es') {
@@ -113,7 +113,7 @@ export class InitiationPage implements OnInit {
     }
   }
 
-  getDescription (competition: Exhibition) {
+  getDescription (competition: Category) {
     if (this.currentLang == 'ca') {
       return competition.description.ca;
     } else if (this.currentLang == 'es') {
@@ -123,7 +123,7 @@ export class InitiationPage implements OnInit {
     }
   }
 
-  async openCompetitionModal(exhibition: Exhibition) {
+  async openCompetitionModal(exhibition: Category) {
     await this.competitionModalService.showAlert('exhibition', this.currentLang, undefined, exhibition);
   }
 
