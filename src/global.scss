@@ -126,3 +126,13 @@ ion-input, ion-textarea {
     margin-top: 20px; 
     --highlight-color: black;
 }
+
+mat-label {
+    color: #ABABAB;
+}
+
+.item.sc-ion-label-md-h, .item .sc-ion-label-md-h {
+    --color: gray;
+    display: block;
+    color: var(--color);
+}

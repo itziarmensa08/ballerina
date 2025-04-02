@@ -227,6 +227,24 @@
     "name": "Nom",
     "enter_name": "Introdueix el nom",
     "surnames": "Cognoms",
-    "enter_surnames": "Introdueix els cognoms"
+    "enter_surnames": "Introdueix els cognoms",
+    "date_born": "Data de naixement",
+    "dni": "DNI",
+    "enter_dni": "Introdueix el DNI",
+    "cat_salut": "Cat Salut",
+    "enter_cat_salut": "Introdueix el número de Cat Salut",
+    "location": "Adreça",
+    "enter_location": "Introdueix l'adreça",
+    "has_illness": "Té alguna malaltia, operació, lesió, alergia, etc? Quina?",
+    "level": "Nivell",
+    "select_schedule": "En cas d'Escola Base indica horari",
+    "escola_base": "Escola base (no competició)",
+    "competicio_escolar": "Competició escolar",
+    "competicio_federat": "Competició federat",
+    "schedule1": "Dilluns de 17:30-18:30",
+    "schedule2": "Dimarts de 17:30-18:30",
+    "schedule3": "Dijous de 17:30-18:30",
+    "schedule4": "Dijous de 17:30-19:30",
+    "next": "Següent"
   }
 }

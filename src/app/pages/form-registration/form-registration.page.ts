@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IonDatetime } from '@ionic/angular';
 import { ImagesService } from 'src/app/services/images.service';
 
@@ -19,6 +19,13 @@ export class FormRegistrationPage implements OnInit {
 
   imageHeader: String = '';
 
+  horarisLabels = [
+    'form_registration.schedule1',
+    'form_registration.schedule2',
+    'form_registration.schedule3',
+    'form_registration.schedule4'
+  ];
+
   constructor(
     private fb: FormBuilder,
     private imageService: ImagesService
@@ -35,10 +42,10 @@ export class FormRegistrationPage implements OnInit {
       dateBorn: ['', Validators.required],
       dni: ['', Validators.required],
       catSalut: ['', Validators.required],
-      address: ['', Validators.required],
-      illness: ['', Validators.required],
+      address: [''],
+      illness: [''],
       level: ['', Validators.required],
-      schedule: ['', Validators.required],
+      schedule: this.fb.array(this.horarisLabels.map(() => false))
     });
 
     this.addressForm = this.fb.group({
@@ -76,10 +83,8 @@ export class FormRegistrationPage implements OnInit {
     }
   }
 
-  @ViewChild('datePicker', { static: false }) datePicker!: IonDatetime;
-
-  openDate() {
-    //this.datePicker.;
+  get schedule(): FormArray {
+    return this.personalForm.get('schedule') as FormArray;
   }
 
 }

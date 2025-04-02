@@ -26,21 +26,60 @@
               <form *ngSwitchCase="0" [formGroup]="personalForm">
                 <h1>{{ 'form_registration.gimnast_data' | translate }}</h1>
                 <div class="input-rows">
-                  <ion-input label="{{ 'form_registration.name' | translate }}" labelPlacement="stacked" formControlName="name" placeholder="{{ 'form_registration.enter_name' | translate }}" fill="outline"></ion-input>
-                  <ion-input label="{{ 'form_registration.surnames' | translate }}" labelPlacement="stacked" formControlName="surnames" placeholder="{{ 'form_registration.enter_surnames' | translate }}" fill="outline"></ion-input>
+                  <ion-input label="{{ 'form_registration.name' | translate }}*" labelPlacement="stacked" formControlName="name" placeholder="{{ 'form_registration.enter_name' | translate }}" fill="outline"></ion-input>
+                  <ion-input label="{{ 'form_registration.surnames' | translate }}*" labelPlacement="stacked" formControlName="surnames" placeholder="{{ 'form_registration.enter_surnames' | translate }}" fill="outline"></ion-input>
                 </div>
                 <div class="input-rows">
                   <mat-form-field appearance="outline" style="width: 50%; margin-top: 10px;">
-                    <mat-label>Choose a date</mat-label>
-                    <input matInput [matDatepicker]="picker">
-                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-label>{{ 'form_registration.date_born' | translate }}</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="dateBorn">
+                    <mat-hint>DD/MM/AAAA</mat-hint>
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                   </mat-form-field>
-                  <ion-input label="{{ 'form_registration.surnames' | translate }}" labelPlacement="stacked" formControlName="surnames" placeholder="{{ 'form_registration.enter_surnames' | translate }}" fill="outline" style="width: 50%; margin-top: 10px;"></ion-input>
+                  <ion-input label="{{ 'form_registration.dni' | translate }}*" labelPlacement="stacked" formControlName="dni" placeholder="{{ 'form_registration.enter_dni' | translate }}" fill="outline" style="width: 50%; margin-top: 10px;"></ion-input>
+                </div>
+                <div class="input-rows">
+                  <ion-input label="{{ 'form_registration.cat_salut' | translate }}*" labelPlacement="stacked" formControlName="catSalut" placeholder="{{ 'form_registration.enter_cat_salut' | translate }}" fill="outline"></ion-input>
+                  <ion-input label="{{ 'form_registration.location' | translate }}" labelPlacement="stacked" formControlName="address" placeholder="{{ 'form_registration.enter_location' | translate }}" fill="outline"></ion-input>
+                </div>
+                <ion-input label="{{ 'form_registration.has_illness' | translate }}" labelPlacement="floating" formControlName="address" fill="outline"></ion-input>
+                <div class="input-rows">
+                  <ion-col>
+                    <h2>{{ 'form_registration.level' | translate }}*:</h2>
+                    
+                    <ion-radio-group formControlName="level">
+                      <ion-item lines="none">
+                        <ion-radio slot="start" value="escola_base"></ion-radio>
+                        <ion-label>{{ 'form_registration.escola_base' | translate }}</ion-label>
+                      </ion-item>
+                    
+                      <ion-item lines="none">
+                        <ion-radio slot="start" value="competicio_escolar"></ion-radio>
+                        <ion-label>{{ 'form_registration.competicio_escolar' | translate }}</ion-label>
+                      </ion-item>
+                    
+                      <ion-item lines="none">
+                        <ion-radio slot="start" value="competicio_federat"></ion-radio>
+                        <ion-label>{{ 'form_registration.competicio_federat' | translate }}</ion-label>
+                      </ion-item>
+                    </ion-radio-group>                  
+                  </ion-col>
+                  <ion-col>
+                    <h2>{{ 'form_registration.select_schedule' | translate }}*:</h2>
+                    <div formArrayName="schedule">
+                      <ion-item lines="none" *ngFor="let horariCtrl of schedule.controls; let i = index">
+                        <ion-checkbox
+                          slot="start"
+                          [formControlName]="i">
+                        </ion-checkbox>
+                        <ion-label>{{ horarisLabels[i] | translate }}</ion-label>
+                      </ion-item>
+                    </div>
+                  </ion-col>
                 </div>
                 <div style="display: flex; justify-content: end;">
-                  <ion-button expand="block" (click)="nextStep()">Next</ion-button>
+                  <ion-button expand="block" (click)="nextStep()">{{ 'form_registration.next' | translate }}</ion-button>
                 </div>
               </form>
       
