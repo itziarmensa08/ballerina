@@ -271,6 +271,20 @@
     "no_authorize": "No, no autoritzo que la imatge del meu fill/a pugui aparèixer en fotografies corresponents a activitats complementàries i extraescolars organitzades pel Club Gimnàstic Ballerina.",
     "confirmation": "Confirmació",
     "confirmation_message": "El tractament d'aquestes dades segueixen la normativa establerta (Llei Orgànica 15/1999 de 13 de desembre. Protecció de Dades de caràcter personal) Aquesta autorització és vàlida des del dia de la signatura de la present i tindrà validesa totes les temporades que el/la gimnasta pertanyi al Club.",
-    "register": "Registrar gimnasta"
+    "register": "Registrar gimnasta",
+    "added_title": "Felicitats! T'has inscrit correctament.",
+    "added_message": "Rebràs un correu de confirmació per entrar al portal personal"
+  },
+  "try-it": {
+    "doubt": "Tens algún dubte?",
+    "age": "Edat (anys)",
+    "enter_age": "Introdueix l'edat de la gimnasta",
+    "done_rhythmic": "Ha fet algun cop rítmica?",
+    "yes": "Sí",
+    "no": "No",
+    "message": "Vol afegir algún missatge?",
+    "send": "Enviar",
+    "sent": "S'han guardat les dades",
+    "sent_message": "Quan l’equip tècnic rebi aquesta informació, rebràs una resposta per acordar el dia de la prova. Moltes gràcies, esperem veure’t aviat!"
   }
 }

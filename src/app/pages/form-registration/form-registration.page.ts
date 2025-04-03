@@ -262,7 +262,7 @@ export class FormRegistrationPage implements OnInit {
         if (error.status === 409 && attempt < 10) {
           this.tryRegister(user, attempt + 1);
         } else {
-          this.alertService.showAlert('error', 'alerts.error_title', 'settings.form_registration.error_message');
+          this.alertService.showAlert('error', 'alerts.error_title', 'settings.error_message');
         }
       }
     });

@@ -4,7 +4,7 @@
         <h1 class="title">Club Gimnàstic Ballerina</h1>
         <p class="messageTitle">{{ message }}</p>
         <ion-row>
-          <ion-button>{{ 'home.prove' | translate }}</ion-button>
+          <ion-button [routerLink]="'/try-it'">{{ 'home.prove' | translate }}</ion-button>
           <ion-button class="second" fill="outline" [routerLink]="'/form-registration'">{{ 'home.inscribe' | translate }}</ion-button>
         </ion-row>
       </ion-col>

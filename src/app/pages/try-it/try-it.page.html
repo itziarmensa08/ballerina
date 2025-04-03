@@ -1,0 +1,53 @@
+<ion-content [fullscreen]="true">
+  <div class="principal" [ngStyle]="{'background-image': 'url(' + imageHeader + ')'}"></div>
+
+  <div class="justify-center">
+    <ion-card>
+      <ion-card-content>
+        <ion-row class="content">
+          <ion-col class="contact" size="9">
+            <h1>{{ 'form_registration.gimnast_data' | translate }}</h1>
+            <div class="personal-data">
+              <ion-input label="{{ 'contact.name' | translate }}" [(ngModel)]="name" labelPlacement="stacked" placeholder="{{ 'contact.enter_name' | translate }}" fill="outline"></ion-input>
+              <ion-input label="{{ 'form_registration.surnames' | translate }}" [(ngModel)]="surnames" labelPlacement="stacked" placeholder="{{ 'form_registration.enter_surnames' | translate }}" fill="outline"></ion-input>
+            </div>
+            <div class="personal-data">
+              <ion-col style="padding: 0;">
+                <ion-input label="{{ 'try-it.age' | translate }}" [(ngModel)]="name" labelPlacement="stacked" placeholder="{{ 'try-it.enter_age' | translate }}" fill="outline"></ion-input>
+              </ion-col>
+              <ion-col class="justify-center" style="padding: 0;">
+                <div class="done-ryth">
+                  <p>{{ 'try-it.done_rhythmic' | translate }}</p>
+                  <ion-radio-group class="radio-row">
+                    <ion-item lines="none">
+                      <ion-radio slot="start" value="base"></ion-radio>
+                      <ion-label>{{ 'try-it.yes' | translate }}</ion-label>
+                    </ion-item>
+                  
+                    <ion-item lines="none">
+                      <ion-radio slot="start" value="escolar"></ion-radio>
+                      <ion-label>{{ 'try-it.no' | translate }}</ion-label>
+                    </ion-item>
+                  </ion-radio-group>    
+                </div>
+              </ion-col>
+            </div>
+            <ion-textarea label="{{ 'try-it.message' | translate }}" [(ngModel)]="message" labelPlacement="stacked" placeholder="{{ 'contact.enter_message' | translate }}" fill="outline" rows="5" style="--highlight-color-focused: black;"></ion-textarea>
+            <ion-button (click)="sendMessage()">{{ 'try-it.send' | translate }}</ion-button>      
+          </ion-col>
+          <ion-col class="contact-info" size="3">
+            <h1>{{ 'try-it.doubt' | translate }}</h1>
+            <ion-row class="caracters">
+              <ion-icon name="call-outline"></ion-icon>
+              <p>+34 618 47 53 82</p>
+            </ion-row>
+            <ion-row class="caracters" >
+              <ion-icon name="mail-outline"></ion-icon>
+              <p>vngballerina&#64;gmail.com</p>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
