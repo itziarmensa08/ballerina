@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
-import { TranslateService } from '@ngx-translate/core';
 import { AlertService } from 'src/app/services/alert.service';
-import { AuthService, User } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { ImagesService } from 'src/app/services/images.service';
 
 @Component({

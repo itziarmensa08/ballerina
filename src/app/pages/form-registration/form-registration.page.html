@@ -50,22 +50,24 @@
                     
                     <ion-radio-group formControlName="level">
                       <ion-item lines="none">
-                        <ion-radio slot="start" value="escola_base"></ion-radio>
+                        <ion-radio slot="start" value="base"></ion-radio>
                         <ion-label>{{ 'form_registration.escola_base' | translate }}</ion-label>
                       </ion-item>
                     
                       <ion-item lines="none">
-                        <ion-radio slot="start" value="competicio_escolar"></ion-radio>
+                        <ion-radio slot="start" value="escolar"></ion-radio>
                         <ion-label>{{ 'form_registration.competicio_escolar' | translate }}</ion-label>
                       </ion-item>
                     
                       <ion-item lines="none">
-                        <ion-radio slot="start" value="competicio_federat"></ion-radio>
+                        <ion-radio slot="start" value="federat"></ion-radio>
                         <ion-label>{{ 'form_registration.competicio_federat' | translate }}</ion-label>
                       </ion-item>
-                    </ion-radio-group>                  
+                    </ion-radio-group>    
+                    
+                    <p style="color: red;" *ngIf="notLevel">{{ 'form_registration.select_value' | translate }}</p>
                   </ion-col>
-                  <ion-col>
+                  <ion-col *ngIf="personalForm.get('level')?.value === 'base'">
                     <h2>{{ 'form_registration.select_schedule' | translate }}*:</h2>
                     <div formArrayName="schedule">
                       <ion-item lines="none" *ngFor="let horariCtrl of schedule.controls; let i = index">
@@ -76,6 +78,7 @@
                         <ion-label>{{ horarisLabels[i] | translate }}</ion-label>
                       </ion-item>
                     </div>
+                    <p style="color: red;" *ngIf="notSchedule">{{ 'form_registration.select_value' | translate }}</p>
                   </ion-col>
                 </div>
                 <div style="display: flex; justify-content: end;">
@@ -83,21 +86,87 @@
                 </div>
               </form>
       
-              <form *ngSwitchCase="1" [formGroup]="addressForm">
-                <h1>Address Details</h1>
-                <ion-item>
-                  <ion-label position="floating">Street Address</ion-label>
-                  <ion-input formControlName="street" type="text"></ion-input>
-                </ion-item>
-  
-                <ion-item>
-                  <ion-label position="floating">City</ion-label>
-                  <ion-input formControlName="city" type="text"></ion-input>
-                </ion-item>
-  
-                <ion-button expand="block" (click)="prevStep()">Back</ion-button>
-                <ion-button expand="block" (click)="nextStep()" [disabled]="!addressForm.valid">Next</ion-button>
-              </form>      
+              <form *ngSwitchCase="1" [formGroup]="firstTutorForm">
+                <h1>{{ 'form_registration.first_tutor_data_title' | translate }}</h1>
+                <div class="input-rows">
+                  <ion-input label="{{ 'form_registration.name' | translate }}" labelPlacement="stacked" formControlName="name" placeholder="{{ 'form_registration.enter_name' | translate }}" fill="outline"></ion-input>
+                  <ion-input label="{{ 'form_registration.surnames' | translate }}" labelPlacement="stacked" formControlName="surnames" placeholder="{{ 'form_registration.enter_surnames' | translate }}" fill="outline"></ion-input>
+                </div>
+                <ion-input label="{{ 'form_registration.telephone' | translate }}" labelPlacement="stacked" formControlName="telephone" placeholder="{{ 'form_registration.enter_telephone' | translate }}" fill="outline"></ion-input>
+              </form>    
+              
+              <form *ngSwitchCase="1" [formGroup]="secondTutorForm" style="margin-top: 30px;">
+                <h1>{{ 'form_registration.second_tutor_data_title' | translate }}</h1>
+                <div class="input-rows">
+                  <ion-input label="{{ 'form_registration.name' | translate }}" labelPlacement="stacked" formControlName="name" placeholder="{{ 'form_registration.enter_name' | translate }}" fill="outline"></ion-input>
+                  <ion-input label="{{ 'form_registration.surnames' | translate }}" labelPlacement="stacked" formControlName="surnames" placeholder="{{ 'form_registration.enter_surnames' | translate }}" fill="outline"></ion-input>
+                </div>
+                <ion-input label="{{ 'form_registration.telephone' | translate }}" labelPlacement="stacked" formControlName="telephone" placeholder="{{ 'form_registration.enter_telephone' | translate }}" fill="outline"></ion-input>
+                <div class="step-buttons">
+                  <ion-button expand="block" (click)="prevStep()">{{ 'form_registration.back' | translate }}</ion-button>
+                  <ion-button expand="block" (click)="nextStep()">{{ 'form_registration.next' | translate }}</ion-button>
+                </div>
+              </form>  
+              
+              <form *ngSwitchCase="2" [formGroup]="contactForm">
+                <h1>{{ 'form_registration.contact_data' | translate }}</h1>
+                <p style="margin-top: 30px;">{{ 'form_registration.email_message' | translate }}</p>
+                <ion-input label="{{ 'form_registration.email' | translate }}" labelPlacement="stacked" formControlName="email" placeholder="{{ 'form_registration.enter_email' | translate }}" fill="outline"></ion-input>
+                <p style="margin-top: 30px;">{{ 'form_registration.tel_message' | translate }}</p>
+                <ion-input label="{{ 'form_registration.telephone' | translate }}" labelPlacement="stacked" formControlName="telephone" placeholder="{{ 'form_registration.enter_telephone' | translate }}" fill="outline"></ion-input>
+                <div class="step-buttons">
+                  <ion-button expand="block" (click)="prevStep()">{{ 'form_registration.back' | translate }}</ion-button>
+                  <ion-button expand="block" (click)="nextStep()">{{ 'form_registration.next' | translate }}</ion-button>
+                </div>
+              </form> 
+              
+              <form *ngSwitchCase="3" [formGroup]="bancForm">
+                <h1>{{ 'form_registration.banc_data' | translate }}</h1>
+                <ion-input label="{{ 'form_registration.iban' | translate }}" labelPlacement="stacked" formControlName="iban" placeholder="{{ 'form_registration.enter_iban' | translate }}" fill="outline"></ion-input>
+                <ion-input label="{{ 'form_registration.titular' | translate }}" labelPlacement="stacked" formControlName="name" placeholder="{{ 'form_registration.enter_titular' | translate }}" fill="outline"></ion-input>
+                <div class="step-buttons">
+                  <ion-button expand="block" (click)="prevStep()">{{ 'form_registration.back' | translate }}</ion-button>
+                  <ion-button expand="block" (click)="nextStep()">{{ 'form_registration.next' | translate }}</ion-button>
+                </div>
+              </form>  
+              
+              <form *ngSwitchCase="4" [formGroup]="imageRightsForm">
+                <h1>{{ 'form_registration.image_rights' | translate }}</h1>
+                <p style="margin-top: 20px; text-align: justify;">{{ 'form_registration.image_rights_explanation' | translate }}</p>
+                <div style="display: flex; flex-direction: row; align-items: center; gap: 10px;">
+                  <p>{{ 'form_registration.me' | translate }}</p>
+                  <ion-input formControlName="name" fill="outline" style="width: 300px;"></ion-input>
+                  <p>{{ 'form_registration.with_dni' | translate }}</p>
+                  <ion-input formControlName="dni" fill="outline" style="width: 300px;"></ion-input>
+                  <p>:</p>
+                </div>
+                <ion-radio-group formControlName="authorized">
+                  <ion-item lines="none" style="margin-top: 20px;">
+                    <ion-radio slot="start" value="true"></ion-radio>
+                    <ion-label>{{ 'form_registration.authorize' | translate }}</ion-label>
+                  </ion-item>
+                
+                  <ion-item lines="none">
+                    <ion-radio slot="start" value="false"></ion-radio>
+                    <ion-label>{{ 'form_registration.no_authorize' | translate }}</ion-label>
+                  </ion-item>
+                </ion-radio-group>   
+                <div class="step-buttons">
+                  <ion-button expand="block" (click)="prevStep()">{{ 'form_registration.back' | translate }}</ion-button>
+                  <ion-button expand="block" (click)="nextStep()">{{ 'form_registration.next' | translate }}</ion-button>
+                </div>
+              </form>  
+
+              <form *ngSwitchCase="5">
+                <h1>{{ 'form_registration.confirmation' | translate }}</h1>
+                <p style="margin-top: 20px; text-align: justify;">{{ 'form_registration.confirmation_message' | translate }}</p>
+                <div class="justify-center">
+                  <ion-button expand="block" (click)="registerGimnast()" style="width: 250px; margin-top: 30px;">{{ 'form_registration.register' | translate }}</ion-button>
+                </div>
+                <div class="step-buttons">
+                  <ion-button expand="block" (click)="prevStep()">{{ 'form_registration.back' | translate }}</ion-button>
+                </div>
+              </form>  
             </ng-container>
           </div>
         </div>

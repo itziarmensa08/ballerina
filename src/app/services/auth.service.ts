@@ -2,22 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-
-export interface User {
-  name: string;
-  surname: string;
-  username: string;
-  email: string;
-  password?: string;
-  validated: boolean;
-  role: "admin" | "user";
-  telephone?: number;
-  dateBorn?: Date;
-  profileImage?: string;
-  language: "ca" | "es" | "en_US";
-  createdAt?: Date;
-  updatedAt?: Date;
-}
+import { User } from './user.service';
 
 @Injectable({
   providedIn: 'root'
