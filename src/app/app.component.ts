@@ -21,7 +21,9 @@ export class AppComponent {
   ) {}
 
   isIllegalPage(): boolean {
-    return this.router.url === '/login' || this.router.url === '/register';
+    return this.router.url === '/login' ||
+        this.router.url === '/register' ||
+        this.router.url.startsWith('/validate');
   }
 
   ngOnInit() {

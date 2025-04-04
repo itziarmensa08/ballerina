@@ -49,6 +49,10 @@ const routes: Routes = [
     path: 'try-it',
     loadChildren: () => import('./pages/try-it/try-it.module').then( m => m.TryItPageModule)
   },
+  {
+    path: 'validate/:token',
+    loadChildren: () => import('./pages/validate/validate.module').then( m => m.ValidatePageModule)
+  },
 ];
 
 @NgModule({

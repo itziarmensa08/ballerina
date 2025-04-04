@@ -1,0 +1,133 @@
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.login-wrapper {
+    display: flex;
+    background: white;
+    overflow: hidden;
+    height: 100%;
+}
+
+.login-left {
+    flex: 1;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    font-size: 24px;
+    font-weight: bold;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
+
+    h1 {
+        text-align: center;
+    }
+}
+
+.login-right {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .home-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+        color: black;
+        cursor: pointer;
+        transition: color 0.3s;
+    
+        &:hover {
+          color: var(--ion-color-primary-shade);
+        }
+    }
+}
+
+.login-right h2 {
+    margin-bottom: 10px;
+}
+
+ion-button {
+    --background: var(--ion-color-primary);
+    --color: black;
+    --box-shadow: 0;
+    font-family: 'Poppins', sans-serif;
+    width: 130px;
+    text-transform: none !important;
+    --border-radius: 15px; 
+}
+
+.signup-text {
+    text-align: center;
+    margin-top: 10px;
+    color: gray;
+    font-size: 14px;
+}
+
+a {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+    margin: 10px;
+    margin-left: 0px;
+    color: black;
+}
+
+.remember-me {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  
+    .forgot-password {
+      margin-left: auto; 
+      color: gray;
+      text-decoration: none;
+      font-size: 14px;
+    }
+}
+
+ion-input {
+    margin: 10px;
+}
+
+h2 {
+    margin: 10px;
+}
+
+p {
+    margin: 10px;
+}
+
+ion-checkbox {
+    --border-color: gray;
+}
+
+h1 {
+    font-size: 35px;
+}
+
+p {
+    margin-right: 7px;
+}

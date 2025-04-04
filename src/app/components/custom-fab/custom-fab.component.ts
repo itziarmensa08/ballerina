@@ -20,7 +20,7 @@ export class CustomFabComponent  implements OnInit {
     let url = '';
 
     if (platform === 'instagram') {
-      url = 'https://www.instagram.com/clubgimnasticballerina/';
+      url = 'https://www.instagram.com/ballerina_vng/';
     } else if (platform === 'facebook') {
       url = 'https://www.facebook.com/people/Gimn%C3%A0stic-Ballerina/pfbid02qUob2brCsE61YQR9nMu2i2QAeRqHnU24f5xhVTq4XTn91cDz7TZKj5nMzj3g8WNil/';
     } else if (platform === 'whatsapp') {

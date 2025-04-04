@@ -289,5 +289,11 @@
     "send": "Enviar",
     "sent": "S'han guardat les dades",
     "sent_message": "Quan l’equip tècnic rebi aquesta informació, rebràs una resposta per acordar el dia de la prova. Moltes gràcies, esperem veure’t aviat!"
+  },
+  "validate": {
+    "message": "Benvingut/da al Club Gimnàstic Ballerina VNG",
+    "title": "Validació del compte",
+    "subtitle": "S'ha validat el teu compte correctament. Ves a la",
+    "home": "pàgina principal."
   }
 }

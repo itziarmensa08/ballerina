@@ -274,6 +274,20 @@
     "register": "Register gymnast",
     "added_title": "Congratulations! You have successfully registered.",
     "added_message": "You will receive a confirmation email to access your personal portal"
+  },
+  "try-it": {
+    "name": "Name and surname",
+    "enter_name": "Enter the name and surname",
+    "email": "Contact email",
+    "doubt": "Do you have any questions?",
+    "age": "Age (years)",
+    "enter_age": "Enter the gymnast's age",
+    "done_rhythmic": "Has she ever done rhythmic gymnastics?",
+    "yes": "Yes",
+    "no": "No",
+    "message": "Would you like to add a message?",
+    "send": "Send",
+    "sent": "The data has been saved",
+    "sent_message": "Once the technical team receives this information, you’ll get a reply to arrange the trial day. Thank you very much, we hope to see you soon!"
   }
-
 }

@@ -275,6 +275,20 @@
     "register": "Registrar gimnasta",
     "added_title": "¡Felicidades! Te has inscrito correctamente.",
     "added_message": "Recibirás un correo de confirmación para acceder al portal personal"
+  },
+  "try-it": {
+    "name": "Nombre y apellidos",
+    "enter_name": "Introduce el nombre y apellidos",
+    "email": "Correo electrónico de contacto",
+    "doubt": "¿Tienes alguna duda?",
+    "age": "Edad (años)",
+    "enter_age": "Introduce la edad de la gimnasta",
+    "done_rhythmic": "¿Ha hecho gimnasia rítmica alguna vez?",
+    "yes": "Sí",
+    "no": "No",
+    "message": "¿Quiere añadir algún mensaje?",
+    "send": "Enviar",
+    "sent": "Los datos se han guardado",
+    "sent_message": "Cuando el equipo técnico reciba esta información, recibirás una respuesta para acordar el día de la prueba. ¡Muchas gracias, esperamos verte pronto!"
   }
-
 }
