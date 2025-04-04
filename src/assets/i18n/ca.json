@@ -276,6 +276,9 @@
     "added_message": "Rebràs un correu de confirmació per entrar al portal personal"
   },
   "try-it": {
+    "name": "Nom i cognoms",
+    "enter_name": "Introdueix el nom i cognoms",
+    "email": "Correu electrònic de contacte",
     "doubt": "Tens algún dubte?",
     "age": "Edat (anys)",
     "enter_age": "Introdueix l'edat de la gimnasta",
