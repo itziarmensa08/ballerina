@@ -8,6 +8,8 @@ import { AlertComponent } from './alert/alert.component';
 import { AlertConfirmComponent } from './alert-confirm/alert-confirm.component';
 import { CustomFabComponent } from './custom-fab/custom-fab.component';
 import { CompetitionsModalComponent } from './competitions-modal/competitions-modal.component';
+import { LanguageSelectorComponent } from './language-selector/language-selector.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,12 +18,14 @@ import { CompetitionsModalComponent } from './competitions-modal/competitions-mo
     AlertComponent,
     AlertConfirmComponent,
     CustomFabComponent,
-    CompetitionsModalComponent
+    CompetitionsModalComponent,
+    LanguageSelectorComponent
   ],
   imports: [
     CommonModule,
     IonicModule,
-    TranslateModule
+    TranslateModule,
+    FormsModule
   ],
   exports: [
     HeaderComponent,
@@ -29,7 +33,8 @@ import { CompetitionsModalComponent } from './competitions-modal/competitions-mo
     AlertComponent,
     AlertConfirmComponent,
     CustomFabComponent,
-    CompetitionsModalComponent
+    CompetitionsModalComponent,
+    LanguageSelectorComponent
   ]
 })
 export class ComponentsModule {}

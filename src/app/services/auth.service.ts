@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from './user.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class AuthService {
 
   private apiUrl = environment.apiUrl + '/auth'; 
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private translate: TranslateService) {}
 
   /**
    * Registra un nuevo usuario
@@ -74,7 +75,7 @@ export class AuthService {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
 
-    if (localStorage.getItem('rememberMe')) {
+    if (localStorage.getItem('rememberMe') == 'true') {
       localStorage.setItem('accessToken', accessToken);
       localStorage.setItem('refreshToken', refreshToken);
     } else {
@@ -90,6 +91,8 @@ export class AuthService {
   logout() {
     localStorage.clear();
     sessionStorage.clear();
+    const browserLang = this.translate.getBrowserLang();
+    localStorage.setItem('lang', browserLang || 'ca');
     window.location.href = '/home'; // Redirigir al login
   }
 

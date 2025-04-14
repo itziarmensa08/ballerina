@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 import { ImagesService } from 'src/app/services/images.service';
 import { TextService } from 'src/app/services/text.service';
 
@@ -11,6 +12,8 @@ import { TextService } from 'src/app/services/text.service';
   standalone: false,
 })
 export class HomePage {
+
+  langSub: Subscription | undefined;
 
   message: string = '';
   whoTitle: string = '';
@@ -42,44 +45,12 @@ export class HomePage {
   ) {}
 
   ngOnInit() {
-    const lang = this.translate.currentLang || 'es';
+    this.loadTexts(this.translate.currentLang || 'es');
 
-    this.textService.getText('home.message', lang).subscribe(response => {
-      this.message = response.value;
+    this.langSub = this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.loadTexts(event.lang);
     });
-
-    this.textService.getText('who.title', lang).subscribe(response => {
-      this.whoTitle = response.value;
-    });
-
-    this.textService.getText('who.message', lang).subscribe(response => {
-      this.whoMessage = response.value.split('\n\n');
-    });  
     
-    this.textService.getText('explore.title', lang).subscribe(response => {
-      this.exploreTitle = response.value;
-    }); 
-
-    this.textService.getText('competitions.message', lang).subscribe(response => {
-      this.competiMessage = response.value;
-    }); 
-
-    this.textService.getText('initiation.message', lang).subscribe(response => {
-      this.initMessage = response.value;
-    }); 
-
-    this.textService.getText('training.message', lang).subscribe(response => {
-      this.trainMessage = response.value;
-    }); 
-
-    this.textService.getText('trofeus.message', lang).subscribe(response => {
-      this.trofeusMessage = response.value;
-    }); 
-
-    this.textService.getText('events.message', lang).subscribe(response => {
-      this.eventMessage = response.value;
-    }); 
-
     this.imageService.getImageByKey('home.header').subscribe(response => {
       this.imageHeader = response;
     }); 
@@ -126,6 +97,44 @@ export class HomePage {
 
     this.imageService.getImageByKey('home.events').subscribe(response => {
       this.imageEvents = response;
+    }); 
+  }
+
+  loadTexts(lang: string) {
+    this.textService.getText('home.message', lang).subscribe(response => {
+      this.message = response.value;
+    });
+
+    this.textService.getText('who.title', lang).subscribe(response => {
+      this.whoTitle = response.value;
+    });
+
+    this.textService.getText('who.message', lang).subscribe(response => {
+      this.whoMessage = response.value.split('\n\n');
+    });  
+    
+    this.textService.getText('explore.title', lang).subscribe(response => {
+      this.exploreTitle = response.value;
+    }); 
+
+    this.textService.getText('competitions.message', lang).subscribe(response => {
+      this.competiMessage = response.value;
+    }); 
+
+    this.textService.getText('initiation.message', lang).subscribe(response => {
+      this.initMessage = response.value;
+    }); 
+
+    this.textService.getText('training.message', lang).subscribe(response => {
+      this.trainMessage = response.value;
+    }); 
+
+    this.textService.getText('trofeus.message', lang).subscribe(response => {
+      this.trofeusMessage = response.value;
+    }); 
+
+    this.textService.getText('events.message', lang).subscribe(response => {
+      this.eventMessage = response.value;
     }); 
   }
 

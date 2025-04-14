@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 import { CategoriesService, Category } from 'src/app/services/categories.service';
 import { ImagesService } from 'src/app/services/images.service';
 import { ModalCompetitionService } from 'src/app/services/modal-competition.service';
@@ -30,6 +31,8 @@ export class InitiationPage implements OnInit {
 
   currentLang: string = 'ca';
 
+  langSub: Subscription | undefined;
+
   constructor(
     private imageService: ImagesService,
     private textService: TextService,
@@ -39,16 +42,12 @@ export class InitiationPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    
+    this.loadTexts(this.translate.currentLang || 'es');
 
-    const lang = this.translate.currentLang || 'es';
-    this.currentLang = lang;
-
-    this.textService.getText('initiation.text', lang).subscribe(response => {
-      this.text = response.value;
-    });
-
-    this.textService.getText('initiation.header.title', lang).subscribe(response => {
-      this.titleHeader = response.value;
+    this.langSub = this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.loadTexts(event.lang);
+      this.currentLang = event.lang;
     });
 
     this.imageService.getImageByKey('initation.header').subscribe(response => {
@@ -87,12 +86,24 @@ export class InitiationPage implements OnInit {
       this.image8 = response;
     });
 
+    this.loadExhibitions();
+  }
+
+  loadTexts(lang: string) {
+
     this.textService.getText('initiation.exhibit.title', lang).subscribe(response => {
       this.exhibitionsTitle = response.value;
     });
 
-    this.loadExhibitions();
+    this.textService.getText('initiation.text', lang).subscribe(response => {
+      this.text = response.value;
+    });
+
+    this.textService.getText('initiation.header.title', lang).subscribe(response => {
+      this.titleHeader = response.value;
+    });
   }
+  
 
   /**
    * Cargar todos las competiciones desde la API

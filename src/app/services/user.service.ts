@@ -94,6 +94,15 @@ export class UserService {
   }
 
   /**
+   * Cambia el idioma de un usuario
+   * @param id - ID de mongo
+   * @param lang - Idioma
+   */
+  changeLangUser(id: string, lang: string): Observable<User> {
+    return this.http.put<User>(`${this.apiUrl}/${id}/${lang}`, {});
+  }
+
+  /**
    * Elimina un usuario
    * @param id - ID de mongo
    */

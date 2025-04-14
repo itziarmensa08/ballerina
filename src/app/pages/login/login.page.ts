@@ -53,6 +53,9 @@ export class LoginPage implements OnInit{
             sessionStorage.setItem('refreshToken', response.refreshToken);
             sessionStorage.setItem('user', JSON.stringify(response.user));
           }
+          localStorage.setItem('lang', response.user.language);
+          localStorage.setItem('rememberMe', this.loginForm.value.rememberMe);
+          console.log(localStorage.getItem('rememberMe'))
           this.router.navigate(['/home']);
         },
         error: (err) => {

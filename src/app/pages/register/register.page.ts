@@ -32,6 +32,7 @@ export class RegisterPage implements OnInit {
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(6)]],
         confirmPassword: ['', Validators.required],
+        language: [localStorage.getItem('lang')]
       },
       { validators: this.passwordMatchValidator }
     );

@@ -1,0 +1,14 @@
+<ion-item lines="none" class="lang-item">
+  <ion-icon name="globe-outline" slot="start" style="font-size: 15px;"></ion-icon>
+
+  <ion-select
+    interface="popover"
+    [(ngModel)]="selectedLang"
+    (ionChange)="changeLanguage($event.detail.value)"
+    class="lang-select"
+  >
+    <ion-select-option *ngFor="let lang of languages" [value]="lang.code">
+      {{ lang.name }}
+    </ion-select-option>
+  </ion-select>
+</ion-item>

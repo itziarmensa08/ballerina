@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 import { CategoriesService, Category } from 'src/app/services/categories.service';
 import { ImagesService } from 'src/app/services/images.service';
 import { ModalCompetitionService } from 'src/app/services/modal-competition.service';
@@ -15,6 +16,7 @@ export class CompetitionsPage implements OnInit {
   imageHeader: String = '';
   competitions: Category[] = [];
   currentLang: string = 'ca';
+  langSub: Subscription | undefined;
 
   constructor(
     private imageService: ImagesService,
@@ -29,6 +31,9 @@ export class CompetitionsPage implements OnInit {
       this.imageHeader = response;
     }); 
     this.loadCompetitions();
+    this.langSub = this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.currentLang = event.lang;
+    });
   }
 
   /**

@@ -31,7 +31,9 @@ export class AppComponent {
     this.isLoggedIn = this.authService.isLoggedIn();
 
     const user = JSON.parse(localStorage.getItem('user') || sessionStorage.getItem('user') || '{}');
-    const userLanguage = user?.language || 'ca';
+    const browserLang = this.translate.getBrowserLang();
+    const userLanguage = user?.language || localStorage.getItem('lang') || browserLang || 'ca'; 
+    localStorage.setItem('lang', userLanguage);
 
     this.translate.setDefaultLang(userLanguage);
     this.translate.use(userLanguage);

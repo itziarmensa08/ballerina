@@ -22,8 +22,6 @@
       </div>
     </div>
 
-
-    <!-- Iconos de redes sociales -->
     <ion-buttons slot="end" class="icon-buttons">
       <ion-button class="active" (click)="navigateToLogin()" *ngIf="!isLoggedIn">
         <ion-icon name="log-in-outline"></ion-icon>
@@ -31,6 +29,7 @@
       <ion-button class="active" (click)="logout()" *ngIf="isLoggedIn">
         <ion-icon name="person-circle-outline"></ion-icon>
       </ion-button>
+      <app-language-selector/>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

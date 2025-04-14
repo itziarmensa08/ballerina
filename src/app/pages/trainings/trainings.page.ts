@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 import { CategoriesService, Category } from 'src/app/services/categories.service';
 import { ImagesService } from 'src/app/services/images.service';
 import { ModalCompetitionService } from 'src/app/services/modal-competition.service';
@@ -33,6 +34,8 @@ export class TrainingsPage implements OnInit {
 
   trainingTypes: Category[] = [];
 
+  langSub: Subscription | undefined;
+
   constructor(
     private imageService: ImagesService,
     private textService: TextService,
@@ -43,20 +46,16 @@ export class TrainingsPage implements OnInit {
 
   ngOnInit() {
 
-    const lang = this.translate.currentLang || 'es';
-    this.currentLang = lang;
+    this.loadTexts(this.translate.currentLang || 'es');
+
+    this.langSub = this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.loadTexts(event.lang);
+      this.currentLang = event.lang;
+    });
 
     this.imageService.getImageByKey('trainings.header').subscribe(response => {
       this.imageHeader = response;
     }); 
-
-    this.textService.getText('trainings.header.title', lang).subscribe(response => {
-      this.titleHeader = response.value;
-    });
-
-    this.textService.getText('trainings.header.message', lang).subscribe(response => {
-      this.messageHeader = response.value;
-    });
 
     this.imageService.getImageByKey('trainings.1').subscribe(response => {
       this.image1 = response;
@@ -106,11 +105,22 @@ export class TrainingsPage implements OnInit {
       this.image12 = response;
     }); 
 
+    this.loadTrainingTypes();
+  }
+
+  loadTexts(lang: string) {
+
     this.textService.getText('trainings.types.title', lang).subscribe(response => {
       this.typeTrainings = response.value;
     });
 
-    this.loadTrainingTypes();
+    this.textService.getText('trainings.header.title', lang).subscribe(response => {
+      this.titleHeader = response.value;
+    });
+
+    this.textService.getText('trainings.header.message', lang).subscribe(response => {
+      this.messageHeader = response.value;
+    });
   }
 
   /**
