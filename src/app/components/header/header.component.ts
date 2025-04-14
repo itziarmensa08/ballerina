@@ -59,8 +59,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  logout() {
-    this.authService.logout();
+  profile() {
+    this.router.navigate(['/profile']);
   }
 
 }

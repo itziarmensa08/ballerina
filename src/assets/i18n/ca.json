@@ -295,5 +295,19 @@
     "title": "Validació del compte",
     "subtitle": "S'ha validat el teu compte correctament. Ves a la",
     "home": "pàgina principal."
+  },
+  "profile": {
+    "logout": "Tancar sessió",
+    "delete_account": "Eliminar el compte",
+    "preferences": "Preferències",
+    "security": "Seguretat",
+    "notifications": "Notificacions",
+    "change_password": "Canvia la contrasenya",
+    "edit": "Edita",
+    "email_not_verified": "Correu no verificat",
+    "resend_email": "Reenvia el correu",
+    "last_login": "Últim accés",
+    "preferences_subtitle": "Configura el teu idioma, tema i notificacions",
+    "security_subtitle": "Gestiona la teva contrasenya i la verificació del compte"
   }
 }

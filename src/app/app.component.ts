@@ -30,9 +30,8 @@ export class AppComponent {
     this.isAdmin = this.authService.isAdmin();
     this.isLoggedIn = this.authService.isLoggedIn();
 
-    const user = JSON.parse(localStorage.getItem('user') || sessionStorage.getItem('user') || '{}');
     const browserLang = this.translate.getBrowserLang();
-    const userLanguage = user?.language || localStorage.getItem('lang') || browserLang || 'ca'; 
+    const userLanguage = localStorage.getItem('lang') || browserLang || 'ca'; 
     localStorage.setItem('lang', userLanguage);
 
     this.translate.setDefaultLang(userLanguage);

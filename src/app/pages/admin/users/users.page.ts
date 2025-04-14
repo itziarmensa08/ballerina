@@ -24,8 +24,6 @@ export class UsersPage implements OnInit {
 
   constructor(
     private userService: UserService,
-    private alertService: AlertService,
-    private alertConfirmService: AlertConfirmService
   ) { }
 
   ngOnInit() {

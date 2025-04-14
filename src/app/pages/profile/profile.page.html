@@ -1,0 +1,66 @@
+<ion-content [fullscreen]="true">
+  <div class="principal"></div>
+  @if (user) {
+    <div class="content">
+      <ion-col>
+        <ion-card>
+          <div class="justify-center">
+            @if (user && user.role == 'gimnast') {
+              <img alt="Silhouette of mountains" src="assets/icon_gymnast.jpg" width="300px"/>
+            }
+            @if (user && (user.role == 'user' || user.role == 'admin')) {
+              <img alt="Silhouette of mountains" src="assets/user_icon.jpg" width="300px"/>
+            }
+          </div>
+          <ion-card-header>
+            <ion-card-title>{{ user.name }} {{ user.surname }}</ion-card-title>
+            <ion-card-subtitle>{{ user.username }}</ion-card-subtitle>
+            <ion-card-subtitle>{{ user.email }}</ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            <div class="justify-center" style="gap: 20px;">
+              <ion-button (click)="logout()">{{ 'profile.logout' | translate }}</ion-button>
+              <ion-button (click)="delete_account()" class="delete">{{ 'profile.delete_account' | translate }}</ion-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{ 'profile.preferences' | translate }}</ion-card-title>
+            <ion-card-subtitle>{{ 'profile.preferences_subtitle' | translate }}</ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            <ion-item>
+              <ion-label>{{ 'profile.notifications' | translate }}</ion-label>
+              <ion-toggle [(ngModel)]="notifications" (ionChange)="updateNotifications()"></ion-toggle>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{ 'profile.security' | translate }}</ion-card-title>
+            <ion-card-subtitle>{{ 'profile.security_subtitle' | translate }}</ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            <ion-item lines="none">
+              <ion-label>{{ 'profile.change_password' | translate }}</ion-label>
+              <ion-button size="small" (click)="openChangePasswordModal()">
+                {{ 'profile.edit' | translate }}
+              </ion-button>
+            </ion-item>
+            
+            <!-- <ion-item>
+              <ion-label>{{ 'profile.last_login' | translate }}</ion-label>
+              <ion-note>{{ user.lastLogin | date:'short' }}</ion-note>
+            </ion-item> -->
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </div>
+  }
+</ion-content>
