@@ -8,6 +8,9 @@ import { ProfilePageRoutingModule } from './profile-routing.module';
 
 import { ProfilePage } from './profile.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   imports: [
@@ -15,7 +18,10 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     IonicModule,
     ProfilePageRoutingModule,
-    TranslateModule
+    TranslateModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
   ],
   declarations: [ProfilePage]
 })

@@ -308,6 +308,11 @@
     "resend_email": "Reenvia el correu",
     "last_login": "Últim accés",
     "preferences_subtitle": "Configura el teu idioma, tema i notificacions",
-    "security_subtitle": "Gestiona la teva contrasenya i la verificació del compte"
+    "security_subtitle": "Gestiona la teva contrasenya.",
+    "personal_data": "Dades personals",
+    "tutors_data": "Dades dels tutors",
+    "updated": "Dades actualitzades",
+    "updated_message": "Les dades s'han actualitzat correctament"
   }
+
 }

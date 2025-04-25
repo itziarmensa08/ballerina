@@ -290,5 +290,30 @@
     "send": "Enviar",
     "sent": "Los datos se han guardado",
     "sent_message": "Cuando el equipo técnico reciba esta información, recibirás una respuesta para acordar el día de la prueba. ¡Muchas gracias, esperamos verte pronto!"
+  },
+  "validate": {
+    "message": "Bienvenido/a al Club Gimnàstic Ballerina VNG",
+    "title": "Validación de la cuenta",
+    "subtitle": "Tu cuenta se ha validado correctamente. Ve a la",
+    "home": "página principal."
+  },
+  "profile": {
+    "logout": "Cerrar sesión",
+    "delete_account": "Eliminar la cuenta",
+    "preferences": "Preferencias",
+    "security": "Seguridad",
+    "notifications": "Notificaciones",
+    "change_password": "Cambiar la contraseña",
+    "edit": "Editar",
+    "email_not_verified": "Correo no verificado",
+    "resend_email": "Reenviar el correo",
+    "last_login": "Último acceso",
+    "preferences_subtitle": "Configura tu idioma, tema y notificaciones",
+    "security_subtitle": "Gestiona tu contraseña.",
+    "personal_data": "Datos personales",
+    "tutors_data": "Datos de los tutores",
+    "updated": "Datos actualizados",
+    "updated_message": "Los datos se han actualizado correctamente"
   }
+
 }

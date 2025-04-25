@@ -34,9 +34,7 @@ export class LanguageSelectorComponent {
     localStorage.setItem('lang', lang);
     const user = JSON.parse(localStorage.getItem('user') || sessionStorage.getItem('user') || '{}');
     if (user._id) {
-      this.userService.changeLangUser(user._id, lang).subscribe(response => {
-        console.log(response);
-      });
+      this.userService.changeLangUser(user._id, lang).subscribe(response => {});
     }
   }
 

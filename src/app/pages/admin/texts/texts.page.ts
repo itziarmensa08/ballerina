@@ -23,7 +23,7 @@ export class TextsPage implements OnInit {
 
   newText: Text = {
     key: '',
-    value: { ca: '', es: '', en_US: '' }
+    value: { ca: '', es: '', en: '' }
   };
 
   constructor(
@@ -52,7 +52,7 @@ export class TextsPage implements OnInit {
    */
   filterTexts(event: any) {
     const searchTerm = event.target.value.toLowerCase();
-    
+
     if (!searchTerm) {
       this.filteredTexts = this.texts;
       return;
@@ -89,7 +89,7 @@ export class TextsPage implements OnInit {
    * Crear un nuevo texto
    */
   saveText() {
-    if (!this.newText.key || !this.newText.value.ca || !this.newText.value.es || !this.newText.value.en_US) {
+    if (!this.newText.key || !this.newText.value.ca || !this.newText.value.es || !this.newText.value.en) {
         this.alertService.showAlert('warning', 'alerts.required_title', 'alerts.required_message');
         return;
     }
@@ -147,13 +147,13 @@ export class TextsPage implements OnInit {
    * Reiniciar el formulario de nuevo texto
    */
   resetForm() {
-    this.newText = { key: '', value: { ca: '', es: '', en_US: '' } };
+    this.newText = { key: '', value: { ca: '', es: '', en: '' } };
   }
 
   async confirmDelete() {
     const confirmed = await this.alertConfirmService.showAlert('error', 'general.delete', 'settings.texts.delete');
     if (confirmed) {
       this.deleteText();
-    } 
+    }
   }
 }

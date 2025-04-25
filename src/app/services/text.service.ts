@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 export interface TextValue {
   ca: string;
   es: string;
-  en_US: string;
+  en: string;
 }
 
 export interface Text {
@@ -19,14 +19,14 @@ export interface Text {
 })
 export class TextService {
 
-  private apiUrl = environment.apiUrl; 
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
   /**
    * Obtiene un texto específico en el idioma seleccionado
    * @param key - Clave del texto
-   * @param lang - Idioma ('ca', 'es', 'en_US')
+   * @param lang - Idioma ('ca', 'es', 'en')
    */
   getText(key: string, lang: string): Observable<{ value: string }> {
     return this.http.get<{ value: string }>(`${this.apiUrl}/texts/${key}/${lang}`);

@@ -14,10 +14,10 @@
           {{ 'settings.texts.add' | translate }}
         </ion-button>
       </ion-card-header>
-    
+
       <ion-card-content>
-        <ion-searchbar 
-          (ionInput)="filterTexts($event)" 
+        <ion-searchbar
+          (ionInput)="filterTexts($event)"
           [placeholder]="'general.search' | translate">
         </ion-searchbar>
         <div class="table-container" *ngIf="filteredTexts.length > 0; else noData">
@@ -35,12 +35,12 @@
                 <td>{{ text.key }}</td>
                 <td>{{ text.value.ca }}</td>
                 <td>{{ text.value.es }}</td>
-                <td>{{ text.value.en_US }}</td>
+                <td>{{ text.value.en }}</td>
               </tr>
             </tbody>
           </table>
         </div>
-  
+
         <ng-template #noData>
           <p class="no-texts">{{ 'settings.texts.noData' | translate }}</p>
         </ng-template>
@@ -51,12 +51,12 @@
         <ion-card-title>{{ 'settings.texts.addTitle' | translate }}</ion-card-title>
         <ion-card-subtitle>{{ 'settings.texts.addSubtitle' | translate }}</ion-card-subtitle>
       </ion-card-header>
-    
+
       <ion-card-content>
         <ion-input label="{{ 'settings.texts.key' | translate }}" labelPlacement="stacked" [(ngModel)]="newText.key" placeholder="Ej: home.title" fill="outline"></ion-input>
         <ion-textarea label="{{ 'settings.texts.ca' | translate }}" labelPlacement="stacked" [(ngModel)]="newText.value.ca" placeholder="Ej: Benvingut" auto-grow="true" fill="outline"></ion-textarea>
         <ion-textarea label="{{ 'settings.texts.es' | translate }}" labelPlacement="stacked" [(ngModel)]="newText.value.es" placeholder="Ej: Bienvenido" auto-grow="true" fill="outline"></ion-textarea>
-        <ion-textarea label="{{ 'settings.texts.en' | translate }}" labelPlacement="stacked" [(ngModel)]="newText.value.en_US" placeholder="Ej: Welcome" auto-grow="true" fill="outline"></ion-textarea>
+        <ion-textarea label="{{ 'settings.texts.en' | translate }}" labelPlacement="stacked" [(ngModel)]="newText.value.en" placeholder="Ej: Welcome" auto-grow="true" fill="outline"></ion-textarea>
         <div class="justify-center">
           <ion-button (click)="saveText()" class="add-text-btn">
             <ion-icon slot="start" name="save-outline"></ion-icon>
@@ -71,11 +71,11 @@
         <ion-card-title>{{ 'settings.texts.editTitle' | translate }}</ion-card-title>
         <ion-card-subtitle>{{ 'settings.texts.editSubtitle' | translate }}</ion-card-subtitle>
       </ion-card-header>
-    
+
       <ion-card-content>
         <ion-textarea label="{{ 'settings.texts.ca' | translate }}" labelPlacement="stacked" [(ngModel)]="newText.value.ca" placeholder="Ej: Benvingut" auto-grow="true" fill="outline"></ion-textarea>
         <ion-textarea label="{{ 'settings.texts.es' | translate }}" labelPlacement="stacked" [(ngModel)]="newText.value.es" placeholder="Ej: Bienvenido" auto-grow="true" fill="outline"></ion-textarea>
-        <ion-textarea label="{{ 'settings.texts.en' | translate }}" labelPlacement="stacked" [(ngModel)]="newText.value.en_US" placeholder="Ej: Welcome" auto-grow="true" fill="outline"></ion-textarea>
+        <ion-textarea label="{{ 'settings.texts.en' | translate }}" labelPlacement="stacked" [(ngModel)]="newText.value.en" placeholder="Ej: Welcome" auto-grow="true" fill="outline"></ion-textarea>
         <div class="justify-center">
           <ion-button (click)="updateText()" class="add-text-btn">
             <ion-icon slot="start" name="save-outline"></ion-icon>

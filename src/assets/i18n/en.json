@@ -289,5 +289,30 @@
     "send": "Send",
     "sent": "The data has been saved",
     "sent_message": "Once the technical team receives this information, you’ll get a reply to arrange the trial day. Thank you very much, we hope to see you soon!"
+  },
+  "validate": {
+    "message": "Welcome to Club Gimnàstic Ballerina VNG",
+    "title": "Account Validation",
+    "subtitle": "Your account has been successfully validated. Go to the",
+    "home": "home page."
+  },
+  "profile": {
+    "logout": "Log out",
+    "delete_account": "Delete account",
+    "preferences": "Preferences",
+    "security": "Security",
+    "notifications": "Notifications",
+    "change_password": "Change password",
+    "edit": "Edit",
+    "email_not_verified": "Email not verified",
+    "resend_email": "Resend email",
+    "last_login": "Last login",
+    "preferences_subtitle": "Set your language, theme and notifications",
+    "security_subtitle": "Manage your password.",
+    "personal_data": "Personal data",
+    "tutors_data": "Tutors' data",
+    "updated": "Updated data",
+    "updated_message": "The data has been successfully updated"
   }
+
 }

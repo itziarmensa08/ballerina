@@ -30,7 +30,7 @@ export interface ImageRights {
 
 export type Role = 'admin' | 'user' | 'gimnast';
 export type Level = 'base' | 'escolar' | 'federat';
-export type Language = 'ca' | 'es' | 'en_US';
+export type Language = 'ca' | 'es' | 'en';
 export type WeekDay = 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday';
 
 export interface Auth {
@@ -40,6 +40,7 @@ export interface Auth {
 }
 
 export interface User extends Auth {
+  _id?: string;
   name: string;
   surname: string;
   email: string;
@@ -56,7 +57,7 @@ export interface User extends Auth {
   parents?: ParentInfo[];
   imageRights?: ImageRights;
   language: Language;
-  bancInfo?: BancInfo; 
+  bancInfo?: BancInfo;
 }
 
 
@@ -65,7 +66,7 @@ export interface User extends Auth {
 })
 export class UserService {
 
-  private apiUrl = environment.apiUrl + '/users'; 
+  private apiUrl = environment.apiUrl + '/users';
 
   constructor(private http: HttpClient) { }
 

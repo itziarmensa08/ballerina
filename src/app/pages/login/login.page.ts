@@ -17,7 +17,7 @@ export class LoginPage implements OnInit{
   imageHeader: String = '';
 
   constructor(
-    private fb: FormBuilder, 
+    private fb: FormBuilder,
     private router: Router,
     private authService: AuthService,
     private alertService: AlertService,
@@ -35,7 +35,7 @@ export class LoginPage implements OnInit{
   ngOnInit(): void {
     this.imageService.getImageByKey('login.register').subscribe(response => {
       this.imageHeader = response;
-    }); 
+    });
   }
 
   login() {
@@ -55,7 +55,6 @@ export class LoginPage implements OnInit{
           }
           localStorage.setItem('lang', response.user.language);
           localStorage.setItem('rememberMe', this.loginForm.value.rememberMe);
-          console.log(localStorage.getItem('rememberMe'))
           this.router.navigate(['/home']);
         },
         error: (err) => {
@@ -68,7 +67,7 @@ export class LoginPage implements OnInit{
           }
         }
       });
-    } 
+    }
   }
 
   navigateHome() {

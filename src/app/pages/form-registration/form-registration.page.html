@@ -5,11 +5,11 @@
     <ion-card>
       <ion-card-content>
         <div class="form-container">
-      
+
           <div class="stepper">
-            <div *ngFor="let step of steps; let i = index" 
-                 [class.active]="i === currentStep" 
-                 [class.completed]="i < currentStep" 
+            <div *ngFor="let step of steps; let i = index"
+                 [class.active]="i === currentStep"
+                 [class.completed]="i < currentStep"
                  class="step">
               <div class="circle">
                 <ng-container *ngIf="i < currentStep; else stepNumber">
@@ -20,7 +20,7 @@
               <div class="label">{{ step | translate }}</div>
             </div>
           </div>
-      
+
           <div class="form-card">
             <ng-container [ngSwitch]="currentStep">
               <form *ngSwitchCase="0" [formGroup]="personalForm">
@@ -47,24 +47,24 @@
                 <div class="input-rows">
                   <ion-col>
                     <h2>{{ 'form_registration.level' | translate }}*:</h2>
-                    
+
                     <ion-radio-group formControlName="level">
                       <ion-item lines="none">
                         <ion-radio slot="start" value="base"></ion-radio>
                         <ion-label>{{ 'form_registration.escola_base' | translate }}</ion-label>
                       </ion-item>
-                    
+
                       <ion-item lines="none">
                         <ion-radio slot="start" value="escolar"></ion-radio>
                         <ion-label>{{ 'form_registration.competicio_escolar' | translate }}</ion-label>
                       </ion-item>
-                    
+
                       <ion-item lines="none">
                         <ion-radio slot="start" value="federat"></ion-radio>
                         <ion-label>{{ 'form_registration.competicio_federat' | translate }}</ion-label>
                       </ion-item>
-                    </ion-radio-group>    
-                    
+                    </ion-radio-group>
+
                     <p style="color: red;" *ngIf="notLevel">{{ 'form_registration.select_value' | translate }}</p>
                   </ion-col>
                   <ion-col *ngIf="personalForm.get('level')?.value === 'base'">
@@ -85,7 +85,7 @@
                   <ion-button expand="block" (click)="nextStep()">{{ 'form_registration.next' | translate }}</ion-button>
                 </div>
               </form>
-      
+
               <form *ngSwitchCase="1" [formGroup]="firstTutorForm">
                 <h1>{{ 'form_registration.first_tutor_data_title' | translate }}</h1>
                 <div class="input-rows">
@@ -93,8 +93,8 @@
                   <ion-input label="{{ 'form_registration.surnames' | translate }}" labelPlacement="stacked" formControlName="surnames" placeholder="{{ 'form_registration.enter_surnames' | translate }}" fill="outline"></ion-input>
                 </div>
                 <ion-input label="{{ 'form_registration.telephone' | translate }}" labelPlacement="stacked" formControlName="telephone" placeholder="{{ 'form_registration.enter_telephone' | translate }}" fill="outline"></ion-input>
-              </form>    
-              
+              </form>
+
               <form *ngSwitchCase="1" [formGroup]="secondTutorForm" style="margin-top: 30px;">
                 <h1>{{ 'form_registration.second_tutor_data_title' | translate }}</h1>
                 <div class="input-rows">
@@ -106,8 +106,8 @@
                   <ion-button expand="block" (click)="prevStep()">{{ 'form_registration.back' | translate }}</ion-button>
                   <ion-button expand="block" (click)="nextStep()">{{ 'form_registration.next' | translate }}</ion-button>
                 </div>
-              </form>  
-              
+              </form>
+
               <form *ngSwitchCase="2" [formGroup]="contactForm">
                 <h1>{{ 'form_registration.contact_data' | translate }}</h1>
                 <p style="margin-top: 30px;">{{ 'form_registration.email_message' | translate }}</p>
@@ -118,8 +118,8 @@
                   <ion-button expand="block" (click)="prevStep()">{{ 'form_registration.back' | translate }}</ion-button>
                   <ion-button expand="block" (click)="nextStep()">{{ 'form_registration.next' | translate }}</ion-button>
                 </div>
-              </form> 
-              
+              </form>
+
               <form *ngSwitchCase="3" [formGroup]="bancForm">
                 <h1>{{ 'form_registration.banc_data' | translate }}</h1>
                 <ion-input label="{{ 'form_registration.iban' | translate }}" labelPlacement="stacked" formControlName="iban" placeholder="{{ 'form_registration.enter_iban' | translate }}" fill="outline"></ion-input>
@@ -128,8 +128,8 @@
                   <ion-button expand="block" (click)="prevStep()">{{ 'form_registration.back' | translate }}</ion-button>
                   <ion-button expand="block" (click)="nextStep()">{{ 'form_registration.next' | translate }}</ion-button>
                 </div>
-              </form>  
-              
+              </form>
+
               <form *ngSwitchCase="4" [formGroup]="imageRightsForm">
                 <h1>{{ 'form_registration.image_rights' | translate }}</h1>
                 <p style="margin-top: 20px; text-align: justify;">{{ 'form_registration.image_rights_explanation' | translate }}</p>
@@ -145,17 +145,17 @@
                     <ion-radio slot="start" value="true"></ion-radio>
                     <ion-label>{{ 'form_registration.authorize' | translate }}</ion-label>
                   </ion-item>
-                
+
                   <ion-item lines="none">
                     <ion-radio slot="start" value="false"></ion-radio>
                     <ion-label>{{ 'form_registration.no_authorize' | translate }}</ion-label>
                   </ion-item>
-                </ion-radio-group>   
+                </ion-radio-group>
                 <div class="step-buttons">
                   <ion-button expand="block" (click)="prevStep()">{{ 'form_registration.back' | translate }}</ion-button>
                   <ion-button expand="block" (click)="nextStep()">{{ 'form_registration.next' | translate }}</ion-button>
                 </div>
-              </form>  
+              </form>
 
               <form *ngSwitchCase="5">
                 <h1>{{ 'form_registration.confirmation' | translate }}</h1>
@@ -166,7 +166,7 @@
                 <div class="step-buttons">
                   <ion-button expand="block" (click)="prevStep()">{{ 'form_registration.back' | translate }}</ion-button>
                 </div>
-              </form>  
+              </form>
             </ng-container>
           </div>
         </div>
