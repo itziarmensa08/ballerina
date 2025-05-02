@@ -43,10 +43,18 @@
         color: black;
         cursor: pointer;
         transition: color 0.3s;
-    
+
         &:hover {
           color: var(--ion-color-primary-shade);
         }
+    }
+
+    @media (max-width: 768px) {
+      background-color: white;
+    }
+
+    &.data {
+      border-radius: 20px;
     }
 }
 
@@ -54,14 +62,14 @@
     margin-bottom: 10px;
 }
 
-.login-btn {
-    --background: var(--ion-color-primary);
-    --color: black;
-    --box-shadow: 0;
-    font-family: 'Poppins', sans-serif;
-    width: 130px;
-    text-transform: none !important;
-    --border-radius: 15px; 
+ion-button {
+  --background: var(--ion-color-primary);
+  --color: black;
+  --box-shadow: 0;
+  font-family: 'Poppins', sans-serif;
+  width: 130px;
+  text-transform: none !important;
+  --border-radius: 15px;
 }
 
 .signup-text {
@@ -83,15 +91,15 @@ a {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-  
+
     .checkbox-container {
       display: flex;
       align-items: center;
       gap: 5px;
     }
-  
+
     .forgot-password {
-      margin-left: auto; 
+      margin-left: auto;
       color: gray;
       text-decoration: none;
       font-size: 14px;
@@ -100,6 +108,10 @@ a {
 
 ion-input {
     margin: 10px;
+
+    @media (max-width: 768px) {
+      margin-left: 0;
+    }
 }
 
 h2 {

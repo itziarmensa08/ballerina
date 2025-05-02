@@ -13,12 +13,16 @@ import { User } from 'src/app/services/user.service';
   standalone: false
 })
 export class RegisterPage implements OnInit {
+
+  isMobile: boolean = window.innerWidth <= 768;
+  resizeListener = () => this.checkScreenSize();
+
   registerForm: FormGroup;
 
   imageHeader: String = '';
 
   constructor(
-    private fb: FormBuilder, 
+    private fb: FormBuilder,
     private router: Router,
     private authService: AuthService,
     private alertService: AlertService,
@@ -30,7 +34,11 @@ export class RegisterPage implements OnInit {
         surname: [''],
         username: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required, Validators.minLength(6)]],
+        password: ['', [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.pattern(/^(?=.*[A-Z])(?=.*\d).{6,}$/)
+        ]],
         confirmPassword: ['', Validators.required],
         language: [localStorage.getItem('lang')]
       },
@@ -39,9 +47,14 @@ export class RegisterPage implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.checkScreenSize();
+
     this.imageService.getImageByKey('login.register').subscribe(response => {
       this.imageHeader = response;
-    }); 
+    });
+
+    window.addEventListener('resize', this.resizeListener);
   }
 
   passwordMatchValidator(formGroup: AbstractControl): ValidationErrors | null {
@@ -76,10 +89,19 @@ export class RegisterPage implements OnInit {
           }
         }
       });
-    } 
+    }
   }
 
   navigateHome() {
     this.router.navigate(['/home']);
+  }
+
+  checkScreenSize(): void {
+    const wasMobile = this.isMobile;
+    this.isMobile = window.innerWidth <= 768;
+  }
+
+  ngOnDestroy(): void {
+    window.removeEventListener('resize', this.resizeListener);
   }
 }

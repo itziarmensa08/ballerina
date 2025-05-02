@@ -205,7 +205,8 @@
     "notUser": "Usuario no encontrado",
     "notUserMessage": "No se ha encontrado ningún usuario con este nombre de usuario o correo electrónico.",
     "incorrectPassword": "Contraseña incorrecta",
-    "incorrectPasswordMessage": "Si no recuerdas tu contraseña, haz clic en el botón para recuperarla."
+    "incorrectPasswordMessage": "Si no recuerdas tu contraseña, haz clic en el botón para recuperarla.",
+    "password_req": "La contraseña debe tener al menos 6 caracteres, una mayúscula y un número."
   },
   "contact": {
     "title": "Información de contacto",

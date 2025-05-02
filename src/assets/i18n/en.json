@@ -204,7 +204,8 @@
     "notUser": "User not found",
     "notUserMessage": "No user found with this username or email.",
     "incorrectPassword": "Incorrect password",
-    "incorrectPasswordMessage": "If you don't remember your password, click the button to recover it."
+    "incorrectPasswordMessage": "If you don't remember your password, click the button to recover it.",
+    "password_req": "The password must be at least 6 characters long and include an uppercase letter and a number."
   },
   "contact": {
     "title": "Contact Information",

@@ -204,7 +204,8 @@
     "notUser": "Usuari no trobat",
     "notUserMessage": "No s'ha trobat cap usuari amb aquest nom d'usuari o correu electrònic.",
     "incorrectPassword": "Contrasenya incorrecte",
-    "incorrectPasswordMessage": "Si no recordes la contrasenya, clica el botó per recuperar-la."
+    "incorrectPasswordMessage": "Si no recordes la contrasenya, clica el botó per recuperar-la.",
+    "password_req": "La contrasenya ha de tenir almenys 6 caràcters, una majúscula i un número."
   },
   "contact": {
     "title": "Informació de contacte",

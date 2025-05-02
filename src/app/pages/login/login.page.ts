@@ -13,6 +13,9 @@ import { ImagesService } from 'src/app/services/images.service';
 })
 export class LoginPage implements OnInit{
 
+  isMobile: boolean = window.innerWidth <= 768;
+  resizeListener = () => this.checkScreenSize();
+
   loginForm: FormGroup;
   imageHeader: String = '';
 
@@ -33,12 +36,20 @@ export class LoginPage implements OnInit{
   }
 
   ngOnInit(): void {
+    this.checkScreenSize();
+
     this.imageService.getImageByKey('login.register').subscribe(response => {
       this.imageHeader = response;
     });
+
+    window.addEventListener('resize', this.resizeListener);
   }
 
   login() {
+    if (this.loginForm.value.password == 'temporal') {
+      this.alertService.showAlert('error', 'alerts.error_title', 'alerts.error_message');
+      return;
+    }
     if (this.loginForm.valid) {
       const credentials = {username: this.loginForm.value.username, password: this.loginForm.value.password};
 
@@ -72,6 +83,15 @@ export class LoginPage implements OnInit{
 
   navigateHome() {
     this.router.navigate(['/home']);
+  }
+
+  checkScreenSize(): void {
+    const wasMobile = this.isMobile;
+    this.isMobile = window.innerWidth <= 768;
+  }
+
+  ngOnDestroy(): void {
+    window.removeEventListener('resize', this.resizeListener);
   }
 
 }
