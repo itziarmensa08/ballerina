@@ -45,7 +45,7 @@ export class FormRegistrationPage implements OnInit {
   ngOnInit() {
     this.imageService.getImageByKey('contact.header').subscribe(response => {
       this.imageHeader = response;
-    }); 
+    });
 
     this.personalForm = this.fb.group({
       name: ['', [Validators.required]],
@@ -96,7 +96,7 @@ export class FormRegistrationPage implements OnInit {
     this.notSchedule = false;
 
     let currentForm: FormGroup;
-  
+
     switch (this.currentStep) {
       case 0:
         currentForm = this.personalForm;
@@ -107,15 +107,15 @@ export class FormRegistrationPage implements OnInit {
       default:
         currentForm = this.personalForm;
     }
-    
+
     const levelControl = this.personalForm.get('level');
     if (!levelControl?.valid) {
       this.notLevel = true;
-    } 
+    }
 
     if (this.personalForm.errors?.['scheduleRequired'] && this.personalForm.touched) {
       this.notSchedule = true;
-    } 
+    }
 
     if (currentForm.valid) {
       this.currentStep++;
@@ -125,7 +125,7 @@ export class FormRegistrationPage implements OnInit {
       });
     }
 
-  }  
+  }
 
   prevStep() {
     if (this.currentStep > 0) {
@@ -140,12 +140,12 @@ export class FormRegistrationPage implements OnInit {
   scheduleRequiredIfEscolaBase: ValidatorFn = (form: AbstractControl): ValidationErrors | null => {
     const level = form.get('level')?.value;
     const schedule = form.get('schedule')?.value;
-  
+
     if (level === 'base') {
       const hasOneSelected = schedule?.some((v: boolean) => v);
       return hasOneSelected ? null : { scheduleRequired: true };
     }
-  
+
     return null;
   };
 
@@ -178,7 +178,7 @@ export class FormRegistrationPage implements OnInit {
       username: this.getUsernameFromNameAndSurname(),
       password: 'temporal',
       validated: false,
-
+      notifications: true,
       name: this.personalForm.get('name')?.value,
       surname: this.personalForm.get('surnames')?.value,
       email: this.contactForm.get('email')?.value,
@@ -226,7 +226,7 @@ export class FormRegistrationPage implements OnInit {
     const surnames = (this.personalForm.get('surnames')?.value || '').toLowerCase().trim();
     const firstSurname = surnames.split(' ')[0] || '';
     return `${name}${firstSurname}`;
-  }  
+  }
 
   private tryRegister(user: User, attempt = 0): void {
     const name = (this.personalForm.get('name')?.value || '').toLowerCase().replace(/\s+/g, '');
@@ -234,9 +234,9 @@ export class FormRegistrationPage implements OnInit {
     const surnames = surnamesRaw.split(' ').filter((s: any) => s);
     const firstSurname = surnames[0] || '';
     const secondSurname = surnames[1] || '';
-  
+
     let username: string;
-  
+
     switch (attempt) {
       case 0:
         username = `${name}${firstSurname}`;
@@ -251,9 +251,9 @@ export class FormRegistrationPage implements OnInit {
         username = `${name}${firstSurname}${secondSurname}${attempt}`;
         break;
     }
-  
+
     user.username = this.removeAccents(username);
-  
+
     this.authService.register(user).subscribe({
       next: () => {
         this.alertService.showAlert('success', 'settings.form_registration.added_title', 'settings.form_registration.added_message');
@@ -266,10 +266,10 @@ export class FormRegistrationPage implements OnInit {
         }
       }
     });
-  } 
-  
+  }
+
   private removeAccents(str: string): string {
     return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-  }  
+  }
 
 }

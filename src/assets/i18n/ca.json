@@ -307,12 +307,22 @@
     "email_not_verified": "Correu no verificat",
     "resend_email": "Reenvia el correu",
     "last_login": "Últim accés",
-    "preferences_subtitle": "Configura el teu idioma, tema i notificacions",
-    "security_subtitle": "Gestiona la teva contrasenya.",
+    "preferences_subtitle": "Configura les notificacions",
+    "security_subtitle": "Gestiona la teva contrasenya",
     "personal_data": "Dades personals",
     "tutors_data": "Dades dels tutors",
     "updated": "Dades actualitzades",
-    "updated_message": "Les dades s'han actualitzat correctament"
+    "updated_message": "Les dades s'han actualitzat correctament",
+    "last_password": "Contrasenya antiga",
+    "enter_last_password": "Introdueix la contrasenya antiga",
+    "new_password": "Contrasenya nova",
+    "enter_new_password": "Introdueix la nova contrasenya",
+    "enter_repeat_password": "Repeteix la nova contrasenya",
+    "error_password": "La contrasenya antiga no coincideix amb la del usuari.",
+    "passwords_not_match": "Les contrasenyes no coincideixen",
+    "delete": "Estàs segur / a que vols eliminar el teu compte?",
+    "deleted": "Usuari eliminat",
+    "deleted_message": "El teu usuari s'ha eliminat correctament."
   }
 
 }

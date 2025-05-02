@@ -27,10 +27,10 @@
                 <ion-card-subtitle>{{ user.catSalut }}</ion-card-subtitle>
               }
             </div>
-            <div class="justify-center" style="gap: 20px;">
+            <div class="justify-center profile-buttons" style="gap: 20px;">
               <ion-button (click)="logout()">{{ 'profile.logout' | translate }}</ion-button>
               @if (user.role != 'gimnast') {
-                <ion-button (click)="delete_account()" class="delete">{{ 'profile.delete_account' | translate }}</ion-button>
+                <ion-button (click)="confirmDelete()" class="delete">{{ 'profile.delete_account' | translate }}</ion-button>
               }
             </div>
           </ion-card-content>
@@ -49,14 +49,14 @@
               <ion-input label="{{ 'form_registration.surnames' | translate }}*" labelPlacement="stacked" [(ngModel)]="user.surname" placeholder="{{ 'form_registration.enter_surnames' | translate }}" fill="outline"></ion-input>
             </div>
             <div class="input-rows">
-              <mat-form-field appearance="outline" style="width: 50%; margin-top: 10px;">
+              <mat-form-field appearance="outline" class="half-input">
                 <mat-label>{{ 'form_registration.date_born' | translate }}</mat-label>
                 <input matInput [matDatepicker]="picker" [(ngModel)]="user.dateBorn">
                 <mat-hint>DD/MM/AAAA</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
-              <ion-input label="{{ 'form_registration.location' | translate }}" labelPlacement="stacked" [(ngModel)]="user.address" placeholder="{{ 'form_registration.enter_location' | translate }}" fill="outline" style="width: 50%; margin-top: 10px;"></ion-input>
+              <ion-input label="{{ 'form_registration.location' | translate }}" labelPlacement="stacked" [(ngModel)]="user.address" placeholder="{{ 'form_registration.enter_location' | translate }}" fill="outline" class="half-input location"></ion-input>
             </div>
             <div class="justify-center">
               <ion-button (click)="updateUser()">{{ 'general.save' | translate }}</ion-button>
@@ -90,19 +90,19 @@
           </ion-card>
         }
 
-        <!-- <ion-card>
+        <ion-card>
           <ion-card-header>
             <ion-card-title>{{ 'profile.preferences' | translate }}</ion-card-title>
             <ion-card-subtitle>{{ 'profile.preferences_subtitle' | translate }}</ion-card-subtitle>
           </ion-card-header>
 
           <ion-card-content>
-            <ion-item>
-              <ion-label>{{ 'profile.notifications' | translate }}</ion-label>
+            <div class="preferences">
+              <h2>{{ 'profile.notifications' | translate }}</h2>
               <ion-toggle [(ngModel)]="notifications" (ionChange)="updateNotifications()"></ion-toggle>
-            </ion-item>
+            </div>
           </ion-card-content>
-        </ion-card> -->
+        </ion-card>
 
         <ion-card>
           <ion-card-header>
@@ -111,8 +111,12 @@
           </ion-card-header>
 
           <ion-card-content>
+            <ion-input type="password" label="{{ 'profile.last_password' | translate }} *" labelPlacement="stacked" [(ngModel)]="currentPassword" placeholder="{{ 'profile.enter_last_password' | translate }}" fill="outline"></ion-input>
+            <ion-input type="password" label="{{ 'profile.new_password' | translate }} *" labelPlacement="stacked" [(ngModel)]="newPassword" placeholder="{{ 'profile.enter_new_password' | translate }}" fill="outline"></ion-input>
+            <ion-input type="password" label="{{ 'profile.new_password' | translate }} *" labelPlacement="stacked" [(ngModel)]="repeatPassword" placeholder="{{ 'profile.enter_repeat_password' | translate }}" fill="outline"></ion-input>
+            <p *ngIf="passwords_not_match" style="color: red; margin-top: 10px;" class="justify-center">{{ 'profile.passwords_not_match' | translate }}</p>
             <div class="justify-center">
-              <ion-button (click)="openChangePasswordModal()">{{ 'profile.change_password' | translate }}</ion-button>
+              <ion-button (click)="changePassword()">{{ 'profile.change_password' | translate }}</ion-button>
             </div>
 
           </ion-card-content>

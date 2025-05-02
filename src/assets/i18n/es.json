@@ -308,12 +308,22 @@
     "email_not_verified": "Correo no verificado",
     "resend_email": "Reenviar el correo",
     "last_login": "Último acceso",
-    "preferences_subtitle": "Configura tu idioma, tema y notificaciones",
-    "security_subtitle": "Gestiona tu contraseña.",
+    "preferences_subtitle": "Configura las notificaciones",
+    "security_subtitle": "Gestiona tu contraseña",
     "personal_data": "Datos personales",
     "tutors_data": "Datos de los tutores",
     "updated": "Datos actualizados",
-    "updated_message": "Los datos se han actualizado correctamente"
+    "updated_message": "Los datos se han actualizado correctamente",
+    "last_password": "Contraseña antigua",
+    "enter_last_password": "Introduce la contraseña antigua",
+    "new_password": "Contraseña nueva",
+    "enter_new_password": "Introduce la nueva contraseña",
+    "enter_repeat_password": "Repite la nueva contraseña",
+    "error_password": "La contraseña antigua no coincide con la del usuario.",
+    "passwords_not_match": "Las contraseñas no coinciden",
+    "delete": "¿Estás seguro/a de que quieres eliminar tu cuenta?",
+    "deleted": "Usuario eliminado",
+    "deleted_message": "Tu usuario se ha eliminado correctamente."
   }
 
 }

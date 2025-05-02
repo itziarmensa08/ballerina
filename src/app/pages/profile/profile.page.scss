@@ -13,6 +13,10 @@
 .content {
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 
 ion-card {
@@ -27,19 +31,33 @@ ion-card {
     height: 100%;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     min-width: 400px;
+
+    @media (max-width: 768px) {
+      min-width: 0;
+    }
   }
 }
 
 .profile {
   position: fixed;
   top: 20vh;
-  bottom: 10vh
+  bottom: 10vh;
+
+  @media (max-width: 768px) {
+    position: unset;
+    margin-top: 20vh;
+  }
 }
 
 .data {
   margin-top: 45vh;
   margin-left: 60vh;
   width: 100%;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    margin-top: 3vh;
+  }
 }
 
 ion-button {
@@ -77,4 +95,37 @@ ion-button {
   align-items: start;
   flex-direction: row;
   gap: 10px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.preferences {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile-buttons {
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.half-input {
+  width: 50%;
+  margin-top: 30px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  &.location {
+    margin-top: 30px;
+
+    @media (max-width: 768px) {
+      margin-top: 10px;
+    }
+  }
+
 }

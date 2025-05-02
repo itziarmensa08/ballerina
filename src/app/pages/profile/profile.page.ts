@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertConfirmService } from 'src/app/services/alert-confirm.service';
 import { AlertService } from 'src/app/services/alert.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { ImagesService } from 'src/app/services/images.service';
@@ -13,7 +14,7 @@ import { ParentInfo, User, UserService } from 'src/app/services/user.service';
 export class ProfilePage implements OnInit {
 
   user: User | null = null;
-  notifications = true;
+  notifications: Boolean = true;
   imageHeader: String = '';
   parents: ParentInfo[] = [
     {
@@ -28,11 +29,17 @@ export class ProfilePage implements OnInit {
     }
   ];
 
+  currentPassword: string = '';
+  newPassword: string = '';
+  repeatPassword: string = '';
+  passwords_not_match: boolean = false;
+
   constructor(
     private authService: AuthService,
     private imageService: ImagesService,
     private userService: UserService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private alertConfirmService: AlertConfirmService
   ) { }
 
   ngOnInit() {
@@ -48,6 +55,7 @@ export class ProfilePage implements OnInit {
         this.parents[1] = this.user?.parents[1];
       }
     }
+    if (this.user) this.notifications = this.user.notifications;
 
   }
 
@@ -55,16 +63,61 @@ export class ProfilePage implements OnInit {
     this.authService.logout();
   }
 
-  delete_account() {}
-
-  updateNotifications() {
-    localStorage.setItem('notifications', this.notifications.toString());
-    // También puedes persistir con API si es necesario
+  async confirmDelete() {
+    const confirmed = await this.alertConfirmService.showAlert('error', 'general.delete', 'profile.delete');
+    if (confirmed) {
+      this.delete_account();
+    }
   }
 
-  openChangePasswordModal() {
-    // Lógica para abrir un modal de cambio de contraseña (puedo ayudarte a crearlo)
-    console.log('Abrir modal de cambio de contraseña');
+  delete_account() {
+    this.userService.deleteUser(this.user!._id!).subscribe({
+      next: () => {
+        this.alertService.showAlert('success', 'profile.deleted', 'profile.deleted_message');
+        setTimeout(() => {
+          this.authService.logout();
+        }, 2000);
+      },
+      error: () => {
+        this.alertService.showAlert('error', 'alerts.error_title', 'alerts.error_message');
+      }
+    });
+  }
+
+  updateNotifications() {
+    if (this.user) this.user.notifications = this.notifications;
+    this.userService.updateUser(this.user!._id!, this.user!).subscribe({
+      next: (response) => {
+        this.alertService.showAlert('success', 'profile.updated', 'profile.updated_message');
+        localStorage.setItem('user',  JSON.stringify(response));
+      },
+      error: (error) => {
+        this.alertService.showAlert('error', 'alerts.error_title', 'alerts.error_message');
+      }
+    });
+  }
+
+  changePassword() {
+    this.passwords_not_match = false;
+
+    if (this.newPassword != this.repeatPassword) {
+      this.passwords_not_match = true
+    }
+
+    if (this.currentPassword != '' && this.newPassword != '' && this.passwords_not_match == false) {
+      this.authService.changePassword(this.user!._id!, this.currentPassword, this.newPassword).subscribe({
+        next: () => {
+          this.alertService.showAlert('success', 'profile.updated', 'profile.updated_message');
+        },
+        error: (error) => {
+          if (error.status === 401) {
+            this.alertService.showAlert('error', 'alerts.error_title', 'profile.error_password');
+          } else {
+            this.alertService.showAlert('error', 'alerts.error_title', 'alerts.error_message');
+          }
+        }
+      });
+    }
   }
 
   updateUser() {
@@ -81,7 +134,7 @@ export class ProfilePage implements OnInit {
         localStorage.setItem('user',  JSON.stringify(response));
       },
       error: (error) => {
-        this.alertService.showAlert('error', 'alerts.error_title', 'settings.texts.error_message');
+        this.alertService.showAlert('error', 'alerts.error_title', 'alerts.error_message');
       }
     });
   }
@@ -101,7 +154,7 @@ export class ProfilePage implements OnInit {
         localStorage.setItem('user',  JSON.stringify(response));
       },
       error: (error) => {
-        this.alertService.showAlert('error', 'alerts.error_title', 'settings.texts.error_message');
+        this.alertService.showAlert('error', 'alerts.error_title', 'alerts.error_message');
       }
     });
   }

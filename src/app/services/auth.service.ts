@@ -10,7 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AuthService {
 
-  private apiUrl = environment.apiUrl + '/auth'; 
+  private apiUrl = environment.apiUrl + '/auth';
 
   constructor(private http: HttpClient, private translate: TranslateService) {}
 
@@ -30,7 +30,7 @@ export class AuthService {
    */
   login(credentials: { username: string; password: string }): Observable<{ accessToken: string; refreshToken: string; user: User }> {
     return this.http.post<{ accessToken: string; refreshToken: string; user: User }>(
-      `${this.apiUrl}/login`, 
+      `${this.apiUrl}/login`,
       credentials
     );
   }
@@ -82,7 +82,7 @@ export class AuthService {
       sessionStorage.setItem('accessToken', accessToken);
       sessionStorage.setItem('refreshToken', refreshToken);
     }
-    
+
   }
 
   /**
@@ -111,6 +111,17 @@ export class AuthService {
   isAdmin(): boolean {
     const user = JSON.parse(localStorage.getItem('user') || sessionStorage.getItem('user') || '{}');
     return user?.role === 'admin';
+  }
+
+  /**
+   * Cambia contraseña
+   * @param userId - ID del usuario
+   * @param oldPass - Contraseña antigua
+   * @param newPass - Contraseña nueva
+   * @returns Observable con la respuesta del backend
+   */
+  changePassword(userId: string, currentPassword: string, newPassword: string): Observable<User> {
+    return this.http.put<User>(`${this.apiUrl}/changePassword/${userId}`, { currentPassword, newPassword });
   }
 
 }

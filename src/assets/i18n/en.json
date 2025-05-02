@@ -307,12 +307,22 @@
     "email_not_verified": "Email not verified",
     "resend_email": "Resend email",
     "last_login": "Last login",
-    "preferences_subtitle": "Set your language, theme and notifications",
-    "security_subtitle": "Manage your password.",
+    "preferences_subtitle": "Set the notifications",
+    "security_subtitle": "Manage your password",
     "personal_data": "Personal data",
     "tutors_data": "Tutors' data",
     "updated": "Updated data",
-    "updated_message": "The data has been successfully updated"
+    "updated_message": "The data has been successfully updated",
+    "last_password": "Old password",
+    "enter_last_password": "Enter your old password",
+    "new_password": "New password",
+    "enter_new_password": "Enter your new password",
+    "enter_repeat_password": "Repeat your new password",
+    "error_password": "The old password does not match the user's password.",
+    "passwords_not_match": "Passwords do not match",
+    "delete": "Are you sure you want to delete your account?",
+    "deleted": "User deleted",
+    "deleted_message": "Your account has been successfully deleted."
   }
 
 }
