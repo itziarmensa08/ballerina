@@ -21,10 +21,10 @@
               <ion-card-subtitle>{{ user.username }}</ion-card-subtitle>
               <ion-card-subtitle>{{ user.email }}</ion-card-subtitle>
               @if (user.dni) {
-                <ion-card-subtitle>{{ user.dni }}</ion-card-subtitle>
+                <ion-card-subtitle>DNI: {{ user.dni }}</ion-card-subtitle>
               }
               @if (user.catSalut) {
-                <ion-card-subtitle>{{ user.catSalut }}</ion-card-subtitle>
+                <ion-card-subtitle>{{ 'form_registration.cat_salut' | translate }}: {{ user.catSalut }}</ion-card-subtitle>
               }
             </div>
             <div class="justify-center profile-buttons" style="gap: 20px;">

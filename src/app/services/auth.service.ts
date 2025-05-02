@@ -49,8 +49,8 @@ export class AuthService {
    * @param token - Token de validación
    * @returns Observable con la respuesta del backend
    */
-  validateUser(token: string): Observable<{ message: string }> {
-    return this.http.patch<{ message: string }>(`${this.apiUrl}/validate/${token}`, {});
+  validateUser(token: string): Observable<{user: User | undefined; message: string}> {
+    return this.http.patch<{ user: User | undefined; message: string }>(`${this.apiUrl}/validate/${token}`, {});
   }
 
   /**

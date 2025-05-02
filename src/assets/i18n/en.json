@@ -294,7 +294,9 @@
     "message": "Welcome to Club Gimnàstic Ballerina VNG",
     "title": "Account Validation",
     "subtitle": "Your account has been successfully validated. Go to the",
-    "home": "home page."
+    "home": "home page.",
+    "subtitle_pass": "Tu cuenta se ha validado correctamente. Para poder acceder al portal personal deberás",
+    "create_pass": "crear una contraseña."
   },
   "profile": {
     "logout": "Log out",
@@ -323,6 +325,14 @@
     "delete": "Are you sure you want to delete your account?",
     "deleted": "User deleted",
     "deleted_message": "Your account has been successfully deleted."
+  },
+  "create-pass": {
+    "message": "Password Creation",
+    "username": "A custom username has been created for your account: <b>{{username}}</b>. You can use it to log in to your personal portal.",
+    "password": "Enter your password below:",
+    "create": "Create",
+    "updated": "Password created",
+    "updated_message": "The password has been successfully created"
   }
 
 }

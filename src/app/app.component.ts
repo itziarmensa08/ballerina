@@ -23,7 +23,8 @@ export class AppComponent {
   isIllegalPage(): boolean {
     return this.router.url === '/login' ||
         this.router.url === '/register' ||
-        this.router.url.startsWith('/validate');
+        this.router.url.startsWith('/validate') ||
+        this.router.url.startsWith('/create-pass');
   }
 
   ngOnInit() {
@@ -31,7 +32,7 @@ export class AppComponent {
     this.isLoggedIn = this.authService.isLoggedIn();
 
     const browserLang = this.translate.getBrowserLang();
-    const userLanguage = localStorage.getItem('lang') || browserLang || 'ca'; 
+    const userLanguage = localStorage.getItem('lang') || browserLang || 'ca';
     localStorage.setItem('lang', userLanguage);
 
     this.translate.setDefaultLang(userLanguage);

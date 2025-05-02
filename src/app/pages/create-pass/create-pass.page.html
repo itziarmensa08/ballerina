@@ -1,0 +1,36 @@
+<ion-content class="login-container" [fullscreen]="true">
+  <div class="login-wrapper">
+    <div class="login-left" [ngStyle]="{'background-image': 'url(' + imageHeader + ')'}">
+      <h1>{{ 'create-pass.message' | translate }}</h1>
+    </div>
+
+    <div class="login-right">
+      <ion-icon name="home-outline" class="home-icon" (click)="navigateHome()"></ion-icon>
+      <div class="title">
+        <ion-icon name="shield-checkmark-outline" size="large"></ion-icon>
+        <h2>{{ 'create-pass.message' | translate }}</h2>
+      </div>
+      <p [innerHTML]="'create-pass.username' | translate:{ username: user?.username }"></p>
+      <p>{{ 'create-pass.password' | translate }}</p>
+      <ion-input
+        type="password"
+        label="{{ 'login.password' | translate }}"
+        labelPlacement="floating"
+        [(ngModel)]="password"
+        fill="outline"
+        name="password"
+        required>
+      </ion-input>
+      <ion-input
+          type="password"
+          label="{{ 'register.confirm_password' | translate }}"
+          labelPlacement="floating"
+          [(ngModel)]="repeat"
+          fill="outline">
+      </ion-input>
+      <div class="title">
+        <ion-button (click)="createPass()">{{ 'create-pass.create' | translate }}</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -3,22 +3,29 @@
     <div class="login-left" [ngStyle]="{'background-image': 'url(' + imageHeader + ')'}">
       <h1>{{ 'validate.message' | translate }}</h1>
     </div>
-    
+
     <div class="login-right">
       <ion-icon name="home-outline" class="home-icon" (click)="navigateHome()"></ion-icon>
 
       @if (!loading) {
         <ion-icon name="checkmark-circle-outline" size="large"></ion-icon>
         <h2>{{ 'validate.title' | translate }}</h2>
-        <ion-row>
-          <p>{{ 'validate.subtitle' | translate }}</p>
-          <a [routerLink]="'/home'">{{ 'validate.home' | translate }}</a>
-        </ion-row>
+        @if (!create_pass) {
+          <ion-row class="subtitle">
+            <p>{{ 'validate.subtitle' | translate }}</p>
+            <a [routerLink]="'/home'">{{ 'validate.home' | translate }}</a>
+          </ion-row>
+        }
+        @if (create_pass) {
+          <ion-row class="subtitle">
+            <p>{{ 'validate.subtitle_pass' | translate }}</p>
+            <a [routerLink]="'/create-pass'">{{ 'validate.create_pass' | translate }}</a>
+          </ion-row>
+        }
       }
       @if (loading) {
         <ion-spinner name="bubbles"></ion-spinner>
       }
-
     </div>
   </div>
 </ion-content>

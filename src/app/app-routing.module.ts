@@ -57,6 +57,10 @@ const routes: Routes = [
     path: 'profile',
     loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
   },
+  {
+    path: 'create-pass',
+    loadChildren: () => import('./pages/create-pass/create-pass.module').then( m => m.CreatePassPageModule)
+  },
 ];
 
 @NgModule({

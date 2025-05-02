@@ -256,13 +256,13 @@ export class FormRegistrationPage implements OnInit {
 
     this.authService.register(user).subscribe({
       next: () => {
-        this.alertService.showAlert('success', 'settings.form_registration.added_title', 'settings.form_registration.added_message');
+        this.alertService.showAlert('success', 'form_registration.added_title', 'form_registration.added_message');
       },
       error: (error) => {
         if (error.status === 409 && attempt < 10) {
           this.tryRegister(user, attempt + 1);
         } else {
-          this.alertService.showAlert('error', 'alerts.error_title', 'settings.error_message');
+          this.alertService.showAlert('error', 'alerts.error_title', 'alerts.error_message');
         }
       }
     });
