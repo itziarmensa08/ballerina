@@ -110,7 +110,7 @@ export class AuthService {
    */
   isAdmin(): boolean {
     const user = JSON.parse(localStorage.getItem('user') || sessionStorage.getItem('user') || '{}');
-    return user?.roles.includes('admin');
+    return Array.isArray(user.roles) && user.roles.includes('admin');
   }
 
   /**
