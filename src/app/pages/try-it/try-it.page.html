@@ -4,18 +4,18 @@
   <div class="justify-center">
     <ion-card>
       <ion-card-content>
-        <ion-row class="content">
-          <ion-col class="contact" size="9">
+        <div class="content">
+          <ion-col class="contact" size-md="9" size="12">
             <h1>{{ 'form_registration.gimnast_data' | translate }}</h1>
             <div class="personal-data">
               <ion-input label="{{ 'try-it.name' | translate }}" [(ngModel)]="name" labelPlacement="stacked" placeholder="{{ 'try-it.enter_name' | translate }}" fill="outline"></ion-input>
               <ion-input label="{{ 'try-it.email' | translate }}" [(ngModel)]="email" labelPlacement="stacked" placeholder="{{ 'form_registration.enter_email' | translate }}" fill="outline"></ion-input>
             </div>
-            <div class="personal-data">
-              <ion-col style="padding: 0;">
+            <div class="personal-data mobile">
+              <ion-col class="age">
                 <ion-input label="{{ 'try-it.age' | translate }}" [(ngModel)]="age" labelPlacement="stacked" placeholder="{{ 'try-it.enter_age' | translate }}" fill="outline"></ion-input>
               </ion-col>
-              <ion-col class="justify-center" style="padding: 0;">
+              <ion-col class="done-ryth-col" style="padding: 0;">
                 <div class="done-ryth">
                   <p>{{ 'try-it.done_rhythmic' | translate }}</p>
                   <ion-radio-group class="radio-row" [(ngModel)]="doneRyth">
@@ -33,9 +33,9 @@
               </ion-col>
             </div>
             <ion-textarea label="{{ 'try-it.message' | translate }}" [(ngModel)]="message" labelPlacement="stacked" placeholder="{{ 'contact.enter_message' | translate }}" fill="outline" rows="5" style="--highlight-color-focused: black;"></ion-textarea>
-            <ion-button (click)="sendMessage()">{{ 'try-it.send' | translate }}</ion-button>      
+            <ion-button (click)="sendMessage()" class="no-mobile">{{ 'try-it.send' | translate }}</ion-button>      
           </ion-col>
-          <ion-col class="contact-info" size="3">
+          <ion-col class="contact-info" size-md="3" size="12">
             <h1>{{ 'try-it.doubt' | translate }}</h1>
             <ion-row class="caracters">
               <ion-icon name="call-outline"></ion-icon>
@@ -46,7 +46,10 @@
               <p>vngballerina&#64;gmail.com</p>
             </ion-row>
           </ion-col>
-        </ion-row>
+          <div class="justify-center no-web">
+            <ion-button (click)="sendMessage()">{{ 'try-it.send' | translate }}</ion-button> 
+          </div>
+        </div>
       </ion-card-content>
     </ion-card>
   </div>
