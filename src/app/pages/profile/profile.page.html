@@ -45,8 +45,8 @@
 
           <ion-card-content>
             <div class="input-rows">
-              <ion-input label="{{ 'form_registration.name' | translate }}*" labelPlacement="stacked" [(ngModel)]="user.name" placeholder="{{ 'form_registration.enter_name' | translate }}" fill="outline"></ion-input>
-              <ion-input label="{{ 'form_registration.surnames' | translate }}*" labelPlacement="stacked" [(ngModel)]="user.surname" placeholder="{{ 'form_registration.enter_surnames' | translate }}" fill="outline"></ion-input>
+              <ion-input mode="md" label="{{ 'form_registration.name' | translate }}*" labelPlacement="stacked" [(ngModel)]="user.name" placeholder="{{ 'form_registration.enter_name' | translate }}" fill="outline"></ion-input>
+              <ion-input mode="md" label="{{ 'form_registration.surnames' | translate }}*" labelPlacement="stacked" [(ngModel)]="user.surname" placeholder="{{ 'form_registration.enter_surnames' | translate }}" fill="outline"></ion-input>
             </div>
             <div class="input-rows">
               <mat-form-field appearance="outline" class="half-input">
@@ -56,7 +56,7 @@
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
-              <ion-input label="{{ 'form_registration.location' | translate }}" labelPlacement="stacked" [(ngModel)]="user.address" placeholder="{{ 'form_registration.enter_location' | translate }}" fill="outline" class="half-input location"></ion-input>
+              <ion-input mode="md" label="{{ 'form_registration.location' | translate }}" labelPlacement="stacked" [(ngModel)]="user.address" placeholder="{{ 'form_registration.enter_location' | translate }}" fill="outline" class="half-input location"></ion-input>
             </div>
             <div class="justify-center">
               <ion-button (click)="updateUser()">{{ 'general.save' | translate }}</ion-button>
@@ -73,15 +73,15 @@
             <ion-card-content>
               <h3>{{ 'form_registration.first_tutor_data_title' | translate }}</h3>
               <div class="input-rows">
-                <ion-input label="{{ 'form_registration.name' | translate }}" labelPlacement="stacked" [(ngModel)]="parents[0].name" placeholder="{{ 'form_registration.enter_name' | translate }}" fill="outline"></ion-input>
-                <ion-input label="{{ 'form_registration.surnames' | translate }}" labelPlacement="stacked" [(ngModel)]="parents[0].surname" placeholder="{{ 'form_registration.enter_surnames' | translate }}" fill="outline"></ion-input>
-                <ion-input label="{{ 'form_registration.telephone' | translate }}" labelPlacement="stacked" [(ngModel)]="parents[0].telephone" placeholder="{{ 'form_registration.enter_telephone' | translate }}" fill="outline"></ion-input>
+                <ion-input mode="md" label="{{ 'form_registration.name' | translate }}" labelPlacement="stacked" [(ngModel)]="parents[0].name" placeholder="{{ 'form_registration.enter_name' | translate }}" fill="outline"></ion-input>
+                <ion-input mode="md" label="{{ 'form_registration.surnames' | translate }}" labelPlacement="stacked" [(ngModel)]="parents[0].surname" placeholder="{{ 'form_registration.enter_surnames' | translate }}" fill="outline"></ion-input>
+                <ion-input mode="md" label="{{ 'form_registration.telephone' | translate }}" labelPlacement="stacked" [(ngModel)]="parents[0].telephone" placeholder="{{ 'form_registration.enter_telephone' | translate }}" fill="outline"></ion-input>
               </div>
               <h3 style="margin-top: 20px;">{{ 'form_registration.second_tutor_data_title' | translate }}</h3>
               <div class="input-rows">
-                <ion-input label="{{ 'form_registration.name' | translate }}" labelPlacement="stacked" [(ngModel)]="parents[1].name" placeholder="{{ 'form_registration.enter_name' | translate }}" fill="outline"></ion-input>
-                <ion-input label="{{ 'form_registration.surnames' | translate }}" labelPlacement="stacked" [(ngModel)]="parents[1].surname" placeholder="{{ 'form_registration.enter_surnames' | translate }}" fill="outline"></ion-input>
-                <ion-input label="{{ 'form_registration.telephone' | translate }}" labelPlacement="stacked" [(ngModel)]="parents[1].telephone" placeholder="{{ 'form_registration.enter_telephone' | translate }}" fill="outline"></ion-input>
+                <ion-input mode="md" label="{{ 'form_registration.name' | translate }}" labelPlacement="stacked" [(ngModel)]="parents[1].name" placeholder="{{ 'form_registration.enter_name' | translate }}" fill="outline"></ion-input>
+                <ion-input mode="md" label="{{ 'form_registration.surnames' | translate }}" labelPlacement="stacked" [(ngModel)]="parents[1].surname" placeholder="{{ 'form_registration.enter_surnames' | translate }}" fill="outline"></ion-input>
+                <ion-input mode="md" label="{{ 'form_registration.telephone' | translate }}" labelPlacement="stacked" [(ngModel)]="parents[1].telephone" placeholder="{{ 'form_registration.enter_telephone' | translate }}" fill="outline"></ion-input>
               </div>
               <div class="justify-center" style="margin-top: 20px;">
                 <ion-button (click)="updateParents()">{{ 'general.save' | translate }}</ion-button>
@@ -111,9 +111,9 @@
           </ion-card-header>
 
           <ion-card-content>
-            <ion-input type="password" label="{{ 'profile.last_password' | translate }} *" labelPlacement="stacked" [(ngModel)]="currentPassword" placeholder="{{ 'profile.enter_last_password' | translate }}" fill="outline"></ion-input>
-            <ion-input type="password" label="{{ 'profile.new_password' | translate }} *" labelPlacement="stacked" [(ngModel)]="newPassword" placeholder="{{ 'profile.enter_new_password' | translate }}" fill="outline"></ion-input>
-            <ion-input type="password" label="{{ 'profile.new_password' | translate }} *" labelPlacement="stacked" [(ngModel)]="repeatPassword" placeholder="{{ 'profile.enter_repeat_password' | translate }}" fill="outline"></ion-input>
+            <ion-input mode="md" type="password" label="{{ 'profile.last_password' | translate }} *" labelPlacement="stacked" [(ngModel)]="currentPassword" placeholder="{{ 'profile.enter_last_password' | translate }}" fill="outline"></ion-input>
+            <ion-input mode="md" type="password" label="{{ 'profile.new_password' | translate }} *" labelPlacement="stacked" [(ngModel)]="newPassword" placeholder="{{ 'profile.enter_new_password' | translate }}" fill="outline"></ion-input>
+            <ion-input mode="md" type="password" label="{{ 'profile.new_password' | translate }} *" labelPlacement="stacked" [(ngModel)]="repeatPassword" placeholder="{{ 'profile.enter_repeat_password' | translate }}" fill="outline"></ion-input>
             <p *ngIf="passwords_not_match" style="color: red; margin-top: 10px;" class="justify-center">{{ 'profile.passwords_not_match' | translate }}</p>
             <div class="justify-center">
               <ion-button (click)="changePassword()">{{ 'profile.change_password' | translate }}</ion-button>

@@ -10,7 +10,7 @@
         <p>{{ 'register.subtitle' | translate }}</p>
 
         <form [formGroup]="registerForm" (ngSubmit)="register()">
-          <ion-input
+          <ion-input mode="md"
             label="{{ 'register.name' | translate }}"
             labelPlacement="floating"
             formControlName="name"
@@ -18,21 +18,21 @@
             [class.invalid]="registerForm.get('name')?.invalid && registerForm.get('name')?.touched">
           </ion-input>
 
-          <ion-input
+          <ion-input mode="md"
             label="{{ 'register.surnames' | translate }}"
             labelPlacement="floating"
             formControlName="surname"
             fill="outline">
           </ion-input>
 
-          <ion-input
+          <ion-input mode="md"
             label="{{ 'register.username' | translate }}"
             labelPlacement="floating"
             formControlName="username"
             fill="outline">
           </ion-input>
 
-          <ion-input
+          <ion-input mode="md"
             type="email"
             label="{{ 'register.email' | translate }}"
             labelPlacement="floating"
@@ -41,7 +41,7 @@
             [class.invalid]="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
           </ion-input>
 
-          <ion-input
+          <ion-input mode="md"
             type="password"
             label="{{ 'login.password' | translate }}"
             labelPlacement="floating"
@@ -54,7 +54,7 @@
             {{ 'register.password_req' | translate }}
           </p>
 
-          <ion-input
+          <ion-input mode="md"
             type="password"
             label="{{ 'register.confirm_password' | translate }}"
             labelPlacement="floating"

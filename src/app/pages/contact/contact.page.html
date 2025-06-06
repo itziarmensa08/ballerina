@@ -23,10 +23,10 @@
           </ion-col>
           <ion-col class="contact">
             <div class="personal-data">
-              <ion-input label="{{ 'contact.name' | translate }}" [(ngModel)]="name" labelPlacement="stacked" placeholder="{{ 'contact.enter_name' | translate }}" fill="outline"></ion-input>
-              <ion-input label="{{ 'contact.email' | translate }}" [(ngModel)]="email" labelPlacement="stacked" placeholder="{{ 'contact.enter_email' | translate }}" type="email" fill="outline"></ion-input>
+              <ion-input mode="md" label="{{ 'contact.name' | translate }}" [(ngModel)]="name" labelPlacement="stacked" placeholder="{{ 'contact.enter_name' | translate }}" fill="outline"></ion-input>
+              <ion-input mode="md" label="{{ 'contact.email' | translate }}" [(ngModel)]="email" labelPlacement="stacked" placeholder="{{ 'contact.enter_email' | translate }}" type="email" fill="outline"></ion-input>
             </div>
-            <ion-input label="{{ 'contact.subject' | translate }}" [(ngModel)]="subject" labelPlacement="stacked" placeholder="{{ 'contact.enter_subject' | translate }}" fill="outline"></ion-input>
+            <ion-input mode="md" label="{{ 'contact.subject' | translate }}" [(ngModel)]="subject" labelPlacement="stacked" placeholder="{{ 'contact.enter_subject' | translate }}" fill="outline"></ion-input>
             <ion-textarea label="{{ 'contact.message' | translate }}" [(ngModel)]="message" labelPlacement="stacked" placeholder="{{ 'contact.enter_message' | translate }}" fill="outline" rows="5" style="--highlight-color-focused: black;"></ion-textarea>
             <ion-button (click)="sendMessage()">{{ 'contact.send' | translate }}</ion-button>      
           </ion-col>

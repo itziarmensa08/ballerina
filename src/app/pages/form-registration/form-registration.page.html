@@ -6,7 +6,7 @@
       <ion-card-content>
         <div class="form-container">
 
-          <div class="stepper">
+          <div class="stepper no-mobile">
             <div *ngFor="let step of steps; let i = index"
                  [class.active]="i === currentStep"
                  [class.completed]="i < currentStep"
@@ -26,24 +26,24 @@
               <form *ngSwitchCase="0" [formGroup]="personalForm">
                 <h1>{{ 'form_registration.gimnast_data' | translate }}</h1>
                 <div class="input-rows">
-                  <ion-input label="{{ 'form_registration.name' | translate }}*" labelPlacement="stacked" formControlName="name" placeholder="{{ 'form_registration.enter_name' | translate }}" fill="outline"></ion-input>
-                  <ion-input label="{{ 'form_registration.surnames' | translate }}*" labelPlacement="stacked" formControlName="surnames" placeholder="{{ 'form_registration.enter_surnames' | translate }}" fill="outline"></ion-input>
+                  <ion-input mode="md" label="{{ 'form_registration.name' | translate }}*" labelPlacement="stacked" formControlName="name" placeholder="{{ 'form_registration.enter_name' | translate }}" fill="outline"></ion-input>
+                  <ion-input mode="md" label="{{ 'form_registration.surnames' | translate }}*" labelPlacement="stacked" formControlName="surnames" placeholder="{{ 'form_registration.enter_surnames' | translate }}" fill="outline"></ion-input>
                 </div>
                 <div class="input-rows">
-                  <mat-form-field appearance="outline" style="width: 50%; margin-top: 10px;">
+                  <mat-form-field appearance="outline" class="mid-input">
                     <mat-label>{{ 'form_registration.date_born' | translate }}</mat-label>
                     <input matInput [matDatepicker]="picker" formControlName="dateBorn">
                     <mat-hint>DD/MM/AAAA</mat-hint>
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                   </mat-form-field>
-                  <ion-input label="{{ 'form_registration.dni' | translate }}*" labelPlacement="stacked" formControlName="dni" placeholder="{{ 'form_registration.enter_dni' | translate }}" fill="outline" style="width: 50%; margin-top: 10px;"></ion-input>
+                  <ion-input mode="md" label="{{ 'form_registration.dni' | translate }}*" labelPlacement="stacked" formControlName="dni" placeholder="{{ 'form_registration.enter_dni' | translate }}" fill="outline" class="mid-input"></ion-input>
                 </div>
                 <div class="input-rows">
-                  <ion-input label="{{ 'form_registration.cat_salut' | translate }}*" labelPlacement="stacked" formControlName="catSalut" placeholder="{{ 'form_registration.enter_cat_salut' | translate }}" fill="outline"></ion-input>
-                  <ion-input label="{{ 'form_registration.location' | translate }}" labelPlacement="stacked" formControlName="address" placeholder="{{ 'form_registration.enter_location' | translate }}" fill="outline"></ion-input>
+                  <ion-input mode="md" label="{{ 'form_registration.cat_salut' | translate }}*" labelPlacement="stacked" formControlName="catSalut" placeholder="{{ 'form_registration.enter_cat_salut' | translate }}" fill="outline"></ion-input>
+                  <ion-input mode="md" label="{{ 'form_registration.location' | translate }}" labelPlacement="stacked" formControlName="address" placeholder="{{ 'form_registration.enter_location' | translate }}" fill="outline"></ion-input>
                 </div>
-                <ion-input label="{{ 'form_registration.has_illness' | translate }}" labelPlacement="floating" formControlName="address" fill="outline"></ion-input>
+                <ion-input mode="md" label="{{ 'form_registration.has_illness' | translate }}" labelPlacement="floating" formControlName="address" fill="outline"></ion-input>
                 <div class="input-rows">
                   <ion-col>
                     <h2>{{ 'form_registration.level' | translate }}*:</h2>
@@ -89,19 +89,19 @@
               <form *ngSwitchCase="1" [formGroup]="firstTutorForm">
                 <h1>{{ 'form_registration.first_tutor_data_title' | translate }}</h1>
                 <div class="input-rows">
-                  <ion-input label="{{ 'form_registration.name' | translate }}" labelPlacement="stacked" formControlName="name" placeholder="{{ 'form_registration.enter_name' | translate }}" fill="outline"></ion-input>
-                  <ion-input label="{{ 'form_registration.surnames' | translate }}" labelPlacement="stacked" formControlName="surnames" placeholder="{{ 'form_registration.enter_surnames' | translate }}" fill="outline"></ion-input>
+                  <ion-input mode="md" label="{{ 'form_registration.name' | translate }}" labelPlacement="stacked" formControlName="name" placeholder="{{ 'form_registration.enter_name' | translate }}" fill="outline"></ion-input>
+                  <ion-input mode="md" label="{{ 'form_registration.surnames' | translate }}" labelPlacement="stacked" formControlName="surnames" placeholder="{{ 'form_registration.enter_surnames' | translate }}" fill="outline"></ion-input>
                 </div>
-                <ion-input label="{{ 'form_registration.telephone' | translate }}" labelPlacement="stacked" formControlName="telephone" placeholder="{{ 'form_registration.enter_telephone' | translate }}" fill="outline"></ion-input>
+                <ion-input mode="md" label="{{ 'form_registration.telephone' | translate }}" labelPlacement="stacked" formControlName="telephone" placeholder="{{ 'form_registration.enter_telephone' | translate }}" fill="outline"></ion-input>
               </form>
 
               <form *ngSwitchCase="1" [formGroup]="secondTutorForm" style="margin-top: 30px;">
                 <h1>{{ 'form_registration.second_tutor_data_title' | translate }}</h1>
                 <div class="input-rows">
-                  <ion-input label="{{ 'form_registration.name' | translate }}" labelPlacement="stacked" formControlName="name" placeholder="{{ 'form_registration.enter_name' | translate }}" fill="outline"></ion-input>
-                  <ion-input label="{{ 'form_registration.surnames' | translate }}" labelPlacement="stacked" formControlName="surnames" placeholder="{{ 'form_registration.enter_surnames' | translate }}" fill="outline"></ion-input>
+                  <ion-input mode="md" label="{{ 'form_registration.name' | translate }}" labelPlacement="stacked" formControlName="name" placeholder="{{ 'form_registration.enter_name' | translate }}" fill="outline"></ion-input>
+                  <ion-input mode="md" label="{{ 'form_registration.surnames' | translate }}" labelPlacement="stacked" formControlName="surnames" placeholder="{{ 'form_registration.enter_surnames' | translate }}" fill="outline"></ion-input>
                 </div>
-                <ion-input label="{{ 'form_registration.telephone' | translate }}" labelPlacement="stacked" formControlName="telephone" placeholder="{{ 'form_registration.enter_telephone' | translate }}" fill="outline"></ion-input>
+                <ion-input mode="md" label="{{ 'form_registration.telephone' | translate }}" labelPlacement="stacked" formControlName="telephone" placeholder="{{ 'form_registration.enter_telephone' | translate }}" fill="outline"></ion-input>
                 <div class="step-buttons">
                   <ion-button expand="block" (click)="prevStep()">{{ 'form_registration.back' | translate }}</ion-button>
                   <ion-button expand="block" (click)="nextStep()">{{ 'form_registration.next' | translate }}</ion-button>
@@ -111,9 +111,9 @@
               <form *ngSwitchCase="2" [formGroup]="contactForm">
                 <h1>{{ 'form_registration.contact_data' | translate }}</h1>
                 <p style="margin-top: 30px;">{{ 'form_registration.email_message' | translate }}</p>
-                <ion-input label="{{ 'form_registration.email' | translate }}" labelPlacement="stacked" formControlName="email" placeholder="{{ 'form_registration.enter_email' | translate }}" fill="outline"></ion-input>
+                <ion-input mode="md" label="{{ 'form_registration.email' | translate }}" labelPlacement="stacked" formControlName="email" placeholder="{{ 'form_registration.enter_email' | translate }}" fill="outline"></ion-input>
                 <p style="margin-top: 30px;">{{ 'form_registration.tel_message' | translate }}</p>
-                <ion-input label="{{ 'form_registration.telephone' | translate }}" labelPlacement="stacked" formControlName="telephone" placeholder="{{ 'form_registration.enter_telephone' | translate }}" fill="outline"></ion-input>
+                <ion-input mode="md" label="{{ 'form_registration.telephone' | translate }}" labelPlacement="stacked" formControlName="telephone" placeholder="{{ 'form_registration.enter_telephone' | translate }}" fill="outline"></ion-input>
                 <div class="step-buttons">
                   <ion-button expand="block" (click)="prevStep()">{{ 'form_registration.back' | translate }}</ion-button>
                   <ion-button expand="block" (click)="nextStep()">{{ 'form_registration.next' | translate }}</ion-button>
@@ -122,8 +122,8 @@
 
               <form *ngSwitchCase="3" [formGroup]="bancForm">
                 <h1>{{ 'form_registration.banc_data' | translate }}</h1>
-                <ion-input label="{{ 'form_registration.iban' | translate }}" labelPlacement="stacked" formControlName="iban" placeholder="{{ 'form_registration.enter_iban' | translate }}" fill="outline"></ion-input>
-                <ion-input label="{{ 'form_registration.titular' | translate }}" labelPlacement="stacked" formControlName="name" placeholder="{{ 'form_registration.enter_titular' | translate }}" fill="outline"></ion-input>
+                <ion-input mode="md" label="{{ 'form_registration.iban' | translate }}" labelPlacement="stacked" formControlName="iban" placeholder="{{ 'form_registration.enter_iban' | translate }}" fill="outline"></ion-input>
+                <ion-input mode="md" label="{{ 'form_registration.titular' | translate }}" labelPlacement="stacked" formControlName="name" placeholder="{{ 'form_registration.enter_titular' | translate }}" fill="outline"></ion-input>
                 <div class="step-buttons">
                   <ion-button expand="block" (click)="prevStep()">{{ 'form_registration.back' | translate }}</ion-button>
                   <ion-button expand="block" (click)="nextStep()">{{ 'form_registration.next' | translate }}</ion-button>
@@ -133,12 +133,11 @@
               <form *ngSwitchCase="4" [formGroup]="imageRightsForm">
                 <h1>{{ 'form_registration.image_rights' | translate }}</h1>
                 <p style="margin-top: 20px; text-align: justify;">{{ 'form_registration.image_rights_explanation' | translate }}</p>
-                <div style="display: flex; flex-direction: row; align-items: center; gap: 10px;">
+                <div class="me-rights">
                   <p>{{ 'form_registration.me' | translate }}</p>
-                  <ion-input formControlName="name" fill="outline" style="width: 300px;"></ion-input>
+                  <ion-input mode="md" formControlName="name" fill="outline" style="width: 300px; margin-top: 0;"></ion-input>
                   <p>{{ 'form_registration.with_dni' | translate }}</p>
-                  <ion-input formControlName="dni" fill="outline" style="width: 300px;"></ion-input>
-                  <p>:</p>
+                  <ion-input mode="md" formControlName="dni" fill="outline" style="width: 300px; margin-top: 0;"></ion-input>
                 </div>
                 <ion-radio-group formControlName="authorized">
                   <ion-item lines="none" style="margin-top: 20px;">

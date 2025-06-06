@@ -127,6 +127,42 @@ ion-input, ion-textarea {
     --highlight-color: black;
 }
 
+/* .ios ion-input, ion-textarea {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding-left: 10px;
+}
+
+.sc-ion-input-ios-h {
+    --placeholder-color: initial;
+    --placeholder-font-style: initial;
+    --placeholder-font-weight: initial;
+    --placeholder-opacity: var(--ion-placeholder-opacity, 0.6);
+    --padding-top: 0px;
+    --padding-end: 0px;
+    --padding-bottom: 0px;
+    --padding-start: 10px;
+    --background: transparent;
+    --color: initial;
+    --border-style: solid;
+    --highlight-color-focused: var(--ion-color-primary, #0054e9);
+    --highlight-color-valid: var(--ion-color-success, #2dd55b);
+    --highlight-color-invalid: var(--ion-color-danger, #c5000f);
+    --highlight-color: var(--highlight-color-focused);
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: 44px;
+    padding: 0 !important;
+    color: var(--color);
+    font-family: var(--ion-font-family, inherit);
+    z-index: 2;
+} */
+
+.ion-valid.sc-ion-input-ios-h {
+    --highlight-color: black;
+}
+
 mat-label {
     color: #ABABAB;
 }

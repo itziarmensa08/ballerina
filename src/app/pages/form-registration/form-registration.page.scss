@@ -16,6 +16,10 @@ ion-card {
     border-radius: 15px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     padding: 10px;
+
+    @media (max-width: 768px) {
+        width: 90%;
+    }
 }
 
 ion-card-content {
@@ -28,6 +32,10 @@ ion-card-content {
     flex-direction: row;
     height: 100%;
     padding: 16px;
+
+    @media (max-width: 768px) {
+        padding: 0px;
+    }
 }
   
 .stepper {
@@ -72,6 +80,10 @@ ion-card-content {
 .form-card {
     flex: 1;
     padding-left: 24px;
+
+    @media (max-width: 768px) {
+        padding-left: 0px;
+    }
 }
 
 ion-button {
@@ -103,6 +115,10 @@ ion-button {
     align-items: start;
     flex-direction: row;
     gap: 10px;
+
+    @media (max-width: 768px) {
+        display: block;
+    }
 }
 
 h2 {
@@ -113,5 +129,31 @@ h2 {
     display: flex; 
     justify-content: space-between; 
     margin-top: 30px;
+    @media (max-width: 768px) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.mid-input {
+    width: 50%; 
+    margin-top: 20px;
+
+    @media (max-width: 768px) {
+        width: 100%; 
+    }
+}
+
+.me-rights {
+    display: flex; 
+    flex-direction: row; 
+    align-items: center; 
+    gap: 10px;
+    margin-top: 20px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 }
   

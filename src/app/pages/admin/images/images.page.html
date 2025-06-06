@@ -50,7 +50,7 @@
       </ion-card-header>
     
       <ion-card-content>
-        <ion-input label="{{ 'settings.texts.key' | translate }}" labelPlacement="stacked" [(ngModel)]="newImageKey" placeholder="Ej: home.title" fill="outline"></ion-input>
+        <ion-input mode="md" label="{{ 'settings.texts.key' | translate }}" labelPlacement="stacked" [(ngModel)]="newImageKey" placeholder="Ej: home.title" fill="outline"></ion-input>
         <div class="justify-center">
           <label class="custom-file-upload">
             <ion-button (click)="triggerFileInput()" class="add_image">
