@@ -26,7 +26,9 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [AppComponent],
   imports: [
     BrowserModule, 
-    IonicModule.forRoot(), 
+    IonicModule.forRoot({
+      mode: 'md'
+    }), 
     AppRoutingModule, 
     ComponentsModule,
     HttpClientModule,
