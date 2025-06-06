@@ -295,8 +295,8 @@
   "validate": {
     "message": "Bienvenido/a al Club Gimnàstic Ballerina VNG",
     "title": "Validación de la cuenta",
-    "subtitle": "Tu cuenta se ha validado correctamente. Ve a la",
-    "home": "página principal.",
+    "subtitle": "Tu cuenta se ha validado correctamente. Ve al",
+    "home": "inicio de sesión.",
     "subtitle_pass": "Tu cuenta se ha validado correctamente. Para poder acceder al portal personal deberás",
     "create_pass": "crear una contraseña."
   },

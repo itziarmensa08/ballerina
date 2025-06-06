@@ -55,8 +55,7 @@ export class UsersPage implements OnInit {
     this.filteredUsers = this.users.filter(user => 
       user.name.toLowerCase().includes(searchTerm) ||
       user.surname.toLowerCase().includes(searchTerm) ||
-      user.email.toLowerCase().includes(searchTerm) ||
-      user.role.toLowerCase().includes(searchTerm)
+      user.email.toLowerCase().includes(searchTerm) 
     );
   }
 

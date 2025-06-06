@@ -182,7 +182,7 @@ export class FormRegistrationPage implements OnInit {
       name: this.personalForm.get('name')?.value,
       surname: this.personalForm.get('surnames')?.value,
       email: this.contactForm.get('email')?.value,
-      role: 'gimnast',
+      roles: ['gimnast'],
       telephone: this.contactForm.get('telephone')?.value,
       dni: this.personalForm.get('dni')?.value,
       catSalut: this.personalForm.get('catSalut')?.value,

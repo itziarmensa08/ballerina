@@ -44,7 +44,7 @@ export interface User extends Auth {
   name: string;
   surname: string;
   email: string;
-  role: Role;
+  roles: Role[];
   telephone?: string;
   dni?: string;
   catSalut?: string;

@@ -5,10 +5,10 @@
       <div class="profile">
         <ion-card class="profile-card">
           <div class="justify-center">
-            @if (user && user.role == 'gimnast') {
+            @if (user && user.roles.includes('gimnast')) {
               <img alt="Silhouette of mountains" src="assets/icon_gymnast.jpg" width="200px"/>
             }
-            @if (user && (user.role == 'user' || user.role == 'admin')) {
+            @if (user && (user.roles.includes('user') || user.roles.includes('admin'))) {
               <img alt="Silhouette of mountains" src="assets/user_icon.jpg" width="200px"/>
             }
           </div>
@@ -29,7 +29,7 @@
             </div>
             <div class="justify-center profile-buttons" style="gap: 20px;">
               <ion-button (click)="logout()">{{ 'profile.logout' | translate }}</ion-button>
-              @if (user.role != 'gimnast') {
+              @if (!user.roles.includes('gimnast')) {
                 <ion-button (click)="confirmDelete()" class="delete">{{ 'profile.delete_account' | translate }}</ion-button>
               }
             </div>
@@ -64,7 +64,7 @@
           </ion-card-content>
         </ion-card>
 
-        @if (user.role == 'gimnast') {
+        @if (user.roles.includes('gimnast')) {
           <ion-card class="data-card">
             <ion-card-header>
               <ion-card-title>{{ 'profile.tutors_data' | translate }}</ion-card-title>
