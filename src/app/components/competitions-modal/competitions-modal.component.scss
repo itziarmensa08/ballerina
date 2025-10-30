@@ -87,6 +87,18 @@ h1 {
     animation: fadeIn 0.3s forwards;
     transition: opacity 0.3s ease-in-out;
     background-color: white;
+
+    @media (max-width: 768px) {
+        max-width: 95%;
+        max-height: 90vh;
+    }
+}
+
+.content-grid {
+    @media (min-width: 768px) {
+        display: flex;
+        flex-direction: row;
+    }
 }
 
 @keyframes fadeIn {
