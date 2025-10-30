@@ -221,7 +221,8 @@
     "enter_message": "Introdueix el teu missatge",
     "send": "Enviar missatge",
     "sent": "Missatge enviat",
-    "sent_message": "El missatge s'ha enviat correctament, rebràs una resposta en breu."
+    "sent_message": "El missatge s'ha enviat correctament, rebràs una resposta en breu.",
+    "send_message": "Envia'ns un missatge"
   },
   "form_registration": {
     "gimnast_data": "Dades de la gimnasta",

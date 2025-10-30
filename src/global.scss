@@ -111,13 +111,13 @@ tr:hover {
 
 .no-mobile {
     @media (max-width: 768px) {
-        display: none;
+        display: none !important;
     }
 }
 
 .no-web {
     @media (min-width: 768px) {
-        display: none;
+        display: none !important;
     }
 }
 

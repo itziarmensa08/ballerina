@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from './services/auth.service';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ export class AppComponent {
   constructor(
     private translate: TranslateService,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private menuCtrl: MenuController
   ) {}
 
   isIllegalPage(): boolean {
@@ -37,5 +39,9 @@ export class AppComponent {
 
     this.translate.setDefaultLang(userLanguage);
     this.translate.use(userLanguage);
+  }
+
+  closeMenu() {
+    this.menuCtrl.close();
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AlertService } from 'src/app/services/alert.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { ImagesService } from 'src/app/services/images.service';
@@ -39,7 +40,8 @@ export class FormRegistrationPage implements OnInit {
     private fb: FormBuilder,
     private imageService: ImagesService,
     private authService: AuthService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -257,6 +259,7 @@ export class FormRegistrationPage implements OnInit {
     this.authService.register(user).subscribe({
       next: () => {
         this.alertService.showAlert('success', 'form_registration.added_title', 'form_registration.added_message');
+        this.router.navigate(['/home']);
       },
       error: (error) => {
         if (error.status === 409 && attempt < 10) {

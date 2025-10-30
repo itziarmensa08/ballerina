@@ -222,7 +222,8 @@
     "enter_message": "Escribe tu mensaje",
     "send": "Enviar mensaje",
     "sent": "Mensaje enviado",
-    "sent_message": "El mensaje se ha enviado correctamente, recibirás una respuesta en breve."
+    "sent_message": "El mensaje se ha enviado correctamente, recibirás una respuesta en breve.",
+    "send_message": "Envíanos un mensaje"
   },
   "form_registration": {
     "gimnast_data": "Datos de la gimnasta",

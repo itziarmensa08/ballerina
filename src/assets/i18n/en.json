@@ -221,7 +221,8 @@
     "enter_message": "Write your message",
     "send": "Send message",
     "sent": "Message sent",
-    "sent_message": "Your message has been sent successfully. You will receive a response shortly."
+    "sent_message": "Your message has been sent successfully. You will receive a response shortly.",
+    "send_message": "Send us a message"
   },
   "form_registration": {
     "gimnast_data": "Gymnast's data",

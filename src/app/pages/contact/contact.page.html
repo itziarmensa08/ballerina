@@ -4,8 +4,8 @@
   <div class="justify-center">
     <ion-card>
       <ion-card-content>
-        <ion-row class="content">
-          <ion-col class="contact-info">
+        <div class="content">
+          <ion-col class="contact-info no-mobile">
             <h1>{{ 'contact.title' | translate }}</h1>
             <p>{{ 'contact.description' | translate }}</p>
             <ion-row class="caracters">
@@ -16,13 +16,14 @@
               <ion-icon name="mail-outline"></ion-icon>
               <p>vngballerina&#64;gmail.com</p>
             </ion-row>
-            <ion-row class="caracters">
+            <div class="caracters">
               <ion-icon name="location-outline"></ion-icon>
               <p>{{ 'contact.address' | translate }}</p>
-            </ion-row>
+            </div>
           </ion-col>
           <ion-col class="contact">
-            <div class="personal-data">
+            <h1 class="no-web">{{ 'contact.send_message' | translate }}</h1>
+            <div class="personal-data mobile">
               <ion-input mode="md" label="{{ 'contact.name' | translate }}" [(ngModel)]="name" labelPlacement="stacked" placeholder="{{ 'contact.enter_name' | translate }}" fill="outline"></ion-input>
               <ion-input mode="md" label="{{ 'contact.email' | translate }}" [(ngModel)]="email" labelPlacement="stacked" placeholder="{{ 'contact.enter_email' | translate }}" type="email" fill="outline"></ion-input>
             </div>
@@ -30,7 +31,23 @@
             <ion-textarea label="{{ 'contact.message' | translate }}" [(ngModel)]="message" labelPlacement="stacked" placeholder="{{ 'contact.enter_message' | translate }}" fill="outline" rows="5" style="--highlight-color-focused: black;"></ion-textarea>
             <ion-button (click)="sendMessage()">{{ 'contact.send' | translate }}</ion-button>      
           </ion-col>
-        </ion-row>
+          <ion-col class="contact-info no-web">
+            <h1>{{ 'contact.title' | translate }}</h1>
+            <p>{{ 'contact.description' | translate }}</p>
+            <ion-row class="caracters">
+              <ion-icon name="call-outline"></ion-icon>
+              <p>+34 618 47 53 82</p>
+            </ion-row>
+            <ion-row class="caracters">
+              <ion-icon name="mail-outline"></ion-icon>
+              <p>vngballerina&#64;gmail.com</p>
+            </ion-row>
+            <div class="caracters">
+              <ion-icon name="location-outline"></ion-icon>
+              <p>{{ 'contact.address' | translate }}</p>
+            </div>
+          </ion-col>
+        </div>
       </ion-card-content>
     </ion-card>
   </div>
