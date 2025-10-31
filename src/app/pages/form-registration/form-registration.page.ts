@@ -120,6 +120,17 @@ export class FormRegistrationPage implements OnInit {
     }
 
     if (currentForm.valid) {
+      if (this.currentStep === 0) {
+        const dateBorn = this.personalForm.get('dateBorn')?.value;
+        if (dateBorn && this.isAdult(dateBorn)) {
+          Object.keys(this.firstTutorForm.controls).forEach(key => {
+            const control = this.firstTutorForm.get(key);
+            control?.clearValidators();
+            control?.updateValueAndValidity();
+          });
+        }
+      }
+
       this.currentStep++;
     } else {
       Object.values(currentForm.controls).forEach(control => {
@@ -128,6 +139,18 @@ export class FormRegistrationPage implements OnInit {
     }
 
   }
+
+  private isAdult(dateBorn: string): boolean {
+    const birthDate = new Date(dateBorn);
+    const today = new Date();
+    const age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+
+    return monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())
+      ? age - 1 >= 18
+      : age >= 18;
+  }
+
 
   prevStep() {
     if (this.currentStep > 0) {

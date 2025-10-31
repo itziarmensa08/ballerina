@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Chart, registerables } from 'chart.js';
+import { AuthService } from 'src/app/services/auth.service';
 import { ImagesService } from 'src/app/services/images.service';
 
 Chart.register(...registerables);
@@ -25,7 +26,8 @@ export class AdminPage implements OnInit, AfterViewInit {
 
   constructor(
     private translate: TranslateService,
-    private imageService: ImagesService
+    private imageService: ImagesService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -80,6 +82,10 @@ export class AdminPage implements OnInit, AfterViewInit {
         },
       },
     });
+  }
+
+  logout() {
+    this.authService.logout();
   }
 
 }

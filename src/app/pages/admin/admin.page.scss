@@ -74,3 +74,21 @@ ion-item {
 h2 {
     color: black;
 }
+
+ion-button {
+  --background: var(--ion-color-primary);
+  --color: black;
+  --box-shadow: 0;
+  font-family: 'Poppins', sans-serif;
+  min-width: 150px;
+  text-transform: none !important;
+  --border-radius: 15px;
+  transition: transform 0.3s ease-in-out;
+  --border-color: var(--ion-color-primary);
+  margin-right: 10px;
+
+  &:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+}
