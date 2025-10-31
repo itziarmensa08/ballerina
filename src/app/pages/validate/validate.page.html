@@ -4,28 +4,32 @@
       <h1>{{ 'validate.message' | translate }}</h1>
     </div>
 
-    <div class="login-right">
-      <ion-icon name="home-outline" class="home-icon" (click)="navigateHome()"></ion-icon>
+    <div class="login-right" [ngStyle]="isMobile ? {'background-image': 'url(' + imageHeader + ')'} : {}">
+      <div class="login-right data">
+        <ion-icon name="home-outline" class="home-icon" (click)="navigateHome()"></ion-icon>
 
-      @if (!loading) {
-        <ion-icon name="checkmark-circle-outline" size="large"></ion-icon>
-        <h2>{{ 'validate.title' | translate }}</h2>
-        @if (!create_pass) {
-          <ion-row class="subtitle">
-            <p>{{ 'validate.subtitle' | translate }}</p>
-            <a [routerLink]="'/login'">{{ 'validate.home' | translate }}</a>
-          </ion-row>
+        @if (!loading) {
+          <ion-icon name="checkmark-circle-outline" size="large"></ion-icon>
+          <h2>{{ 'validate.title' | translate }}</h2>
+          <p>{{ 'validate.subtitle' | translate }}</p>
+          <a [routerLink]="'/home'">{{ 'header.home' | translate }}</a>
+          <!-- @if (!create_pass) {
+            <ion-row class="subtitle">
+              <p>{{ 'validate.subtitle' | translate }}</p>
+              <a [routerLink]="'/login'">{{ 'validate.home' | translate }}</a>
+            </ion-row>
+          }
+          @if (create_pass) {
+            <ion-row class="subtitle">
+              <p>{{ 'validate.subtitle_pass' | translate }}</p>
+              <a [routerLink]="'/create-pass'">{{ 'validate.create_pass' | translate }}</a>
+            </ion-row>
+          } -->
         }
-        @if (create_pass) {
-          <ion-row class="subtitle">
-            <p>{{ 'validate.subtitle_pass' | translate }}</p>
-            <a [routerLink]="'/create-pass'">{{ 'validate.create_pass' | translate }}</a>
-          </ion-row>
+        @if (loading) {
+          <ion-spinner name="bubbles"></ion-spinner>
         }
-      }
-      @if (loading) {
-        <ion-spinner name="bubbles"></ion-spinner>
-      }
+      </div>
     </div>
   </div>
 </ion-content>

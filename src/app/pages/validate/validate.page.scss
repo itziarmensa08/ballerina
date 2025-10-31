@@ -53,6 +53,17 @@
           color: var(--ion-color-primary-shade);
         }
     }
+
+    @media (max-width: 768px) {
+      background-color: white;
+    }
+
+    &.data {
+      border-radius: 20px;
+      width: 95%;
+      padding: 10px;
+      text-align: center;
+    }
 }
 
 .login-right h2 {

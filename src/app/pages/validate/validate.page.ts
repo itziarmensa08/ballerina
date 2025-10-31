@@ -13,6 +13,8 @@ import { User } from 'src/app/services/user.service';
 })
 export class ValidatePage implements OnInit {
 
+  isMobile: boolean = window.innerWidth <= 768;
+
   imageHeader: String = '';
   loading: boolean = true;
   error: boolean = false;

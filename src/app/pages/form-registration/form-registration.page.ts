@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AlertService } from 'src/app/services/alert.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { ImagesService } from 'src/app/services/images.service';
+import { LoaderService } from 'src/app/services/loader.service';
 import { User, Schedule } from 'src/app/services/user.service';
 
 @Component({
@@ -41,7 +42,8 @@ export class FormRegistrationPage implements OnInit {
     private imageService: ImagesService,
     private authService: AuthService,
     private alertService: AlertService,
-    private router: Router
+    private router: Router,
+    private loaderService: LoaderService
   ) {}
 
   ngOnInit() {
@@ -92,7 +94,7 @@ export class FormRegistrationPage implements OnInit {
     });
   }
 
-  nextStep() {
+  async nextStep() {
 
     this.notLevel = false;
     this.notSchedule = false;
@@ -253,7 +255,7 @@ export class FormRegistrationPage implements OnInit {
     return `${name}${firstSurname}`;
   }
 
-  private tryRegister(user: User, attempt = 0): void {
+  private async tryRegister(user: User, attempt = 0): Promise<void> {
     const name = (this.personalForm.get('name')?.value || '').toLowerCase().replace(/\s+/g, '');
     const surnamesRaw = (this.personalForm.get('surnames')?.value || '').toLowerCase().trim();
     const surnames = surnamesRaw.split(' ').filter((s: any) => s);
@@ -279,12 +281,16 @@ export class FormRegistrationPage implements OnInit {
 
     user.username = this.removeAccents(username);
 
+    await this.loaderService.show();
+
     this.authService.register(user).subscribe({
-      next: () => {
+      next: async () => {
+        await this.loaderService.hide();
         this.alertService.showAlert('success', 'form_registration.added_title', 'form_registration.added_message');
         this.router.navigate(['/home']);
       },
-      error: (error) => {
+      error: async (error) => {
+        await this.loaderService.show();
         if (error.status === 409 && attempt < 10) {
           this.tryRegister(user, attempt + 1);
         } else {

@@ -5,7 +5,8 @@
     "cancel": "Cancelar",
     "confirm": "Confirmar",
     "search": "Buscar",
-    "read_more": "Lleer más ..."
+    "read_more": "Lleer más ...",
+    "loading": "Cargando..."
   },
   "breadcrumbs": {
     "admin": "Administrador",
@@ -296,7 +297,7 @@
   "validate": {
     "message": "Bienvenido/a al Club Gimnàstic Ballerina VNG",
     "title": "Validación de la cuenta",
-    "subtitle": "Tu cuenta se ha validado correctamente. Ve al",
+    "subtitle": "Tu cuenta se ha validado correctamente.",
     "home": "inicio de sesión.",
     "subtitle_pass": "Tu cuenta se ha validado correctamente. Para poder acceder al portal personal deberás",
     "create_pass": "crear una contraseña."
