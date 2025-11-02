@@ -40,7 +40,8 @@ export class RegisterPage implements OnInit {
           Validators.pattern(/^(?=.*[A-Z])(?=.*\d).{6,}$/)
         ]],
         confirmPassword: ['', Validators.required],
-        language: [localStorage.getItem('lang')]
+        language: [localStorage.getItem('lang')],
+        roles: ['user']
       },
       { validators: this.passwordMatchValidator }
     );
