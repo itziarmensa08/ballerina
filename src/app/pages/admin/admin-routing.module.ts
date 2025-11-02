@@ -35,6 +35,10 @@ const routes: Routes = [
   {
     path: 'gimnasts',
     loadChildren: () => import('./gimnasts/gimnasts.module').then( m => m.GimnastsPageModule)
+  },
+  {
+    path: 'administrators',
+    loadChildren: () => import('./administrators/administrators.module').then( m => m.AdministratorsPageModule)
   }
 ];
 

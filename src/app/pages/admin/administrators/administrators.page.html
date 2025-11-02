@@ -1,0 +1,98 @@
+<ion-content [fullscreen]="true">
+  <div class="principal"></div>
+  <app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
+  <div [ngClass]="{'cards': editingUser}">
+    <ion-card [ngClass]="{'all-width': editingUser}">
+      <ion-card-header class="ion-card-header-row">
+        <div class="header-left">
+          <ion-card-title>{{ 'settings.users.title' | translate }}</ion-card-title>
+          <ion-card-subtitle>{{ 'settings.users.subtitle' | translate }}</ion-card-subtitle>
+        </div>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-searchbar 
+          (ionInput)="filterUsers($event)" 
+          [placeholder]="'general.search' | translate">
+        </ion-searchbar>
+        <div class="table-container" *ngIf="filteredUsers.length > 0; else noData">
+          <table>
+            <thead>
+              <tr>
+                <th>{{ 'register.name' | translate }}</th>
+                <th>{{ 'register.surnames' | translate }}</th>
+                <th>{{ 'register.email' | translate }}</th>
+                <th>{{ 'settings.users.role' | translate }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of filteredUsers" (click)="toggleEditUser(user)">
+                <td>{{ user.name }}</td>
+                <td>{{ user.surname }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.roles.join(', ') }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ng-template #noData>
+          <p class="no-texts">{{ 'admin.users_edit.noData' | translate }}</p>
+        </ng-template>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="editingUser" [ngClass]="{'all-width': editingUser}">
+      <ion-card-header>
+        <ion-card-title>{{ 'admin.users_edit.edit_title' | translate }}</ion-card-title>
+        <ion-card-subtitle>{{ 'admin.users_edit.edit_subtitle' | translate }}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-input mode="md"
+          label="{{ 'register.name' | translate }}"
+          labelPlacement="floating"
+          [(ngModel)]="newUser!.name"
+          placeholder="{{ 'register.name_placeholder' | translate }}"
+          fill="outline">
+        </ion-input>
+        <ion-input mode="md"
+          label="{{ 'register.surnames' | translate }}"
+          labelPlacement="floating"
+          [(ngModel)]="newUser!.surname"
+          placeholder="{{ 'register.surnames_placeholder' | translate }}"
+          fill="outline">
+        </ion-input>
+        <ion-input mode="md"
+          label="{{ 'register.username' | translate }}"
+          labelPlacement="floating"
+          [(ngModel)]="newUser!.username"
+          placeholder="{{ 'register.username_placeholder' | translate }}"
+          fill="outline">
+        </ion-input>
+        <ion-input mode="md"
+          label="{{ 'register.email' | translate }}"
+          labelPlacement="floating"
+          [(ngModel)]="newUser!.email"
+          placeholder="{{ 'register.email_placeholder' | translate }}"
+          fill="outline">
+        </ion-input>
+        <ion-input mode="md"
+          label="{{ 'admin.users_edit.role_label' | translate }}"
+          labelPlacement="floating"
+          [(ngModel)]="newUser!.roles[0]"
+          placeholder="{{ 'admin.users_edit.role_placeholder' | translate }}"
+          fill="outline">
+        </ion-input>
+        <div class="justify-center">
+          <ion-button (click)="updateUser()" class="add-text-btn">
+            <ion-icon slot="start" name="save-outline"></ion-icon>
+            {{ 'general.save' | translate }}
+          </ion-button>
+          <ion-button (click)="confirmDelete()" class="add-text-btn delete">
+            <ion-icon slot="start" name="trash-outline"></ion-icon>
+            {{ 'general.delete' | translate }}
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -20,8 +20,6 @@ export class EditGimnastPage implements OnInit {
   ];
 
   userId: string | null = null;
-  users: User[] = [];
-  filteredUsers: User[] = [];
 
   newUser: User | null = null;
 
