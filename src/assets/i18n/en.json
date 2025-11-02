@@ -183,7 +183,7 @@
     "message": "Welcome back!",
     "title": "Login",
     "subtitle": "Welcome back! Please log in with your account.",
-    "email": "Email or username",
+    "email": "Username",
     "password": "Password",
     "remember": "Remember me",
     "forgot": "Forgot password?",
