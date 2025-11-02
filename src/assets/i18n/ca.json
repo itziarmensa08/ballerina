@@ -15,7 +15,9 @@
     "users": "Usuaris",
     "competitions": "Competicions",
     "exhibitions": "Exhibicions d'iniciació",
-    "trainings_type": "Àrees d'entrenament"
+    "trainings_type": "Àrees d'entrenament",
+    "gimnasts": "Gimnastes",
+    "edit_gimnast": "Editar gimnasta"
   },
   "header": {
     "home": "Inici",
@@ -276,7 +278,7 @@
     "confirmation_message": "El tractament d'aquestes dades segueixen la normativa establerta (Llei Orgànica 15/1999 de 13 de desembre. Protecció de Dades de caràcter personal) Aquesta autorització és vàlida des del dia de la signatura de la present i tindrà validesa totes les temporades que el/la gimnasta pertanyi al Club.",
     "register": "Registrar gimnasta",
     "added_title": "Felicitats! T'has inscrit correctament.",
-    "added_message": "Rebràs un correu de confirmació per entrar al portal personal"
+    "added_message": "Rebràs un correu de confirmació. Moltes gràcies per confiar en nosaltres!"
   },
   "try-it": {
     "name": "Nom i cognoms",
@@ -336,5 +338,50 @@
     "create": "Crear",
     "updated": "Contrasenya creada",
     "updated_message": "S'ha creat la contrasenya correctament"
+  },
+  "admin": {
+    "stats": "Estadístiques d'ús",
+    "gimnasts": "Gestionar gimnastes",
+    "gimnasts_subtitle": "Visualitza i edita les dades de les gimnastes",
+    "gimnasts_description": "Número total de gimnastes registrades al portal: {{count}}",
+    "users": "Gestionar usuaris",
+    "users_subtitle": "Visualitza i edita perfils d'usuari",
+    "users_description": "Número total d'usuaris registrats al portal: {{count}}",
+    "admins": "Gestionar administradors",
+    "admins_subtitle": "Visualitza i edita perfils d'administrador",
+    "admins_description": "Número total d'administradors registrats al portal: {{count}}",
+    "users_edit": {
+      "edit_title": "Editar usuari",
+      "edit_subtitle": "Modifica les dades necessàries",
+      "role": "Rol",
+      "update": "Actualitzar usuari",
+      "delete": "Estàs segur/a que vols eliminar aquest usuari?",
+      "updated": "Usuari actualitzat",
+      "updatedMessage": "S'ha actualitzat correctament l'usuari",
+      "error_update_user": "No s'ha pogut actualitzar l'usuari",
+      "deleted": "Usuari eliminat",
+      "deletedMessage": "L'usuari s'ha eliminat correctament",
+      "error_delete_user": "No s'ha pogut eliminar l'usuari",
+      "role_label": "Rol (gimnast/user/admin)",
+      "role_placeholder": "Introdueix el rol de l'usuari correcte",
+      "noData": "Encara no hi ha usuaris"
+    },
+    "gimnasts_edit":{
+      "edit_title": "Editar gimnasta",
+      "edit_subtitle": "Modifica les dades necessàries",
+      "delete": "Estàs segur/a que vols eliminar aquesta gimnasta?",
+      "updated": "Gimnasta actualitzada",
+      "updatedMessage": "S'ha actualitzat correctament la gimnasta",
+      "error_update_gimnast": "No s'ha pogut actualitzar la gimnasta",
+      "deleted": "Gimnasta eliminada",
+      "deletedMessage": "La gimnasta s'ha eliminat correctament",
+      "error_delete_gimnast": "No s'ha pogut eliminar la gimnasta",
+      "noData": "Encara no hi ha gimnastes",
+      "error_load_user": "No s'ha pogut carregar la gimnasta",
+      "call": "Trucar",
+      "send_wpp": "Enviar WhatsApp",
+      "no_telephone": "Aquest usuari no té un número de telèfon registrat.",
+      "wpp_message": "Hola {{name}}, et escric des del Club Gimnàstic Ballerina."
+    }
   }
 }

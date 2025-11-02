@@ -14,7 +14,9 @@
     "images": "Images",
     "users": "Users",
     "competitions": "Competitions",
-    "exhibitions": "Introductory Exhibitions"
+    "exhibitions": "Introductory Exhibitions",
+    "gimnasts": "Gymnasts",
+    "edit_gimnast": "Edit gymnast"
   },
   "menu": {
     "title": "Menu"
@@ -276,7 +278,7 @@
     "confirmation_message": "The processing of this data follows the established regulations (Organic Law 15/1999 of December 13th. Protection of Personal Data). This authorization is valid from the date of signing this form and will remain valid for all seasons in which the gymnast is a member of the Club.",
     "register": "Register gymnast",
     "added_title": "Congratulations! You have successfully registered.",
-    "added_message": "You will receive a confirmation email to access your personal portal"
+    "added_message": "You will receive a confirmation email. Thank you very much for trusting us!"
   },
   "try-it": {
     "name": "Name and surname",
@@ -336,6 +338,55 @@
     "create": "Create",
     "updated": "Password created",
     "updated_message": "The password has been successfully created"
+  },
+  "admin": {
+    "stats": "Usage statistics",
+    "gimnasts": "Managed gymnasts",
+    "gimnasts_subtitle": "View and edit gymnast profiles",
+    "gimnasts_description": "Total number of gymnasts registered on the portal: {{count}}",
+    "users": "Manage users",
+    "users_subtitle": "View and edit user profiles",
+    "users_description": "Total number of users registered on the portal: {{count}}",
+    "admins": "Manage administrators",
+    "admins_subtitle": "View and edit administrator profiles",
+    "admins_description": "Total number of administrators registered on the portal: {{count}}",
+    "users_edit": {
+      "edit_title": "Edit user",
+      "edit_subtitle": "Modify the necessary data",
+      "role": "Role",
+      "update": "Update user",
+      "delete": "Are you sure you want to delete this user?",
+      "updated": "Updated user",
+      "updatedMessage": "The user has been successfully updated",
+      "error_update_user": "The user could not be updated",
+      "deleted": "Deleted user",
+      "deletedMessage": "The user has been deleted successfully",
+      "error_delete_user": "The user could not be deleted",
+      "role_label": "Role (gimnast/user/admin)",
+      "role_placeholder": "Enter the correct role of the user",
+      "noData": "There are no users yet"
+    },
+    "gimnasts_edit": {
+      "edit_title": "Edit gymnast",
+      "edit_subtitle": "Modify the necessary data",
+      "level": "Level",
+      "update": "Update gymnast",
+      "delete": "Are you sure you want to delete this gymnast?",
+      "updated": "Updated gymnast",
+      "updatedMessage": "The gymnast has been successfully updated",
+      "error_update_gimnast": "The gymnast could not be updated",
+      "deleted": "Deleted gymnast",
+      "deletedMessage": "The gymnast has been deleted successfully",
+      "error_delete_gimnast": "The gymnast could not be deleted",
+      "level_label": "Level (base/competicio_escolar/competicio_federat)",
+      "level_placeholder": "Enter the correct level of the gymnast",
+      "noData": "There are no gymnasts yet",
+      "error_load_user": "The gymnast could not be loaded",
+      "call": "Call",
+      "send_wpp": "Send WhatsApp",
+      "no_telephone": "This user does not have a registered phone number.",
+      "wpp_message": "Hello {{name}}, I am writing to you from Club Gimnàstic Ballerina."
+    }
   }
 
 }

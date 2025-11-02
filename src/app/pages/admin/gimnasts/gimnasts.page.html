@@ -1,0 +1,43 @@
+<ion-content [fullscreen]="true">
+  <div class="principal"></div>
+  <app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
+  <div>
+    <ion-card>
+      <ion-card-header class="ion-card-header-row">
+        <div class="header-left">
+          <ion-card-title>{{ 'admin.gimnasts_edit.edit_title' | translate }}</ion-card-title>
+          <ion-card-subtitle>{{ 'admin.gimnasts_edit.edit_subtitle' | translate }}</ion-card-subtitle>
+        </div>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-searchbar 
+          (ionInput)="filterUsers($event)" 
+          [placeholder]="'general.search' | translate">
+        </ion-searchbar>
+        <div class="table-container" *ngIf="filteredUsers.length > 0; else noData">
+          <table>
+            <thead>
+              <tr>
+                <th>{{ 'register.name' | translate }}</th>
+                <th>{{ 'register.surnames' | translate }}</th>
+                <th>{{ 'register.email' | translate }}</th>
+                <th>{{ 'form_registration.date_born' | translate }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of filteredUsers" (click)="toggleEditUser(user._id)">
+                <td>{{ user.name }}</td>
+                <td>{{ user.surname }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.dateBorn | date:'dd/MM/yyyy' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ng-template #noData>
+          <p class="no-texts">{{ 'admin.gimnasts_edit.noData' | translate }}</p>
+        </ng-template>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

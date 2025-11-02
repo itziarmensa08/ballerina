@@ -1,0 +1,256 @@
+<ion-content [fullscreen]="true">
+  <div class="principal"></div>
+  <app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
+  <div>
+    <ion-card *ngIf="newUser">
+      <ion-card-header>
+        <ion-card-title>{{ 'form_registration.gimnast_data' | translate }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-input mode="md"
+          label="{{ 'register.name' | translate }}"
+          labelPlacement="floating"
+          [(ngModel)]="newUser!.name"
+          placeholder="{{ 'form_registration.enter_name' | translate }}"
+          fill="outline">
+        </ion-input>
+        <ion-input mode="md"
+          label="{{ 'register.surnames' | translate }}"
+          labelPlacement="floating"
+          [(ngModel)]="newUser!.surname"
+          placeholder="{{ 'form_registration.enter_surnames' | translate }}"
+          fill="outline">
+        </ion-input>
+        <div class="input-rows">
+          <mat-form-field appearance="outline" class="mid-input">
+            <mat-label>{{ 'form_registration.date_born' | translate }}</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="newUser!.dateBorn">
+            <mat-hint>DD/MM/AAAA</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <ion-input mode="md"
+          label="{{ 'form_registration.dni' | translate }}"
+          labelPlacement="floating"
+          [(ngModel)]="newUser!.dni"
+          placeholder="{{ 'form_registration.enter_dni' | translate }}"
+          fill="outline">
+        </ion-input>
+        <ion-input mode="md" 
+          label="{{ 'form_registration.cat_salut' | translate }}*" 
+          labelPlacement="stacked" 
+          [(ngModel)]="newUser!.catSalut" 
+          placeholder="{{ 'form_registration.enter_cat_salut' | translate }}" 
+          fill="outline">
+        </ion-input>
+        <ion-input mode="md" 
+          label="{{ 'form_registration.location' | translate }}" 
+          labelPlacement="stacked" 
+          [(ngModel)]="newUser!.address" 
+          placeholder="{{ 'form_registration.enter_location' | translate }}" 
+          fill="outline">
+        </ion-input>
+        <ion-input mode="md" 
+          label="{{ 'form_registration.has_illness' | translate }}" 
+          labelPlacement="floating" 
+          [(ngModel)]="newUser!.illness"  
+          fill="outline">
+        </ion-input>
+        <div class="input-rows">
+          <ion-col>
+            <h2>{{ 'form_registration.level' | translate }}*:</h2>
+
+            <ion-radio-group [(ngModel)]="newUser!.level">
+              <ion-item lines="none">
+                <ion-radio mode="md" slot="start" value="base"></ion-radio>
+                <ion-label>{{ 'form_registration.escola_base' | translate }}</ion-label>
+              </ion-item>
+
+              <ion-item lines="none">
+                <ion-radio mode="md" slot="start" value="escolar"></ion-radio>
+                <ion-label>{{ 'form_registration.competicio_escolar' | translate }}</ion-label>
+              </ion-item>
+
+              <ion-item lines="none">
+                <ion-radio mode="md" slot="start" value="federat"></ion-radio>
+                <ion-label>{{ 'form_registration.competicio_federat' | translate }}</ion-label>
+              </ion-item>
+            </ion-radio-group>
+          </ion-col>
+
+          <ion-col *ngIf="newUser?.level === 'base'">
+            <h2>{{ 'form_registration.select_schedule' | translate }}*</h2>
+
+            <ion-item lines="none" *ngFor="let label of horarisLabels; let i = index">
+              <ion-checkbox
+                slot="start"
+                [(ngModel)]="selectedSchedules[i]">
+              </ion-checkbox>
+              <ion-label>{{ label | translate }}</ion-label>
+            </ion-item>
+          </ion-col>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="newUser">
+      <ion-card-header>
+        <ion-card-title>{{ 'form_registration.first_tutor_data_title' | translate }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-input 
+          *ngIf="newUser && newUser.parents && newUser.parents.length > 0"
+          mode="md" 
+          label="{{ 'form_registration.name' | translate }}" 
+          labelPlacement="stacked" [(ngModel)]="newUser.parents[0].name" 
+          placeholder="{{ 'form_registration.enter_name' | translate }}" 
+          fill="outline">
+        </ion-input>
+        <ion-input 
+          *ngIf="newUser && newUser.parents && newUser.parents.length > 0"
+          mode="md" 
+          label="{{ 'form_registration.surnames' | translate }}" 
+          labelPlacement="stacked" [(ngModel)]="newUser.parents[0].surname" 
+          placeholder="{{ 'form_registration.enter_surnames' | translate }}" 
+          fill="outline">
+        </ion-input>
+        <ion-input 
+          *ngIf="newUser && newUser.parents && newUser.parents.length > 0"
+          mode="md" 
+          label="{{ 'form_registration.telephone' | translate }}" 
+          labelPlacement="stacked" [(ngModel)]="newUser.parents[0].telephone" 
+          placeholder="{{ 'form_registration.enter_telephone' | translate }}" 
+          fill="outline">
+        </ion-input>
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="newUser">
+      <ion-card-header>
+        <ion-card-title>{{ 'form_registration.second_tutor_data_title' | translate }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-input 
+          *ngIf="newUser && newUser.parents && newUser.parents.length > 1"
+          mode="md" 
+          label="{{ 'form_registration.name' | translate }}" 
+          labelPlacement="stacked" [(ngModel)]="newUser.parents[1].name" 
+          placeholder="{{ 'form_registration.enter_name' | translate }}" 
+          fill="outline">
+        </ion-input>
+        <ion-input 
+          *ngIf="newUser && newUser.parents && newUser.parents.length > 1"
+          mode="md" 
+          label="{{ 'form_registration.surnames' | translate }}" 
+          labelPlacement="stacked" [(ngModel)]="newUser.parents[1].surname" 
+          placeholder="{{ 'form_registration.enter_surnames' | translate }}" 
+          fill="outline">
+        </ion-input>
+        <ion-input 
+          *ngIf="newUser && newUser.parents && newUser.parents.length > 1"
+          mode="md" 
+          label="{{ 'form_registration.telephone' | translate }}" 
+          labelPlacement="stacked" [(ngModel)]="newUser.parents[1].telephone" 
+          placeholder="{{ 'form_registration.enter_telephone' | translate }}" 
+          fill="outline">
+        </ion-input>
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="newUser">
+      <ion-card-header>
+        <ion-card-title>{{ 'form_registration.contact_data' | translate }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-input mode="md" 
+          label="{{ 'form_registration.email' | translate }}" 
+          labelPlacement="stacked" 
+          [(ngModel)]="newUser.email"
+          placeholder="{{ 'form_registration.enter_email' | translate }}" 
+          fill="outline">
+        </ion-input>
+        <ion-input mode="md" 
+          label="{{ 'form_registration.telephone' | translate }}" 
+          labelPlacement="stacked" 
+          [(ngModel)]="newUser.telephone"
+          placeholder="{{ 'form_registration.enter_telephone' | translate }}" 
+          fill="outline">
+        </ion-input>
+        <div class="justify-center">
+          <ion-button (click)="call()" class="add-text-btn">
+            <ion-icon slot="start" name="call-outline"></ion-icon>
+            {{ 'admin.gimnasts_edit.call' | translate }}
+          </ion-button>
+
+          <ion-button (click)="sendWpp()" class="add-text-btn">
+            <ion-icon slot="start" name="logo-whatsapp"></ion-icon>
+            {{ 'admin.gimnasts_edit.send_wpp' | translate }}
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="newUser">
+      <ion-card-header>
+        <ion-card-title>{{ 'form_registration.banc_data' | translate }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-input mode="md" 
+          *ngIf="newUser.bancInfo"
+          label="{{ 'form_registration.iban' | translate }}" 
+          labelPlacement="stacked" 
+          [(ngModel)]="newUser.bancInfo.iban"
+          placeholder="{{ 'form_registration.enter_iban' | translate }}" 
+          fill="outline">
+        </ion-input>
+        <ion-input mode="md" 
+          *ngIf="newUser.bancInfo"
+          label="{{ 'form_registration.titular' | translate }}" 
+          labelPlacement="stacked" 
+          [(ngModel)]="newUser.bancInfo.titularity"
+          placeholder="{{ 'form_registration.enter_titular' | translate }}" 
+          fill="outline">
+        </ion-input>
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="newUser">
+      <ion-card-header>
+        <ion-card-title>{{ 'form_registration.image_rights' | translate }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p style="margin-top: 20px; text-align: justify;">{{ 'form_registration.image_rights_explanation' | translate }}</p>
+        <div class="me-rights" *ngIf="newUser.imageRights">
+          <p>{{ 'form_registration.me' | translate }}</p>
+          <ion-input mode="md" [(ngModel)]="newUser.imageRights.authorizing_tutor.name" fill="outline" style="width: 300px; margin-top: 0;"></ion-input>
+          <p>{{ 'form_registration.with_dni' | translate }}</p>
+          <ion-input mode="md" [(ngModel)]="newUser.imageRights.authorizing_tutor.dni" fill="outline" style="width: 300px; margin-top: 0;"></ion-input>
+        </div>
+        <ion-radio-group  *ngIf="newUser.imageRights" [(ngModel)]="newUser.imageRights.authorized">
+          <ion-item lines="none" style="margin-top: 20px;">
+            <ion-radio mode="md" slot="start" [value]="true"></ion-radio>
+            <ion-label>{{ 'form_registration.authorize' | translate }}</ion-label>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-radio mode="md" slot="start" [value]="false"></ion-radio>
+            <ion-label>{{ 'form_registration.no_authorize' | translate }}</ion-label>
+          </ion-item>
+        </ion-radio-group>
+      </ion-card-content>
+    </ion-card>
+    <ion-spinner *ngIf="!newUser" name="crescent"></ion-spinner>
+    <div class="justify-center" *ngIf="newUser">
+      <ion-button (click)="updateUser()" class="add-text-btn">
+        <ion-icon slot="start" name="save-outline"></ion-icon>
+        {{ 'general.save' | translate }}
+      </ion-button>
+      <ion-button (click)="confirmDelete()" class="add-text-btn delete">
+        <ion-icon slot="start" name="trash-outline"></ion-icon>
+        {{ 'general.delete' | translate }}
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

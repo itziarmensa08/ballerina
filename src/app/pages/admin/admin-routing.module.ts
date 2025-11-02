@@ -31,6 +31,10 @@ const routes: Routes = [
   {
     path: 'trainings-type',
     loadChildren: () => import('./trainings-type/trainings-type.module').then( m => m.TrainingsTypePageModule)
+  },
+  {
+    path: 'gimnasts',
+    loadChildren: () => import('./gimnasts/gimnasts.module').then( m => m.GimnastsPageModule)
   }
 ];
 

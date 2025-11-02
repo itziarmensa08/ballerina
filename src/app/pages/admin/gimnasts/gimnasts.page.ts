@@ -1,34 +1,37 @@
-import { Component, OnInit } from '@angular/core';
-import { AlertConfirmService } from 'src/app/services/alert-confirm.service';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertService } from 'src/app/services/alert.service';
 import { User, UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.page.html',
-  styleUrls: ['./users.page.scss'],
+  selector: 'app-gimnasts',
+  templateUrl: './gimnasts.page.html',
+  styleUrls: ['./gimnasts.page.scss'],
   standalone: false,
 })
-export class UsersPage implements OnInit {
+export class GimnastsPage implements OnInit {
 
   breadcrumbs = [
     { label: 'breadcrumbs.admin', navigate: '/admin', icon: 'settings-outline' },
-    { label: 'breadcrumbs.users', navigate: '/admin/users', icon: 'people-outline' }
+    { label: 'breadcrumbs.gimnasts', navigate: '/admin/gimnasts', icon: 'people-outline' }
   ];
 
   users: User[] = [];
   filteredUsers: User[] = [];
-  editingUser: boolean = false;
 
   newUser: User | null = null;
 
   constructor(
     private userService: UserService,
     private alertService: AlertService,
-    private alertConfirmService: AlertConfirmService
+    private router: Router
   ) { }
 
   ngOnInit() {
+    this.loadUsers();
+  }
+
+  ionViewWillEnter() {
     this.loadUsers();
   }
 
@@ -36,7 +39,7 @@ export class UsersPage implements OnInit {
    * Cargar todos los usuarios desde la API
    */
   loadUsers() {
-    this.userService.getUsers().subscribe(response => {
+    this.userService.getAllGimnasts().subscribe(response => {
       this.users = response;
       this.filteredUsers = response;
     });
@@ -62,17 +65,6 @@ export class UsersPage implements OnInit {
   }
 
   /**
-   * Alternar la vista para añadir un nuevo usuario
-   */
-  toggleEditUser(user: User) {
-    this.newUser = { ...user };
-    this.editingUser = !this.editingUser;
-    if (!this.editingUser) {
-      this.resetForm();
-    }
-  }
-
-  /**
    * Reiniciar el formulario de nuevo usuario
    */
   resetForm() {
@@ -86,33 +78,15 @@ export class UsersPage implements OnInit {
     this.userService.updateUser(this.newUser?._id!, this.newUser!).subscribe(updatedUser => {
       this.loadUsers();
       this.alertService.showAlert('success', 'admin.users_edit.updated', 'admin.users_edit.updatedMessage');
-      this.editingUser = false;
       this.resetForm();
     }, () => {
       this.alertService.showAlert('error', 'alerts.error_title', 'admin.users_edit.error_update_user');
-      this.editingUser = false;
       this.resetForm();
     });
   }
 
-  async confirmDelete() {
-    const confirmed = await this.alertConfirmService.showAlert('error', 'general.delete', 'admin.users_edit.delete');
-    if (confirmed) {
-      this.deleteUser();
-    } 
-  }
-
-  deleteUser() {
-    this.userService.deleteUser(this.newUser?._id!).subscribe(() => {
-      this.loadUsers();
-      this.alertService.showAlert('success', 'admin.users_edit.deleted', 'admin.users_edit.deletedMessage');
-      this.editingUser = false;
-      this.resetForm();
-    }, () => {
-      this.alertService.showAlert('error', 'alerts.error_title', 'admin.users_edit.error_delete_user');
-      this.editingUser = false;
-      this.resetForm();
-    });
+  toggleEditUser(id: string | undefined) {
+    this.router.navigate(['/admin/gimnasts/edit-gimnast', id]);
   }
 
 }

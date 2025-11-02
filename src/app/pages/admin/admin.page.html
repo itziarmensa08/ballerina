@@ -2,46 +2,45 @@
 <ion-content [fullscreen]="true">
   <div class="principal" [ngStyle]="{'background-image': 'url(' + imageHeader + ')'}"></div>
   <div class="admin-content">
-    <ion-col size="9">
+    <ion-col>
       <div class="cards-div">
+        <ion-card [routerLink]="'/admin/gimnasts'">
+          <ion-card-header>
+            <ion-card-title>{{ 'admin.gimnasts' | translate }}</ion-card-title>
+            <ion-card-subtitle>{{ 'admin.gimnasts_subtitle' | translate }}</ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            {{ 'admin.gimnasts_description' | translate:{ count: totalGimnasts } }}
+          </ion-card-content>
+        </ion-card>
+  
         <ion-card [routerLink]="'/admin/users'">
           <ion-card-header>
-            <ion-card-title>{{ 'settings.users.title' | translate }}</ion-card-title>
-            <ion-card-subtitle>{{ 'settings.users.subtitle' | translate }}</ion-card-subtitle>
+            <ion-card-title>{{ 'admin.users' | translate }}</ion-card-title>
+            <ion-card-subtitle>{{ 'admin.users_subtitle' | translate }}</ion-card-subtitle>
           </ion-card-header>
         
           <ion-card-content>
-            Here's a small text description for the card content. Nothing more, nothing less.
+            {{ 'admin.users_description' | translate:{ count: totalUsers } }}
           </ion-card-content>
         </ion-card>
   
-        <ion-card>
+        <ion-card [routerLink]="'/admin/administrators'">
           <ion-card-header>
-            <ion-card-title>Card Title</ion-card-title>
-            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+            <ion-card-title>{{ 'admin.admins' | translate }}</ion-card-title>
+            <ion-card-subtitle>{{ 'admin.admins_subtitle' | translate }}</ion-card-subtitle>
           </ion-card-header>
         
           <ion-card-content>
-            Here's a small text description for the card content. Nothing more, nothing less.
-          </ion-card-content>
-        </ion-card>
-  
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Card Title</ion-card-title>
-            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-          </ion-card-header>
-        
-          <ion-card-content>
-            Here's a small text description for the card content. Nothing more, nothing less.
+            {{ 'admin.admins_description' | translate:{ count: totalAdmins } }}
           </ion-card-content>
         </ion-card>
       </div>
       <div class="cards-div-graphic">
         <ion-card class="card">
           <ion-card-header>
-            <ion-card-title>Hours Activity</ion-card-title>
-            <ion-card-subtitle>+3% Increase than last week</ion-card-subtitle>
+            <ion-card-title>{{ 'admin.stats' | translate }}</ion-card-title>
           </ion-card-header>
 
           <ion-card-content>
@@ -116,12 +115,9 @@
           </ion-card-content>
         </ion-card>
       </div>
-    </ion-col>
-    <ion-col size="3" class="justify-center" style="flex-direction: column">
-      <ion-card>
-        <ion-datetime [locale]="lang"></ion-datetime>
-      </ion-card>
-      <ion-button (click)="logout()">{{ 'profile.logout' | translate }}</ion-button>
+      <div class="justify-center">
+        <ion-button (click)="logout()">{{ 'profile.logout' | translate }}</ion-button>
+      </div>
     </ion-col>
   </div>
 </ion-content>

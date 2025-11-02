@@ -87,6 +87,27 @@ export class UserService {
   }
 
   /**
+   * Obtiene todos los usuarios admin
+   */
+  getAllAdmins(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.apiUrl}/admins`);
+  }
+
+  /**
+   * Obtiene todos los usuarios user
+   */
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.apiUrl}/users`);
+  }
+
+  /**
+   * Obtiene todos los usuarios gimnast
+   */
+  getAllGimnasts(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.apiUrl}/gimnasts`);
+  }
+
+  /**
    * Actualiza un usuario
    * @param id - ID de mongo
    * @param user - Usuario modificado
@@ -110,5 +131,12 @@ export class UserService {
    */
   deleteUser(id: string): Observable<{ message: string }> {
     return this.http.delete<{ message: string }>(`${this.apiUrl}/${id}`);
+  }
+
+  /**
+   * Cuenta los usuarios por rol
+   */
+  countByRoleUsers(): Observable<{ admin: number; user: number; gimnast: number }> {
+    return this.http.get<{ admin: number; user: number; gimnast: number }>(`${this.apiUrl}/count-by-role`);
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { Router } from '@angular/router';
 import { AlertService } from 'src/app/services/alert.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -282,6 +283,10 @@ export class FormRegistrationPage implements OnInit {
     user.username = this.removeAccents(username);
 
     await this.loaderService.show();
+
+    const localDate = new Date(user.dateBorn!);
+    localDate.setMinutes(localDate.getMinutes() - localDate.getTimezoneOffset());
+    user.dateBorn = localDate;
 
     this.authService.register(user).subscribe({
       next: async () => {
