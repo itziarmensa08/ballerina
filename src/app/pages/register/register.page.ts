@@ -41,7 +41,6 @@ export class RegisterPage implements OnInit {
         ]],
         confirmPassword: ['', Validators.required],
         language: [localStorage.getItem('lang')],
-        roles: ['user']
       },
       { validators: this.passwordMatchValidator }
     );
@@ -76,6 +75,7 @@ export class RegisterPage implements OnInit {
   register() {
     if (this.registerForm.valid) {
       const userData: Partial<User> = { ...this.registerForm.value };
+      userData.roles = ['user'];
 
       this.authService.register(userData).subscribe({
         next: (response) => {
