@@ -7,6 +7,53 @@
     background-repeat: no-repeat;
 }
 
+/* =======================
+   RESPONSIVE HOME HEADER
+   ======================= */
+@media (max-width: 768px) {
+  .principal {
+    height: 80vh !important;
+    padding: 20px;
+    align-items: end;
+    display: flex;
+  }
+
+  .titleDiv {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    height: auto !important;
+    margin-top: 40px;
+    justify-content: end;
+  }
+
+  .title {
+    font-size: 32px !important;
+    margin-top: 0 !important;
+    text-align: start;
+  }
+
+  .messageTitle {
+    font-size: 16px !important;
+    text-align: start;
+    max-width: 100% !important;
+    overflow-wrap: break-word;
+  }
+
+  .principal ion-row {
+    justify-content: start;
+  }
+
+  .principal ion-button {
+    width: 120px;
+    font-size: 14px;
+  }
+}
+
+.messageTitle, .messageBody {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
 img {
     max-width: 300px;
     height: auto;
